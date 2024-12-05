@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @Controller
 public class HomeController {
 
@@ -12,4 +13,5 @@ public class HomeController {
         model.addAttribute("message", "Welcome to Spring MVC with JSP!");
         return "home"; // Resolves to /WEB-INF/views/home.jsp
     }
+    
 }
