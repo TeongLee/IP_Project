@@ -1,13 +1,14 @@
-package com.example.hello;
+package com.example.IP_Project;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HelloApplicationTests {
+class IP_ProjectApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
