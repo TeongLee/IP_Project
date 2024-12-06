@@ -13,5 +13,6 @@ public class HomeController {
         model.addAttribute("message", "Welcome to Spring MVC with JSP!");
         return "home"; // Resolves to /WEB-INF/views/home.jsp
     }
-    
+
+
 }

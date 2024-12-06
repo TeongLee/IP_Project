@@ -16,7 +16,7 @@ public class SchoolController {
     }
 
     @RequestMapping("/requestEquipment")
-    public ModelAndView requestEquipmet() {
+    public ModelAndView requestEquipment() {
         ModelAndView mv = new ModelAndView("requestEquipment");
         return mv;
     }
