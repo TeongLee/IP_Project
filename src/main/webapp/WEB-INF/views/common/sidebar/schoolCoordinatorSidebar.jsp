@@ -2,7 +2,7 @@
 <div class="w-64 bg-white h-screen shadow-md">
   <!-- User Info -->
   <div class="p-4 flex items-center border-b">
-      <img src="profile-picture.jpg" alt="Profile Picture" class="w-12 h-12 rounded-full mr-3">
+      <img src="https://cdn-icons-png.flaticon.com/512/5310/5310895.png" alt="Profile Picture" class="w-12 h-12 rounded-full mr-3">
       <div>
           <h1 class="text-lg font-semibold">Cikgu Batu</h1>
           <p class="text-sm text-gray-500">SMK Batu Pahat Best Food</p>
@@ -58,7 +58,7 @@
               </svg>
           </button>
           <div id="requestMenu" class="ml-6 hidden">
-              <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">Resource & Equipment</a>
+              <a href="/school/equipments" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">Resource & Equipment</a>
               <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">Version Upgrade</a>
           </div>
       </div>

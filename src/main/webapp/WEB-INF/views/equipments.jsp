@@ -23,7 +23,8 @@
         <div class="flex-1 p-6">
             <div class="flex justify-between items-center mb-6">
                 <h1 class="text-3xl font-bold">Resource & Equipment</h1>
-                <a href="/school/requestEquipment" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Add Request</a>
+                <a href="/school/requestEquipment" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                    <i class="fas fa-plus mr-2"></i> Add Request</a>
             </div>
             <div>
                 <h2 class="text-xl font-semibold mb-4">Your Active Request</h2>
@@ -118,9 +119,6 @@
                             <td class="border px-4 py-2 text-yellow-500 font-bold">Medium</td>
                             <td class="border px-4 py-2 text-red-500 font-bold">Reject</td>
                         </tr>
-
-
-
                     </tbody>
                 </table>
             </div>
