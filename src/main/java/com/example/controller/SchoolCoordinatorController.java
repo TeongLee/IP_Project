@@ -60,6 +60,18 @@ public class SchoolCoordinatorController {
         ModelAndView mv = new ModelAndView("schoolCoordinator/requestEquipment");
         return mv;
     }
+
+    @RequestMapping("/version")
+    public ModelAndView showVersion() {
+        ModelAndView mv = new ModelAndView("schoolCoordinator/version");
+        return mv;
+    }    
+
+    @RequestMapping("/upgradeVersion")
+    public ModelAndView upgradeVersion() {
+        ModelAndView mv = new ModelAndView("schoolCoordinator/upgradeVersion");
+        return mv;
+    }    
     
     @RequestMapping("/dashboard")
     public ModelAndView requestDashboard() {
