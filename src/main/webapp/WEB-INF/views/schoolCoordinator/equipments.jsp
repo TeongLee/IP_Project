@@ -51,12 +51,12 @@
         <!-- Main Content -->
         <div class="flex-1 p-6 mx-6">
 
-            <h1 class="text-3xl font-bold text-gray-700 mb-10">Resource & Equipment</h1>
+            <h1 class="text-4xl font-bold text-gray-700 mb-10 mt-2">Resource & Equipment</h1>
 
             <!-- Page Header -->
             <div class="flex justify-between items-center mb-0">
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-700 mb-2">Equipment List</h1>
+                    <h1 class="text-2xl font-semibold text-gray-700 mb-2">Equipment List</h1>
                     <h1 class="text-sm text-green-700 mb-6">Active Request</h1>
                 </div>
                 <a href="/schoolCoordinator/requestEquipment" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded flex items-center">
@@ -99,8 +99,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <%-- Dynamic Rows (Example) --%>
-                        <%-- <c:forEach var="request" items="${equipmentRequests}">
+                       <!-- Dynamic Rows (Example) 
+                        <c:forEach var="request" items="${equipmentRequests}">
                             <tr class="border-b">
                                 <td class="px-6 py-3">${request.equipmentName}</td>
                                 <td class="px-6 py-3">${request.quantity}</td>
@@ -119,8 +119,9 @@
                                     </span>
                                 </td>
                             </tr>
-                        </c:forEach> --%>
-                        <%-- Example Static Rows --%>
+                        </c:forEach>  -->
+
+                        <!-- Example Static Rows -->
                         <tr class="border-b">
                             <td class="px-6 py-3">Projector</td>
                             <td class="px-6 py-3">3</td>
