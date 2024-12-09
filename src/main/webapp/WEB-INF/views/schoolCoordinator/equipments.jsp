@@ -22,7 +22,7 @@
         <!-- Main Content -->
         <div class="flex-1 p-6">
             <div class="flex justify-between items-center mb-6">
-                <h1 class="text-3xl font-bold">Resourceeee & Equipment</h1>
+                <h1 class="text-3xl font-bold">Resource & Equipment</h1>
                 <a href="/schoolCoordinator/requestEquipment" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
                     <i class="fas fa-plus mr-2"></i> Add Request</a>
             </div>
@@ -40,6 +40,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <c:forEach var="request" items="${equipmentRequests}">
+                            <tr>
+                                <td class="border border-gray-400 px-4 py-2">${request.equipmentName}</td>
+                                <td class="border border-gray-400 px-4 py-2">${request.quantity}</td>
+                                <td class="border border-gray-400 px-4 py-2">${request.requestStartDate}</td>
+                                <td class="border border-gray-400 px-4 py-2">${request.requestEndDate}</td>
+                                <td class="border border-gray-400 px-4 py-2">${request.urgencyLevel.label}</td>
+                                <td class="border border-gray-400 px-4 py-2">${request.resourceDescription}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                    <%-- <tbody>
                         <tr>
                             <td class="border px-4 py-2">Projector</td>
                             <td class="border px-4 py-2">3</td>
@@ -92,34 +104,7 @@
                             <td class="border px-4 py-2 text-yellow-500 font-bold">Medium</td>
                             <td class="border px-4 py-2 text-red-500 font-bold">Reject</td>
                         </tr>
-
-                        <tr>
-                            <td class="border px-4 py-2">Microphone</td>
-                            <td class="border px-4 py-2">5</td>
-                            <td class="border px-4 py-2">2024-11-01</td>
-                            <td class="border px-4 py-2">2024-11-05</td>
-                            <td class="border px-4 py-2 text-yellow-500 font-bold">Medium</td>
-                            <td class="border px-4 py-2 text-red-500 font-bold">Reject</td>
-                        </tr>
-
-                        <tr>
-                            <td class="border px-4 py-2">Microphone</td>
-                            <td class="border px-4 py-2">5</td>
-                            <td class="border px-4 py-2">2024-11-01</td>
-                            <td class="border px-4 py-2">2024-11-05</td>
-                            <td class="border px-4 py-2 text-yellow-500 font-bold">Medium</td>
-                            <td class="border px-4 py-2 text-red-500 font-bold">Reject</td>
-                        </tr>
-
-                        <tr>
-                            <td class="border px-4 py-2">Microphone</td>
-                            <td class="border px-4 py-2">5</td>
-                            <td class="border px-4 py-2">2024-11-01</td>
-                            <td class="border px-4 py-2">2024-11-05</td>
-                            <td class="border px-4 py-2 text-yellow-500 font-bold">Medium</td>
-                            <td class="border px-4 py-2 text-red-500 font-bold">Reject</td>
-                        </tr>
-                    </tbody>
+                    </tbody> --%>
                 </table>
             </div>
         </div>
