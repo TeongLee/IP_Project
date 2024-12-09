@@ -6,18 +6,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@RequestMapping("/school")
+@RequestMapping("/schoolCoordinator")
 public class SchoolCoordinatorController {
 
     @RequestMapping("/equipments")
     public ModelAndView requestMethodName() {
-        ModelAndView mv = new ModelAndView("equipments");
+        ModelAndView mv = new ModelAndView("schoolCoordinator/equipments");
         return mv;
     }
 
     @RequestMapping("/requestEquipment")
     public ModelAndView requestEquipment() {
-        ModelAndView mv = new ModelAndView("requestEquipment");
+        ModelAndView mv = new ModelAndView("schoolCoordinator/requestEquipment");
         return mv;
     }
     

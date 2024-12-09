@@ -21,7 +21,7 @@
 
         <!-- Main Content -->
         <div class="flex-1 p-6">
-            <a href="/school/equipments" class="text-black-500 mb-4 inline-block">&lt; Back</a>
+            <a href="/schoolCoordinator/equipments" class="text-black-500 mb-4 inline-block">&lt; Back</a>
             <h1 class="text-3xl font-bold mb-3">Add Request</h1>
             <p class="text-gray-600 text-md mb-6">Request for equipment here</p>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-md p-6 rounded ">
