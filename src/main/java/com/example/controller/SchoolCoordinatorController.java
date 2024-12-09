@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/school")
-public class SchoolController {
+public class SchoolCoordinatorController {
 
     @RequestMapping("/equipments")
     public ModelAndView requestMethodName() {

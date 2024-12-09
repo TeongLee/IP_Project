@@ -58,7 +58,7 @@
               </svg>
           </button>
           <div id="requestMenu" class="ml-6 hidden">
-              <a href="/school/equipments" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">Resource & Equipment</a>
+              <a href="/schoolCoordinator/equipments" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">Resource & Equipment</a>
               <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">Version Upgrade</a>
           </div>
       </div>
