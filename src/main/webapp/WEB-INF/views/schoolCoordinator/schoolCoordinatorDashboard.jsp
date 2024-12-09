@@ -65,9 +65,9 @@
                     <!-- Content Library -->
                     <section class="w-[65%] bg-white p-4 rounded shadow flex flex-col">
                         <div class="flex justify-between items-center pb-4 border-b border-dashed border-gray-00">
-                            <h3 class="text-lg font-medium">Most Recent Activities</h3>
-                            <a href="/schoolCoordinator/activityList" class="text-[#1890FF] hover:underline">All
-                                Activities</a>
+                            <h3 class="text-lg font-medium">Content Library</h3>
+                            <a href="/schoolCoordinator/contentLibrary" class="text-[#1890FF] hover:underline">All
+                                Contents</a>
                         </div>
                         <div class="flex-1 grid grid-cols-2 gap-4 mt-4">
                             <div class="bg-gray-50 p-4 rounded shadow">
