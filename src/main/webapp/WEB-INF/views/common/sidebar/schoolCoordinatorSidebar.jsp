@@ -80,7 +80,7 @@
 
         </nav>
         <!-- Logout -->
-        <div class="absolute bottom-0 left-0 px-6 w-full">
+        <div class="absolute bottom-4 left-0 px-4 w-full">
             <a href="/"
                 class="block py-2 px-4 text-red-500 hover:bg-red-100 rounded flex items-center w-full ">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24"
