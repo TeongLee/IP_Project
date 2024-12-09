@@ -127,7 +127,7 @@
                             <td class="px-6 py-3">3</td>
                             <td class="px-6 py-3">2024-11-01</td>
                             <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-red-500 text-white">High</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-red-500">High</span></td>
                             <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Accept</span></td>
                         </tr>
                         <tr class="border-b">
@@ -135,39 +135,71 @@
                             <td class="px-6 py-3">5</td>
                             <td class="px-6 py-3">2024-11-01</td>
                             <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-white">Medium</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-yellow-500">Medium</span></td>
                             <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-red-500 text-white">Reject</span></td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="px-6 py-3">Projector</td>
+                            <td class="px-6 py-3">3</td>
+                            <td class="px-6 py-3">2024-11-01</td>
+                            <td class="px-6 py-3">2024-11-05</td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-red-500">High</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Accept</span></td>
                         </tr>
                         <tr class="border-b">
                             <td class="px-6 py-3">Microphone</td>
                             <td class="px-6 py-3">5</td>
                             <td class="px-6 py-3">2024-11-01</td>
                             <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-white">Medium</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-yellow-500">Medium</span></td>
                             <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-red-500 text-white">Reject</span></td>
                         </tr>
                         <tr class="border-b">
-                            <td class="px-6 py-3">Microphone</td>
-                            <td class="px-6 py-3">5</td>
+                            <td class="px-6 py-3">Speakers</td>
+                            <td class="px-6 py-3">4</td>
                             <td class="px-6 py-3">2024-11-01</td>
                             <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-white">Medium</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-red-500">High</span></td>
                             <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-red-500 text-white">Reject</span></td>
                         </tr>
                         <tr class="border-b">
-                            <td class="px-6 py-3">Microphone</td>
-                            <td class="px-6 py-3">5</td>
+                            <td class="px-6 py-3">Sound Mixer</td>
+                            <td class="px-6 py-3">1</td>
                             <td class="px-6 py-3">2024-11-01</td>
                             <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-white">Medium</span></td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-red-500 text-white">Reject</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-green-500">Low</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-black">Pending</span></td>
                         </tr>
                         <tr class="border-b">
-                            <td class="px-6 py-3">Microphone</td>
-                            <td class="px-6 py-3">5</td>
+                            <td class="px-6 py-3">Extension Cord</td>
+                            <td class="px-6 py-3">8</td>
                             <td class="px-6 py-3">2024-11-01</td>
                             <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-white">Medium</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-yellow-500">Medium</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Active</span></td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="px-6 py-3">Tripod</td>
+                            <td class="px-6 py-3">3</td>
+                            <td class="px-6 py-3">2024-11-01</td>
+                            <td class="px-6 py-3">2024-11-05</td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-green-500">Low</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-black">Pending</span></td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="px-6 py-3">Lighting Kit</td>
+                            <td class="px-6 py-3">4</td>
+                            <td class="px-6 py-3">2024-11-01</td>
+                            <td class="px-6 py-3">2024-11-05</td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-red-500">High</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Active</span></td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="px-6 py-3">HDMI Cable</td>
+                            <td class="px-6 py-3">10</td>
+                            <td class="px-6 py-3">2024-11-01</td>
+                            <td class="px-6 py-3">2024-11-05</td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-yellow-500">Medium</span></td>
                             <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-red-500 text-white">Reject</span></td>
                         </tr>
                     </tbody>
