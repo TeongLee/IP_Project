@@ -17,7 +17,7 @@
 <body class="bg-gray-100 font-sans">
     <div class="flex">
         <!-- Sidebar -->
-        <jsp:include page="/WEB-INF/views/common/sidebar/stateAdministratorSidebar.jsp" />
+        <jsp:include page="/WEB-INF/views/common/sidebar/stateAdminSidebar.jsp" />
 
         <!-- Main Content -->
         <div class="flex-1 p-6">
