@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<div class="w-64 bg-white shadow-md min-w-[250px]">
+<div class="w-64 bg-white shadow-md min-w-[250px] min-h-screen">
     <!-- User Info  fixed left-0 top-0-->
     <div class="fixed left-0 top-0 h-full">
         <div class="p-4 flex items-center border-b">

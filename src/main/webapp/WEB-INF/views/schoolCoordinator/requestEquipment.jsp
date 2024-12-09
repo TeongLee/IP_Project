@@ -74,7 +74,9 @@
                             focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 rounded p-2"
                             rows="4" placeholder="Describe the resource requirements here.." required></textarea>
                     </div>
-                    <button type="submit" class="border border-green-600 bg-green-400 hover:bg-green-500 text-white py-2 px-4 rounded-2xl w-2/4">Submit</button>
+                    <div class="text-center ">
+                        <button type="submit" class="inline-block w-1/4 border border-green-600 bg-green-400 hover:bg-green-500 text-white py-2 px-4 rounded-2xl w-2/4">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>

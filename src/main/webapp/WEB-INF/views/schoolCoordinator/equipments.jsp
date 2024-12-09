@@ -91,7 +91,7 @@
                     <thead class="bg-gray-100">
                         <tr>
                             <th class="px-6 py-3 text-sm font-semibold">Equipment Name</th>
-                            <th class="px-6 py-3 text-sm font-semibold">Quantity</th>
+                            <th class="px-1 py-3 text-sm font-semibold">Quantity</th>
                             <th class="px-6 py-3 text-sm font-semibold">Request Date</th>
                             <th class="px-6 py-3 text-sm font-semibold">Return Date</th>
                             <th class="px-6 py-3 text-sm font-semibold">Urgency Level</th>
