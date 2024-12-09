@@ -11,13 +11,13 @@ public class StateAdminController {
 
     @RequestMapping("/inventory")
     public ModelAndView displayInventory() {
-        ModelAndView mv = new ModelAndView("inventory");
+        ModelAndView mv = new ModelAndView("stateAdmin/inventory");
         return mv;
     }
 
     @RequestMapping("/allocationApproval")
     public ModelAndView requestMethodName() {
-        ModelAndView mv = new ModelAndView("allocationApproval");
+        ModelAndView mv = new ModelAndView("stateAdmin/allocationApproval");
         return mv;
     }
     

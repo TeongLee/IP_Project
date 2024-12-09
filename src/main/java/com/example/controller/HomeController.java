@@ -11,7 +11,7 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("message", "Welcome to Spring MVC with JSP!");
-        return "home"; // Resolves to /WEB-INF/views/home.jsp
+        return "login"; // Resolves to /WEB-INF/views/home.jsp
     }
 
 
