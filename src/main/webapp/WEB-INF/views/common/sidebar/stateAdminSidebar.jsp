@@ -5,7 +5,7 @@
       <img src="https://cdn-icons-png.flaticon.com/512/5310/5310895.png" alt="Profile Picture" class="w-12 h-12 rounded-full mr-3">
       <div>
           <h1 class="text-lg font-semibold">Pejabat Pendidikan</h1>
-          <h1 class="text-md ">Daerah Batu Pahat</h1>
+          <h1 class="text-md ">Negeri Johor</h1>
           <p class="text-sm text-gray-500 mt-1">Encik Ali</p>
       </div>
   </div>

@@ -51,7 +51,8 @@
         <!-- Main Content -->
         <div class="flex-1 p-6 mx-6">
 
-            <h1 class="text-4xl font-bold text-gray-700 mb-10 mt-2">Resource & Equipment</h1>
+            <h1 class="text-4xl font-bold text-gray-700 mt-2">Resource & Equipment</h1>
+            <p class="text-gray-600 mt-2 mb-8">Track your resource and equipment requests.</p>
 
             <!-- Page Header -->
             <div class="flex justify-between items-center mb-0">
@@ -176,7 +177,7 @@
                             <td class="px-6 py-3">2024-11-01</td>
                             <td class="px-6 py-3">2024-11-05</td>
                             <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-yellow-500">Medium</span></td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Active</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Accept</span></td>
                         </tr>
                         <tr class="border-b">
                             <td class="px-6 py-3">Tripod</td>
@@ -192,7 +193,7 @@
                             <td class="px-6 py-3">2024-11-01</td>
                             <td class="px-6 py-3">2024-11-05</td>
                             <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-red-500">High</span></td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Active</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Accept</span></td>
                         </tr>
                         <tr class="border-b">
                             <td class="px-6 py-3">HDMI Cable</td>
