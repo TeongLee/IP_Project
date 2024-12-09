@@ -9,6 +9,13 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/stateAdmin")
 public class StateAdminController {
 
+    @RequestMapping("/dashboard")
+    public ModelAndView stateAdminDashboard(){
+      ModelAndView mv = new ModelAndView("/stateAdmin/stateAdminDashboard");
+  
+      return mv;
+    }
+
     @RequestMapping("/inventory")
     public ModelAndView displayInventory() {
         ModelAndView mv = new ModelAndView("stateAdmin/inventory");

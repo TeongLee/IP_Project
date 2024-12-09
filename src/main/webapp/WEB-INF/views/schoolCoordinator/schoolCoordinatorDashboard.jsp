@@ -97,7 +97,7 @@
                                 <span class="text-xs text-blue-500">FiveStudio</span>
                             </div> -->
                             <div class="bg-gray-50 p-4 rounded shadow">
-                                <img src="${pageContext.request.contextPath}/assets/photo_2024-12-09_12-27-03.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
                                         class="full w-full h-10 mr-3" alt="Applicant">
                                 <p class="text-sm text-gray-500 mt-2">Lorem aliquet est risus pretium, cursus.</p>
                                 <p class="text-xs text-gray-400 mt-2">3 days ago</p>
