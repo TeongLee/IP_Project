@@ -68,11 +68,13 @@ public class SchoolCoordinatorController {
     }    
 
     @PostMapping("/submitEquipmentRequest")
-    public String submitEquipmentRequest(@RequestParam("equipmentName") String equipmentName, @RequestParam("quantitiy") int quantity,
+    public String submitEquipmentRequest(@RequestParam("equipmentName") String equipmentName, @RequestParam("quantity") int quantity,
                 @RequestParam("requestStartDate") LocalDate requestStartDate, @RequestParam("requestEndDate") LocalDate requestEndDate,
                 @RequestParam("urgencyLevel") String urgencyLevel, @RequestParam("resourceDescription") String resourceDescription ) 
     {
         EquipmentRequest request = new EquipmentRequest(equipmentName,quantity,requestStartDate,requestEndDate,urgencyLevel,resourceDescription);
+        
+        System.out.println("Submitted Request: " + request);
         equipmentRequests.add(request);
         return "redirect:/schoolCoordinator/equipments";
     }
