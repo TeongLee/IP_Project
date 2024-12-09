@@ -22,7 +22,7 @@
         <!-- Main Content -->
         <div class="flex-1 p-6">
             <div class="flex justify-between items-center mb-6">
-                <h1 class="text-3xl font-bold">Resourceeee & Equipment</h1>
+                <h1 class="text-3xl font-bold">Resource & Equipment</h1>
                 <a href="/schoolCoordinator/requestEquipment" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
                     <i class="fas fa-plus mr-2"></i> Add Request</a>
             </div>
