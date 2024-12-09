@@ -1,6 +1,6 @@
 <!-- Sidebar -->
-<div class="w-64 bg-white shadow-md min-w-[250px] h-full min-h-screen fixed left-0 top-0">
-   <!-- User Info -->
+<div class="w-64 bg-white shadow-md min-w-[250px] h-full min-h-screen">
+   <!-- User Info  fixed left-0 top-0-->
   <div class="p-4 flex items-center border-b">
       <img src="https://cdn-icons-png.flaticon.com/512/5310/5310895.png" alt="Profile Picture" class="w-12 h-12 rounded-full mr-3">
       <div>

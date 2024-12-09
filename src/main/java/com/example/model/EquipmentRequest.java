@@ -17,7 +17,7 @@ public class EquipmentRequest {
     // Parameterized Constructor
     public EquipmentRequest(String equipmentName, int quantity, 
                             LocalDate requestStartDate, LocalDate requestEndDate, 
-                            String urgencyLevel, String resourceDescription) {
+                            String  urgencyLevel, String resourceDescription) {
         this.equipmentName = equipmentName;
         this.quantity = quantity;
         this.requestStartDate = requestStartDate;
@@ -68,7 +68,7 @@ public class EquipmentRequest {
         this.requestEndDate = requestEndDate;
     }
 
-    public void setUrgencyLevel(String urgencyLevel) {
+    public void setUrgencyLevel(String  urgencyLevel) {
         this.urgencyLevel = urgencyLevel;
     }
 
