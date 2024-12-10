@@ -23,6 +23,7 @@
       <jsp:include
         page="/WEB-INF/views/common/sidebar/schoolCoordinatorSidebar.jsp"
       />
+      <!-- Filtering and Searching logic will be added after connected to backend -->
       <div class="flex-1 flex flex-col max-h-screen overflow-y-auto justify-between w-full p-8 gap-6">
         <div class="w-full h-full flex flex-col gap-4 justify-start">
           <h3 class="font-medium text-xl">Content Library</h3>
@@ -62,10 +63,12 @@
           <div class="w-full grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 auto-rows-auto gap-4">
             <!-- Grid 1 -->
             <div class="w-full bg-white shadow-sm">
-              <img
-                src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
-                class="object-cover w-full h-1/2"
-              />
+              <a href="https://www.youtube.com/watch?v=PZpbHaiMH-k">
+                <img
+                  src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
+                  class="object-cover w-full h-1/2"
+                />
+              </a>
               <div class="w-full flex flex-col gap-4 text-left p-6">
                 <h2 class="font-semibold">Minggu Koperasi</h2>
                 <p class="line-clamp-1">Bobo w.3 other crews</p>
@@ -91,10 +94,12 @@
 
             <!-- Grid 2 -->
             <div class="w-full bg-white shadow-sm">
-              <img
-                src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
-                class="object-cover w-full h-1/2"
-              />
+              <a href="https://www.youtube.com/watch?v=PZpbHaiMH-k">
+                <img
+                  src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
+                  class="object-cover w-full h-1/2"
+                />
+              </a>
               <div class="w-full flex flex-col gap-4 text-left p-6">
                 <h2 class="font-semibold">Aturan Pergerakan Masuk</h2>
                 <p class="line-clamp-1">Kimchi Bobo w. 3 other crews</p>
@@ -120,10 +125,12 @@
 
             <!-- Grid 3 -->
             <div class="w-full bg-white shadow-sm">
-              <img
-                src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
-                class="object-cover w-full h-1/2"
-              />
+              <a href="https://www.youtube.com/watch?v=PZpbHaiMH-k">
+                <img
+                  src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
+                  class="object-cover w-full h-1/2"
+                />
+              </a>
               <div class="w-full flex flex-col gap-4 text-left p-6">
                 <h2 class="font-semibold">Festival TVPSS</h2>
                 <p class="line-clamp-1">Anandmw w. 3 other crews</p>
@@ -149,10 +156,12 @@
 
             <!-- Grid 4 -->
             <div class="w-full bg-white shadow-sm">
-              <img
-                src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
-                class="object-cover w-full h-1/2"
-              />
+              <a href="https://www.youtube.com/watch?v=PZpbHaiMH-k">
+                <img
+                  src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
+                  class="object-cover w-full h-1/2"
+                />
+              </a>
               <div class="w-full flex flex-col gap-4 text-left p-6">
                 <h2 class="font-semibold">Episod 11</h2>
                 <p class="line-clamp-1">TeongLee w. 3 other crews</p>
@@ -178,10 +187,12 @@
 
             <!-- Grid 5 -->
             <div class="w-full bg-white shadow-sm">
-              <img
-                src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
-                class="object-cover w-full h-1/2"
-              />
+              <a href="https://www.youtube.com/watch?v=PZpbHaiMH-k">
+                <img
+                  src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
+                  class="object-cover w-full h-1/2"
+                />
+              </a>
               <div class="w-full flex flex-col gap-4 text-left p-6">
                 <h2 class="font-semibold">Episod 12</h2>
                 <p class="line-clamp-1">Adeline Bobo w. 3 other crews</p>
@@ -207,10 +218,12 @@
 
             <!-- Grid 6 -->
             <div class="w-full bg-white shadow-sm">
-              <img
-                src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
-                class="object-cover w-full h-1/2"
-              />
+              <a href="https://www.youtube.com/watch?v=PZpbHaiMH-k">
+                <img
+                  src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
+                  class="object-cover w-full h-1/2"
+                />
+              </a>
               <div class="w-full flex flex-col gap-4 text-left p-6">
                 <h2 class="font-semibold">Episod 20</h2>
                 <p class="line-clamp-1">Chee Huan w. 3 other crews</p>
@@ -236,10 +249,12 @@
 
             <!-- Grid 7 -->
             <div class="w-full bg-white shadow-sm">
-              <img
-                src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
-                class="object-cover w-full h-1/2"
-              />
+              <a href="https://www.youtube.com/watch?v=PZpbHaiMH-k">
+                <img
+                  src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
+                  class="object-cover w-full h-1/2"
+                />
+              </a>
               <div class="w-full flex flex-col gap-4 text-left p-6">
                 <h2 class="font-semibold">Episod 21</h2>
                 <p class="line-clamp-1">Jacky w. 3 other crews</p>
@@ -265,10 +280,12 @@
 
             <!-- Grid 8 -->
             <div class="w-full bg-white shadow-sm">
-              <img
-                src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
-                class="object-cover w-full h-1/2"
-              />
+              <a href="https://www.youtube.com/watch?v=PZpbHaiMH-k">
+                <img
+                  src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
+                  class="object-cover w-full h-1/2"
+                />
+              </a>
               <div class="w-full flex flex-col gap-4 text-left p-6">
                 <h2 class="font-semibold">Episod 13</h2>
                 <p class="line-clamp-1">Sabrina Lim w. 3 other crews</p>

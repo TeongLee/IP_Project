@@ -219,7 +219,7 @@
 
           <!-- bottom part -->
           <div class="flex gap-4">
-            <!-- Most Recent Activities -->
+            <!-- Leaderboard -->
             <section
               class="w-[55%] bg-white p-4 rounded shadow flex flex-col gap-6"
             >

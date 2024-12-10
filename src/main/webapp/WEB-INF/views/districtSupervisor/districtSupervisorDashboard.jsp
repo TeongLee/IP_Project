@@ -70,7 +70,7 @@
           <section class="w-[75%] bg-white p-4 rounded shadow flex flex-col gap-6">
             <div class="flex justify-between items-center pb-4 border-b border-dashed border-gray-00">
               <h3 class="text-lg font-medium">School Requests</h3>
-              <a href="/schoolCoordinator/contentLibrary" class="text-[#1890FF] hover:underline">All Requests</a>
+              <a href="/districtSupervisor/schoolList" class="text-[#1890FF] hover:underline">All Requests</a>
             </div>
             <table class="w-full border-collapse">
               <thead class="bg-gray-100 border">
@@ -129,7 +129,7 @@
 
           <!-- best video of the month -->
           <section class="w-[25%] bg-white p-4 rounded shadow flex flex-col">
-            <div class="flex justify-between items-center pb-4 border-b border-dashed border-gray-00">
+            <div class="flex justify-between items-center pb-4 border-b border-dashed border-gray-100">
               <h3 class="text-lg font-medium">Best Video Of The Month</h3>
             </div>
             <div class="flex flex-col flex-1 gap-6 py-6 px-4">
@@ -178,7 +178,7 @@
 
         <!-- bottom part -->
         <div class="flex gap-4">
-          <!-- Most Recent Activities -->
+          <!-- Leaderboard -->
           <section class="w-[55%] bg-white p-4 rounded shadow flex flex-col gap-6">
             <div class="flex justify-between items-center pb-4 border-b border-dashed border-gray-300">
               <div class="flex flex-col">

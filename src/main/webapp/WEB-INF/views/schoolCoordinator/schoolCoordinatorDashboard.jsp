@@ -115,7 +115,6 @@
                                 </div>
                             </a>
                         </div>
-
                     </section>
 
                     <!-- leaderboard by activity -->
