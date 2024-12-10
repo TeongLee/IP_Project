@@ -32,8 +32,8 @@
         <div class="flex flex-col justify-center items-center gap-2.5">
           <img src="${pageContext.request.contextPath}/assets/application.png" alt="logo" class="w-20 h-20" />
           <div class="text-center">
-            <h1 class="text-xl font-semibold">Submit Crew Application</h1>
-            <p class="text-sm text-gray-500">Wanna be a part of TVPSS family? Fill in the form below!</p>
+            <h1 class="text-3xl font-semibold">Submit Crew Application</h1>
+            <p class="text-base text-gray-500">Wanna be a part of TVPSS family? Fill in the form below!</p>
           </div>
         </div>
 
