@@ -74,7 +74,7 @@
             <!-- Page Header -->
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-bold text-gray-800">Request List</h1>
-                <button class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-black">Johor State</button>
+                <button class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-black">Negeri Johor</button>
             </div>
 
             <!-- Search and Filter -->

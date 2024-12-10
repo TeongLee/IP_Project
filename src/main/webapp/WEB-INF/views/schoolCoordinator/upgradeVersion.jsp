@@ -94,33 +94,13 @@
             ></textarea>
           </div>
 
-          <!-- File Upload -->
-          <div class="mb-6">
-            <label class="block text-gray-700 font-semibold mb-2">
-              <i class="fas fa-file-upload text-red-500 mr-2"></i>Upload Activity Report (PDF)
-            </label>
-            <div class="flex items-center">
-              <input 
-                type="text" 
-                class="flex-grow border border-gray-300 rounded-lg p-3 focus:ring-red-500 focus:border-red-500" 
-                value="Program_Report.pdf"
-                disabled
-              />
-              <button 
-                class="ml-3 px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
-              >
-                Upload
-              </button>
-            </div>
-          </div>
-
           <!-- Save Button -->
           <div class="mt-8">
             <button 
               type="submit" 
               class="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition"
             >
-              Save
+              Submit
             </button>
           </div>
         </form>

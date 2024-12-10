@@ -111,14 +111,14 @@
                                 <td class="px-6 py-3">${request.requestStartDate}</td>
                                 <td class="px-6 py-3">${request.requestEndDate}</td>
                                 <td class="px-6 py-3">
-                                    <span class="px-2 py-1 rounded text-white 
-                                        ${request.urgencyLevel == 'High' ? 'bg-red-500' : request.urgencyLevel == 'Medium' ? 'bg-yellow-500' : 'bg-green-500'}">
+                                    <span class="px-2 py-1 rounded font-bold
+                                        ${request.urgencyLevel == 'High' ? 'text-red-500' : request.urgencyLevel == 'Medium' ? 'text-yellow-500' : 'text-green-500'}">
                                         ${request.urgencyLevel}
                                     </span>
                                 </td>
                                 <td class="px-6 py-3">
                                     <span class="px-2 py-1 rounded text-white 
-                                        ${request.status == 'Accept' ? 'bg-green-500' : request.status == 'Reject' ? 'bg-red-500' : 'bg-gray-500'}">
+                                        ${request.status == 'Accept' ? 'bg-green-500' : request.status == 'Reject' ? 'bg-red-500' : 'bg-yellow-500'}">
                                         ${request.status}
                                     </span>
                                 </td>
@@ -172,7 +172,7 @@
                             <td class="px-6 py-3">2024-11-01</td>
                             <td class="px-6 py-3">2024-11-05</td>
                             <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-green-500">Low</span></td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-black">Pending</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-white">Pending</span></td>
                         </tr>
                         <tr class="border-b">
                             <td class="px-6 py-3">Extension Cord</td>
@@ -181,30 +181,6 @@
                             <td class="px-6 py-3">2024-11-05</td>
                             <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-yellow-500">Medium</span></td>
                             <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Accept</span></td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="px-6 py-3">Tripod</td>
-                            <td class="px-6 py-3">3</td>
-                            <td class="px-6 py-3">2024-11-01</td>
-                            <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-green-500">Low</span></td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-black">Pending</span></td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="px-6 py-3">Lighting Kit</td>
-                            <td class="px-6 py-3">4</td>
-                            <td class="px-6 py-3">2024-11-01</td>
-                            <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-red-500">High</span></td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Accept</span></td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="px-6 py-3">HDMI Cable</td>
-                            <td class="px-6 py-3">10</td>
-                            <td class="px-6 py-3">2024-11-01</td>
-                            <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-yellow-500">Medium</span></td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-red-500 text-white">Reject</span></td>
                         </tr>
                     </tbody>
                 </table>
