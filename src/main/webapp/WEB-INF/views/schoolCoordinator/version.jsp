@@ -27,7 +27,7 @@
     <div class="flex-1 px-6 py-8 mx-4 lg:mx-6">
       <!-- Page Header -->
       <div class="mb-8 text-center lg:text-left">
-        <h1 class="text-3xl sm:text-4xl font-bold text-gray-700">Version Upgrade</h1>
+        <h3 class="text-3xl sm:text-4xl font-bold text-gray-700">Version Upgrade</h3>
         <p class="text-gray-600 mt-2">Upgrade your school's TVPSS version for better features and tools.</p>
       </div>
 
@@ -57,7 +57,7 @@
 
           <!-- Congratulations Section -->
           <div class="mt-4">
-            <h1 class="text-4xl sm:text-5xl font-bold text-blue-600 uppercase">Congratulations!</h1>
+            <h3 class="text-4xl sm:text-5xl font-bold text-blue-600 uppercase">Congratulations!</h3>
           </div>
 
           <!-- Version and Status Section -->

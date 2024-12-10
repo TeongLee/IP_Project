@@ -24,7 +24,7 @@
         <div class="flex-1 p-6">
             <!-- Page Header -->
             <div class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold text-gray-800">Resource Inventory</h1>
+                <h3 class="text-2xl font-bold text-gray-800">Resource Inventory</h3>
                 <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md shadow-md">
                     <i class="fas fa-plus mr-2"></i>Add New
                 </button>

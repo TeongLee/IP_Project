@@ -24,7 +24,7 @@
       />
       <div class="flex-1 flex flex-col max-h-screen overflow-y-auto justify-between w-full p-8 gap-6">
         <div class="w-full h-full flex flex-col gap-4 justify-start">
-          <h1 class="font-medium text-xl">Content Library</h1>
+          <h3 class="font-medium text-xl">Content Library</h3>
           <div class="w-full flex relative border">
             <input
               type="text"

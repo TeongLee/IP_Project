@@ -29,7 +29,7 @@
                 </a>
             </div>
             <!-- <a href="/schoolCoordinator/equipments" class="text-black-500 mb-4 inline-block text-lg">&lt; Back</a> -->
-            <h1 class="text-3xl font-bold mb-3">Add Request</h1>
+            <h3 class="text-3xl font-bold mb-3">Add Request</h3>
             <p class="text-gray-600 text-md mb-6">Request for equipment here</p>
 
             <div class="grid grid-cols-[35%_65%] gap-2 bg-white shadow-md p-6 rounded ">

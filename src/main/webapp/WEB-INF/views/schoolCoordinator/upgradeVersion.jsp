@@ -35,13 +35,13 @@
 
       <!-- Page Header -->
       <div class="text-center lg:text-left mb-8">
-        <h1 class="text-3xl font-bold text-gray-700">TVPSS Version Upgrade</h1>
+        <h3 class="text-3xl font-bold text-gray-700">TVPSS Version Upgrade</h3>
         <p class="text-gray-600 mt-2">Fill in the details below to complete the version upgrade process.</p>
       </div>
 
       <!-- Form Container -->
       <div class="max-w-4xl mx-auto bg-white p-8 rounded-3xl shadow-lg">
-        <h1 class="text-2xl text-center font-bold mb-6">Version Upgrade Form</h1>
+        <h3 class="text-2xl text-center font-bold mb-6">Version Upgrade Form</h3>
         <form>
           <!-- Version Upgrade Dropdown -->
           <div class="mb-6">
