@@ -42,6 +42,7 @@
             menu.classList.toggle('hidden');
         }
     </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 font-sans">
     <div class="flex">

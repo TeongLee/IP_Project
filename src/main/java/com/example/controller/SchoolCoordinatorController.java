@@ -49,7 +49,7 @@ public class SchoolCoordinatorController {
     private final List<EquipmentRequest> equipmentRequests = new ArrayList<>();
 
     @RequestMapping("/equipments")
-    public ModelAndView showEquipmentList() {
+    public ModelAndView requestEquipmentList() {
         ModelAndView mv = new ModelAndView("schoolCoordinator/equipments");
         mv.addObject("equipmentRequests", equipmentRequests);
         return mv;
@@ -62,19 +62,19 @@ public class SchoolCoordinatorController {
     }
 
     @RequestMapping("/version")
-    public ModelAndView showVersion() {
+    public ModelAndView requestVersion() {
         ModelAndView mv = new ModelAndView("schoolCoordinator/version");
         return mv;
     }    
 
     @RequestMapping("/upgradeVersion")
-    public ModelAndView upgradeVersion() {
+    public ModelAndView requestUpgradeVersion() {
         ModelAndView mv = new ModelAndView("schoolCoordinator/upgradeVersion");
         return mv;
     }    
     
     @RequestMapping("/dashboard")
-    public ModelAndView requestDashboard() {
+    public ModelAndView requestSchoolCoordinatorDashboard() {
         ModelAndView mv = new ModelAndView("schoolCoordinator/schoolCoordinatorDashboard");
         return mv;
     }    

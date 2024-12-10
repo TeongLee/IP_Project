@@ -1,5 +1,5 @@
 package com.example.model;
 
-public class equipmentInventory {
+public class EquipmentInventory {
     
 }

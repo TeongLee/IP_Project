@@ -12,12 +12,13 @@
         menu.classList.toggle("hidden");
       }
     </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   </head>
 
   <body class="bg-gray-100">
     <div class="flex min-h-screen">
       <!-- Sidebar -->
-      <aside class="w-64 bg-white shadow">
+      <aside class="w-64">
         <jsp:include
           page="/WEB-INF/views/common/sidebar/stateAdminSidebar.jsp"
         />

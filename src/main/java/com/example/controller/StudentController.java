@@ -9,9 +9,21 @@ import org.springframework.web.servlet.ModelAndView;
 public class StudentController {
 
   @RequestMapping("/dashboard")
-  public ModelAndView studentDashboard(){
-    ModelAndView mv = new ModelAndView("/student/studentDashboard");
+  public ModelAndView reqeustStudentDashboard() {
+    ModelAndView mv = new ModelAndView("student/studentDashboard");
 
+    return mv;
+  }
+
+  @RequestMapping("/submitApplication")
+  public ModelAndView requestSubmitApplication() {
+    ModelAndView mv = new ModelAndView("student/submitApplication");
+    return mv;
+  }
+
+  @RequestMapping("/uploadContent")
+  public ModelAndView requestUploadContent() {
+    ModelAndView mv = new ModelAndView("student/uploadContent");
     return mv;
   }
 }

@@ -13,12 +13,13 @@
             menu.classList.toggle('hidden');
         }
     </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100">
     <div class="flex min-h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-white shadow">
+        <aside class="w-64">
             <jsp:include page="/WEB-INF/views/common/sidebar/schoolCoordinatorSidebar.jsp" />
         </aside>
 
@@ -66,14 +67,14 @@
                     <section class="w-[70%] bg-white p-4 rounded shadow flex flex-col">
                         <div class="flex justify-between items-center pb-4 border-b border-dashed border-gray-300">
                             <h3 class="text-lg font-medium">Content Library</h3>
-                            <a href="/schoolCoordinator/contentLibrary" class="text-[#1890FF] hover:underline">All Contents</a>
+                            <a href="/schoolCoordinator/contentLibrary" class="text-[#1890FF] hover:underline">All
+                                Contents</a>
                         </div>
                         <div class="flex-1 grid grid-cols-3 gap-4 mt-4">
-                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="bg-gray-50 p-4 rounded shadow hover:bg-gray-200">
-                                <img 
-                                    src="${pageContext.request.contextPath}/assets/thumbnail.jpg" 
-                                    class="w-full h-auto rounded" 
-                                    alt="Applicant">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+                                class="bg-gray-50 p-4 rounded shadow hover:bg-gray-200">
+                                <img src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
+                                    class="w-full h-auto rounded" alt="Applicant">
                                 <p class="text-sm text-gray-500 mt-2 font-semibold">Minggu Koperasi</p>
                                 <span class="text-xs text-gray-400">FiveStudio</span>
                                 <div class="flex justify-between items-center mt-4">
@@ -81,22 +82,20 @@
                                     <p class="text-xs text-gray-400">8/12/2024</p>
                                 </div>
                             </a>
-                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="bg-gray-50 p-4 rounded shadow hover:bg-gray-200">
-                                <img 
-                                    src="${pageContext.request.contextPath}/assets/thumbnail.jpg" 
-                                    class="w-full h-auto rounded" 
-                                    alt="Applicant">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+                                class="bg-gray-50 p-4 rounded shadow hover:bg-gray-200">
+                                <img src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
+                                    class="w-full h-auto rounded" alt="Applicant">
                                 <p class="text-sm text-gray-500 mt-2 font-semibold">Aturan Pengerakan Masuk</p>
                                 <span class="text-xs text-gray-400">FiveStudio</span>
                                 <div class="flex justify-between items-center mt-4">
                                     <span class="text-xs text-gray-400">520 views</span>
                                     <p class="text-xs text-gray-400">1/12/2024</p>
                                 </div>
-                            </a><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="bg-gray-50 p-4 rounded shadow hover:bg-gray-200">
-                                <img 
-                                    src="${pageContext.request.contextPath}/assets/thumbnail.jpg" 
-                                    class="w-full h-auto rounded" 
-                                    alt="Applicant">
+                            </a><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+                                class="bg-gray-50 p-4 rounded shadow hover:bg-gray-200">
+                                <img src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
+                                    class="w-full h-auto rounded" alt="Applicant">
                                 <p class="text-sm text-gray-500 mt-2 font-semibold">Festival TVPSS</p>
                                 <span class="text-xs text-gray-400">FiveStudio</span>
                                 <div class="flex justify-between items-center mt-4">
@@ -106,7 +105,7 @@
                             </a>
                         </div>
                     </section>
-                    
+
                     <!-- leaderboard by activity -->
                     <section class="w-[30%] bg-white p-4 rounded shadow flex flex-col">
                         <div class="flex justify-between items-center pb-4 border-b border-dashed border-gray-200">
@@ -116,54 +115,50 @@
                             <!-- ranking 1 -->
                             <div class="flex items-center mt-4 py-4 px-3 border-2 border-yellow-500 rounded-lg mb-2">
                                 <div class="border-r border-gray-400 mr-4">
-                                    <img 
-                                    src="${pageContext.request.contextPath}/assets/ranking1.jpg" 
-                                    class="w-10 h-10 mr-3 ml-4"
-                                    alt="ranking1">
+                                    <img src="${pageContext.request.contextPath}/assets/ranking1.jpg"
+                                        class="w-10 h-10 mr-3 ml-4" alt="ranking1">
                                 </div>
-                                <img src="${pageContext.request.contextPath}/assets/gryffindor.jpeg" alt="Default Profile" class="w-10 h-10 rounded-full mr-3">
+                                <img src="${pageContext.request.contextPath}/assets/gryffindor.jpeg"
+                                    alt="Default Profile" class="w-10 h-10 rounded-full mr-3">
                                 <span class="font-medium">SMK TAMAN U</span>
                                 <div class="block border-l border-gray-400 pl-4 ml-auto font-bold">235</div>
                             </div>
                             <!-- ranking 2 -->
                             <div class="flex items-center py-4 px-3 border-2 border-gray-500 rounded-lg mb-2">
                                 <div class="border-r border-gray-400 mr-4">
-                                    <img 
-                                    src="${pageContext.request.contextPath}/assets/ranking2.jpg" 
-                                    class="w-10 h-10 mr-3 ml-4"
-                                    alt="ranking1">
+                                    <img src="${pageContext.request.contextPath}/assets/ranking2.jpg"
+                                        class="w-10 h-10 mr-3 ml-4" alt="ranking1">
                                 </div>
-                                <img src="${pageContext.request.contextPath}/assets/slytherin.jpg" alt="Default Profile" class="w-10 h-10 rounded-full mr-3">
+                                <img src="${pageContext.request.contextPath}/assets/slytherin.jpg" alt="Default Profile"
+                                    class="w-10 h-10 rounded-full mr-3">
                                 <span class="font-medium">SMK TAMAN C</span>
                                 <div class="block border-l border-gray-400 pl-4 ml-auto font-bold">221</div>
                             </div>
                             <!-- ranking 3 -->
                             <div class="flex items-center py-4 px-3 border-2 border-orange-500 rounded-lg mb-2">
                                 <div class="border-r border-gray-400 mr-4">
-                                    <img 
-                                    src="${pageContext.request.contextPath}/assets/ranking3.jpg" 
-                                    class="w-10 h-10 mr-3 ml-4"
-                                    alt="ranking1">
+                                    <img src="${pageContext.request.contextPath}/assets/ranking3.jpg"
+                                        class="w-10 h-10 mr-3 ml-4" alt="ranking1">
                                 </div>
-                                <img src="${pageContext.request.contextPath}/assets/ravenclaw.jpeg" alt="Default Profile" class="w-10 h-10 rounded-full mr-3">
+                                <img src="${pageContext.request.contextPath}/assets/ravenclaw.jpeg"
+                                    alt="Default Profile" class="w-10 h-10 rounded-full mr-3">
                                 <span class="font-medium">SMK TAMAN A</span>
                                 <div class="block border-l border-gray-400 pl-4 ml-auto font-bold">213</div>
                             </div>
                             <!-- ranking 4 -->
                             <div class="flex items-center py-4 px-3 border-2 border-gray-300 rounded-lg mb-2">
                                 <div class="border-r border-gray-400 mr-4">
-                                    <img 
-                                    src="${pageContext.request.contextPath}/assets/ranking4.jpg" 
-                                    class="w-10 h-10 mr-3 ml-4"
-                                    alt="ranking1">
+                                    <img src="${pageContext.request.contextPath}/assets/ranking4.jpg"
+                                        class="w-10 h-10 mr-3 ml-4" alt="ranking1">
                                 </div>
-                                <img src="${pageContext.request.contextPath}/assets/hufflepuff.jpeg" alt="Default Profile" class="w-10 h-10 rounded-full mr-3">
+                                <img src="${pageContext.request.contextPath}/assets/hufflepuff.jpeg"
+                                    alt="Default Profile" class="w-10 h-10 rounded-full mr-3">
                                 <span class="font-medium">SMK TAMAN B</span>
                                 <div class="block border-l border-gray-400 pl-4 ml-auto font-bold">212</div>
                             </div>
                         </div>
                     </section>
-                    
+
                 </div>
 
                 <!-- bottom part -->
@@ -184,7 +179,8 @@
                             </div>
                             <div class="bg-gray-50 p-4 rounded shadow hover:bg-gray-200 relative">
                                 <h3 class="font-bold text-gray-800">Hari Koperasi</h3>
-                                <p class="text-sm text-gray-500 mt-2">Sed facilisis eget elementum quis cum velit massa.</p>
+                                <p class="text-sm text-gray-500 mt-2">Sed facilisis eget elementum quis cum velit massa.
+                                </p>
                                 <p class="text-xs text-gray-400 mt-2 absolute bottom-3 right-3">27/11/2024</p>
                                 <span class="text-xs text-gray-400 absolute bottom-3 left-3">FiveStudio</span>
                             </div>
@@ -196,7 +192,8 @@
                             </div>
                             <div class="bg-gray-50 p-4 rounded shadow hover:bg-gray-200 relative">
                                 <h3 class="font-bold text-gray-800">Cara Mengamalkan 3S Di Sekolah</h3>
-                                <p class="text-sm text-gray-500 mt-2">Purus accumsan in sed vestibulum, tellus, nisl.</p>
+                                <p class="text-sm text-gray-500 mt-2">Purus accumsan in sed vestibulum, tellus, nisl.
+                                </p>
                                 <p class="text-xs text-gray-400 mt-2 absolute bottom-3 right-3">23/10/2024</p>
                                 <span class="text-xs text-gray-400 absolute bottom-3 left-3">FiveStudio</span>
                             </div>
