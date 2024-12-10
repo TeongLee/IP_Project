@@ -94,29 +94,29 @@
                 <table id="equipmentTable" class="table-auto w-full text-left text-gray-700 border-collapse">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th class="px-6 py-3 text-sm font-semibold">Equipment Name</th>
-                            <th class="px-6 py-3 text-sm font-semibold">Quantity</th>
-                            <th class="px-6 py-3 text-sm font-semibold">Request Date</th>
-                            <th class="px-6 py-3 text-sm font-semibold">Return Date</th>
-                            <th class="px-6 py-3 text-sm font-semibold">Urgency Level</th>
-                            <th class="px-6 py-3 text-sm font-semibold">Status</th>
+                            <th class="text-left px-6 py-3 text-sm font-semibold">Equipment Name</th>
+                            <th class="text-center px-6 py-3 text-sm font-semibold">Quantity</th>
+                            <th class="text-center px-6 py-3 text-sm font-semibold">Request Date</th>
+                            <th class="text-center px-6 py-3 text-sm font-semibold">Return Date</th>
+                            <th class="text-center px-6 py-3 text-sm font-semibold">Urgency Level</th>
+                            <th class="text-center px-6 py-3 text-sm font-semibold">Status</th>
                         </tr>
                     </thead>
                     <tbody>
                        <!-- Dynamic Rows -->
                         <c:forEach var="request" items="${equipmentRequests}">
                             <tr class="border-b">
-                                <td class="text-left px-6 py-3">${request.equipmentName}</td>
-                                <td class="text-left px-6 py-3">${request.quantity}</td>
-                                <td class="text-left px-6 py-3">${request.requestStartDate}</td>
-                                <td class="text-left px-6 py-3">${request.requestEndDate}</td>
-                                <td class="text-left px-6 py-3">
+                                <td class="text-cebn px-6 py-3">${request.equipmentName}</td>
+                                <td class="text-center px-6 py-3">${request.quantity}</td>
+                                <td class="text-center px-6 py-3">${request.requestStartDate}</td>
+                                <td class="text-center px-6 py-3">${request.requestEndDate}</td>
+                                <td class="text-center px-6 py-3">
                                     <span class="px-2 py-1 rounded font-bold
                                         ${request.urgencyLevel == 'High' ? 'text-red-500' : request.urgencyLevel == 'Medium' ? 'text-yellow-500' : 'text-green-500'}">
                                         ${request.urgencyLevel}
                                     </span>
                                 </td>
-                                <td class="px-6 py-3">
+                                <td class="text-center px-6 py-3">
                                     <span class="px-2 py-1 rounded text-white 
                                         ${request.status == 'Accept' ? 'bg-green-500' : request.status == 'Reject' ? 'bg-red-500' : 'bg-yellow-500'}">
                                         ${request.status}

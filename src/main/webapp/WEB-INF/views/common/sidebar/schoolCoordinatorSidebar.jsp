@@ -31,7 +31,7 @@
                         class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded mb-1">-
                         Main Dashboard</a>
                     <a href="/schoolCoordinator/activityList"
-                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">- Activities</a>
+                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">- Activity List</a>
                 </div>
             </div>
 
@@ -40,6 +40,13 @@
                 class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded flex items-center my-2">
                 <i class="fas fa-users mr-3"></i>
                 Crew List
+            </a>
+
+            <!-- Crew Application List -->
+            <a href="/schoolCoordinator/crewApplicationList"
+                class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded flex items-center my-2">
+                <i class="fas fa-clipboard mr-3 ml-1"></i>
+                Crew Application List
             </a>
 
             <!-- Content Library -->

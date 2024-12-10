@@ -62,6 +62,56 @@
                     </div>
                 </div>
 
+                
+
+                <!-- Quick links -->
+                <section class="space-y-6 w-full bg-white p-4 rounded shadow">
+                    <div class="flex items-center gap-4 pb-2 border-b border-dashed border-gray-300">
+                        <h3 class="text-xl font-medium text-left w-full">Quick Links</h3>
+                    </div>
+                    <div class="w-full grid grid-cols-3 gap-4">
+                        <a class="border rounded-lg flex flex-col gap-4 items-center justify-center p-4 hover:bg-gray-200 transition-colors ease-in-out cursor-pointer"
+                            href="/schoolCoordinator/addActivity">
+                            <img src="${pageContext.request.contextPath}/assets/activities.png"
+                                class="w-[60px] h-auto object-cover" />
+                            <div class="flex flex-col text-center space-y-2">
+                                <h3 class="font-semibold text-xl">
+                                    Add New Activity
+                                </h3>
+                                <p class="text-sm text-gray-500 leading-tight">
+                                    Add new TVPSS activity that organized in your schools
+                                </p>
+                            </div>
+                        </a>
+                        <a class="border rounded-lg flex flex-col gap-4 items-center justify-center p-4 hover:bg-gray-200 transition-colors ease-in-out cursor-pointer"
+                            href="/schoolCoordinator/requestEquipment">
+                            <img src="${pageContext.request.contextPath}/assets/resource.png"
+                                class="w-[60px] h-auto object-cover" />
+                            <div class="flex flex-col text-center space-y-2">
+                                <h3 class="font-semibold text-xl">
+                                    Request Equipment
+                                </h3>
+                                <p class="text-sm text-gray-500 leading-tight">
+                                    Request equipment for TVPSS activities to increase your shooting quality!
+                                </p>
+                            </div>
+                        </a>
+                        <a class="border rounded-lg flex flex-col gap-4 items-center justify-center p-4 hover:bg-gray-200 transition-colors ease-in-out cursor-pointer"
+                            href="/schoolCoordinator/upgradeVersion">
+                            <img src="${pageContext.request.contextPath}/assets/upgrade.png"
+                                class="w-[60px] h-auto object-cover" />
+                            <div class="flex flex-col text-center space-y-2">
+                                <h3 class="font-semibold text-xl">
+                                    Request Version Upgrade
+                                </h3>
+                                <p class="text-sm text-gray-500 leading-tight">
+                                    Satisfy the requirements and upgrade the TVPSS version
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
                 <!-- middle part -->
                 <div class="flex gap-4 mb-5">
                     <!-- Content Library -->
@@ -170,7 +220,6 @@
                             </div>
                         </div>
                     </section>
-
                 </div>
 
                 <!-- bottom part -->
@@ -273,52 +322,7 @@
                         </section>
                     </div>
                 </div>
-                <section class="space-y-6 w-full bg-white p-4 rounded shadow">
-                    <div class="flex items-center gap-4 pb-2 border-b border-dashed border-gray-300">
-                        <h3 class="text-xl font-medium text-left w-full">Quick Links</h3>
-                    </div>
-                    <div class="w-full grid grid-cols-3 gap-4">
-                        <a class="border rounded-lg flex flex-col gap-4 items-center justify-center p-4 hover:bg-gray-100 transition-colors ease-in-out cursor-pointer"
-                            href="/schoolCoordinator/addActivity">
-                            <img src="${pageContext.request.contextPath}/assets/activities.png"
-                                class="w-[60px] h-auto object-cover" />
-                            <div class="flex flex-col text-center space-y-2">
-                                <h3 class="font-semibold text-xl">
-                                    Add New Activity
-                                </h3>
-                                <p class="text-sm text-gray-500 leading-tight">
-                                    Add new TVPSS activity that organized in your schools
-                                </p>
-                            </div>
-                        </a>
-                        <a class="border rounded-lg flex flex-col gap-4 items-center justify-center p-4 hover:bg-gray-100 transition-colors ease-in-out cursor-pointer"
-                            href="/schoolCoordinator/requestEquipment">
-                            <img src="${pageContext.request.contextPath}/assets/resource.png"
-                                class="w-[60px] h-auto object-cover" />
-                            <div class="flex flex-col text-center space-y-2">
-                                <h3 class="font-semibold text-xl">
-                                    Request Equipment
-                                </h3>
-                                <p class="text-sm text-gray-500 leading-tight">
-                                    Request equipment for TVPSS activities to increase your shooting quality!
-                                </p>
-                            </div>
-                        </a>
-                        <a class="border rounded-lg flex flex-col gap-4 items-center justify-center p-4 hover:bg-gray-100 transition-colors ease-in-out cursor-pointer"
-                            href="/schoolCoordinator/upgradeVersion">
-                            <img src="${pageContext.request.contextPath}/assets/upgrade.png"
-                                class="w-[60px] h-auto object-cover" />
-                            <div class="flex flex-col text-center space-y-2">
-                                <h3 class="font-semibold text-xl">
-                                    Request Version Upgrade
-                                </h3>
-                                <p class="text-sm text-gray-500 leading-tight">
-                                    Satisfy the requirements and upgrade the TVPSS version
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </section>
+                
             </main>
         </div>
     </div>
