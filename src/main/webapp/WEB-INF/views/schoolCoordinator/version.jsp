@@ -76,7 +76,7 @@
                class="w-full sm:w-auto px-8 py-3 text-lg sm:text-xl text-white bg-green-500 rounded-lg shadow-lg hover:bg-green-600 transition">
               Upgrade Version
             </a>
-            <a href="#" 
+            <a href="/schoolCoordinator/activityList" 
                class="w-full sm:w-auto px-8 py-3 text-lg sm:text-xl text-blue-500 bg-blue-100 rounded-lg shadow-lg hover:bg-blue-200 transition">
               Add Activity
             </a>

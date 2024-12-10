@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,7 +80,7 @@
                     />
                 </div>
                 <div class="flex gap-4">
-                    <button onclick="sortTable(4)" class="bg-gray-200 px-4 py-2 rounded shadow text-sm">
+                    <button onclick="" class="bg-gray-200 px-4 py-2 rounded shadow text-sm">
                         Sort by Urgency
                     </button>
                     <button onclick="sortTable(5)" class="bg-gray-200 px-4 py-2 rounded shadow text-sm">
@@ -94,7 +95,7 @@
                     <thead class="bg-gray-100">
                         <tr>
                             <th class="px-6 py-3 text-sm font-semibold">Equipment Name</th>
-                            <th class="px-1 py-3 text-sm font-semibold">Quantity</th>
+                            <th class="px-6 py-3 text-sm font-semibold">Quantity</th>
                             <th class="px-6 py-3 text-sm font-semibold">Request Date</th>
                             <th class="px-6 py-3 text-sm font-semibold">Return Date</th>
                             <th class="px-6 py-3 text-sm font-semibold">Urgency Level</th>
@@ -102,27 +103,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                       <!-- Dynamic Rows (Example) 
+                       <!-- Dynamic Rows (Example)  -->
                         <c:forEach var="request" items="${equipmentRequests}">
                             <tr class="border-b">
-                                <td class="px-6 py-3">${request.equipmentName}</td>
-                                <td class="px-6 py-3">${request.quantity}</td>
-                                <td class="px-6 py-3">${request.requestStartDate}</td>
-                                <td class="px-6 py-3">${request.requestEndDate}</td>
-                                <td class="px-6 py-3">
-                                    <span class="px-2 py-1 rounded text-white 
-                                        ${request.urgencyLevel == 'High' ? 'bg-red-500' : request.urgencyLevel == 'Medium' ? 'bg-yellow-500' : 'bg-green-500'}">
+                                <td class="text-left px-6 py-3">${request.equipmentName}</td>
+                                <td class="text-left px-6 py-3">${request.quantity}</td>
+                                <td class="text-left px-6 py-3">${request.requestStartDate}</td>
+                                <td class="text-left px-6 py-3">${request.requestEndDate}</td>
+                                <td class="text-left px-6 py-3">
+                                    <span class="px-2 py-1 rounded font-bold
+                                        ${request.urgencyLevel == 'High' ? 'text-red-500' : request.urgencyLevel == 'Medium' ? 'text-yellow-500' : 'text-green-500'}">
                                         ${request.urgencyLevel}
                                     </span>
                                 </td>
                                 <td class="px-6 py-3">
                                     <span class="px-2 py-1 rounded text-white 
-                                        ${request.status == 'Accept' ? 'bg-green-500' : request.status == 'Reject' ? 'bg-red-500' : 'bg-gray-500'}">
+                                        ${request.status == 'Accept' ? 'bg-green-500' : request.status == 'Reject' ? 'bg-red-500' : 'bg-yellow-500'}">
                                         ${request.status}
                                     </span>
                                 </td>
                             </tr>
-                        </c:forEach>  -->
+                        </c:forEach> 
 
                         <!-- Example Static Rows -->
                         <tr class="border-b">
@@ -171,7 +172,7 @@
                             <td class="px-6 py-3">2024-11-01</td>
                             <td class="px-6 py-3">2024-11-05</td>
                             <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-green-500">Low</span></td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-black">Pending</span></td>
+                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-white">Pending</span></td>
                         </tr>
                         <tr class="border-b">
                             <td class="px-6 py-3">Extension Cord</td>
@@ -180,30 +181,6 @@
                             <td class="px-6 py-3">2024-11-05</td>
                             <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-yellow-500">Medium</span></td>
                             <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Accept</span></td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="px-6 py-3">Tripod</td>
-                            <td class="px-6 py-3">3</td>
-                            <td class="px-6 py-3">2024-11-01</td>
-                            <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-green-500">Low</span></td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-yellow-500 text-black">Pending</span></td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="px-6 py-3">Lighting Kit</td>
-                            <td class="px-6 py-3">4</td>
-                            <td class="px-6 py-3">2024-11-01</td>
-                            <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-red-500">High</span></td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-green-500 text-white">Accept</span></td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="px-6 py-3">HDMI Cable</td>
-                            <td class="px-6 py-3">10</td>
-                            <td class="px-6 py-3">2024-11-01</td>
-                            <td class="px-6 py-3">2024-11-05</td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 font-bold text-yellow-500">Medium</span></td>
-                            <td class="px-6 py-3"><span class="px-2 py-1 rounded bg-red-500 text-white">Reject</span></td>
                         </tr>
                     </tbody>
                 </table>
