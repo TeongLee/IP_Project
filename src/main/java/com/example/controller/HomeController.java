@@ -47,7 +47,7 @@ public String login(
         Model model) {
 
     // Dummy authentication logic
-    if ("dummy@example.com".equals(email) && "password123".equals(password)) {
+    if ("example@gmail.com".equals(email) && "password123".equals(password)) {
         // Role-based redirection
         switch (role.toLowerCase()) {
             case "stateadmin":
