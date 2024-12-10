@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +103,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                       <!-- Dynamic Rows (Example) 
+                       <!-- Dynamic Rows (Example)  -->
                         <c:forEach var="request" items="${equipmentRequests}">
                             <tr class="border-b">
                                 <td class="px-6 py-3">${request.equipmentName}</td>
@@ -122,7 +123,7 @@
                                     </span>
                                 </td>
                             </tr>
-                        </c:forEach>  -->
+                        </c:forEach> 
 
                         <!-- Example Static Rows -->
                         <tr class="border-b">
