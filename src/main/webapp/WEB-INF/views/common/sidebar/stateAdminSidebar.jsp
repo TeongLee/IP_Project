@@ -5,7 +5,7 @@
             <img src="https://cdn-icons-png.flaticon.com/512/5310/5310895.png" alt="Profile Picture"
                 class="w-12 h-12 rounded-full mr-3">
             <div>
-                <h2 class="text-lg font-semibold mb-0">Pejabat Pendidikan</h2>
+                <h2 class="text-lg font-semibold mb-0">Jabatan Pendidikan</h2>
                 <h2 class="text-sm mt-0">Negeri <span>Johor</span></h2>
                 <p class="text-sm text-gray-500 mt-1">Encik <span>Abu</span></p>
             </div>

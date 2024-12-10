@@ -42,6 +42,16 @@
             document.getElementById("modal").classList.add("hidden");
         }
 
+        function approveRequest() {
+            alert('Request Approved!');
+            closeModal();
+        }
+
+        function denyRequest() {
+            alert('Request Denied.');
+            closeModal();
+        }
+
         // JavaScript for toggling submenus
         function toggleMenu(menuId) {
             const menu = document.getElementById(menuId);
@@ -63,15 +73,15 @@
 
             <!-- Page Header -->
             <div class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold text-gray-800">Request List</h1>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Johor</button>
+                <h3 class="text-2xl font-bold text-gray-800">Request List</h1>
+                <button class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-black">Johor State</button>
             </div>
 
             <!-- Search and Filter -->
             <div class="bg-white p-4 rounded-lg shadow-md mb-6">
                 <div class="flex flex-wrap gap-4">
                     <!-- Search -->
-                    <div class="flex-1">
+                    <div class="flex-1 relative">
                         <input 
                             id="searchInput" 
                             type="text" 
@@ -79,6 +89,7 @@
                             class="w-full border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" 
                             oninput="filterTable()" 
                         />
+                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                     </div>
 
                     <!-- Urgency Filter -->
@@ -138,18 +149,26 @@
                                 <button 
                                     class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2"
                                     onclick="openModal('\
-                                        <h2 class=\'font-bold text-3xl mb-4\'>Requester Information</h2>\
-                                        <p class=\'text-xl\'> District: Johor Bahru</p>\
-                                        <p class=\'text-xl\'> School: SMK Taman Mutiara Rini 2</p>\
-                                        <p class=\'text-xl\'> Requester Name: Puan Rahimah</p>\
-                                        <h2 class=\'font-bold text-3xl mt-6 mb-4\'>Request Details</h2>\
-                                        <p class=\'text-xl\'> Resource: Camera</p>\
-                                        <p class=\'text-xl\'> Quantity: 3</p>\
-                                        <p class=\'text-xl\'> Request Date: 2024-12-01</p>\
-                                        <p class=\'text-xl\'> Return Date: 2024-12-05</p>\
-                                        <p class=\'text-xl\'> Description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias numquam voluptates quis minima dolorum dignissimos! Tenetur in vel voluptas impedit, cum explicabo exercitationem! A nesciunt delectus odio aliquam odit dicta.</p>\
-                                        <p class=\'text-xl\'>Urgency: High</p>\
-                                    ')">View</button>
+                                        <div class=\'text-center border-b border-gray-200 pb-4 mb-6\'>\
+                                            <h2 class=\'font-bold text-3xl text-gray-800\'>Requester Information</h2>\
+                                        </div>\
+                                        <div class=\'grid grid-cols-1 gap-4 sm:grid-cols-2 mb-6\'>\
+                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>District:</span> Johor Bahru</p>\
+                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>School:</span> SMK Taman Mutiara Rini 2</p>\
+                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Requester Name:</span> Puan Rahimah</p>\
+                                        </div>\
+                                        <div class=\'text-left\'>\
+                                            <h3 class=\'font-semibold text-2xl text-gray-800 mb-2\'>Request Details</h3>\
+                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Resource:</span> Camera</p>\
+                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Quantity:</span> 3</p>\
+                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Request Date:</span> 2024-12-01</p>\
+                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Return Date:</span> 2024-12-05</p>\
+                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Urgency:</span> High</p>\
+                                            <p class=\'text-gray-700 text-lg mt-4\'><span class=\'font-medium\'>Description:</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias numquam voluptates quis minima dolorum dignissimos!</p>\
+                                        </div>\
+                                    ')">
+                                    View
+                                </button>
                                 <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
                             </td>
                         </tr>
@@ -212,18 +231,34 @@
     </div>
 
     <!-- Modal -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
-        <div class="bg-white rounded-lg p-10 w-2/3 max-w-3xl relative">
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 w-4/5 max-w-2xl shadow-lg relative">
+            <!-- Close Button -->
             <button 
-                class="absolute top-5 right-10 text-gray-500 hover:text-gray-800"
+                class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 focus:outline-none"
                 onclick="closeModal()"
             >
                 <i class="fas fa-times text-2xl"></i>
             </button>
-            <div id="modalContent"></div>
-            <div class="mt-4 flex justify-end gap-2">
-                <button class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600" onclick="closeModal()">Approve</button>
-                <button class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600" onclick="closeModal()">Deny</button>
+
+            <!-- Modal Content -->
+            <div id="modalContent">
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="mt-6 flex justify-center gap-3 ">
+                <button 
+                    class="bg-green-500 text-white font-medium px-6 py-2 rounded-lg hover:bg-green-600 transition-all"
+                    onclick="approveRequest()"
+                >
+                    Approve
+                </button>
+                <button 
+                    class="bg-red-500 text-white font-medium px-6 py-2 rounded-lg hover:bg-red-600 transition-all"
+                    onclick="denyRequest()"
+                >
+                    Deny
+                </button>
             </div>
         </div>
     </div>
