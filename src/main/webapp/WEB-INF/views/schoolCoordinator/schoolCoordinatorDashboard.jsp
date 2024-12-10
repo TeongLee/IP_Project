@@ -26,7 +26,7 @@
 
         <!-- Main Content -->
         <div class="flex-1 flex flex-col">
-            <main class="p-8">
+            <main class="p-8 space-y-4">
                 <!-- Dashboard Header -->
                 <div class="flex flex-col mb-8 bg-white p-6 rounded-2xl">
                     <h2 class="text-xl font-bold mb-4">Main Dashboard</h2>
@@ -85,13 +85,14 @@
                                     <p class="text-xs sm:text-sm text-gray-400">8/12/2024</p>
                                 </div>
                             </a>
-                        
+
                             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
                                 class="relative bg-gray-50 p-4 rounded shadow hover:bg-gray-200 flex flex-col">
                                 <img src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
                                     class="w-full h-auto rounded object-cover" alt="Applicant">
                                 <div class="flex-1">
-                                    <p class="text-sm sm:text-base text-gray-500 mt-2 font-semibold">Aturan Pengerakan Masuk</p>
+                                    <p class="text-sm sm:text-base text-gray-500 mt-2 font-semibold">Aturan Pengerakan
+                                        Masuk</p>
                                     <span class="text-xs sm:text-sm text-gray-400">FiveStudio</span>
                                 </div>
                                 <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center">
@@ -99,7 +100,7 @@
                                     <p class="text-xs sm:text-sm text-gray-400">1/12/2024</p>
                                 </div>
                             </a>
-                        
+
                             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
                                 class="relative bg-gray-50 p-4 rounded shadow hover:bg-gray-200 flex flex-col">
                                 <img src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
@@ -114,7 +115,7 @@
                                 </div>
                             </a>
                         </div>
-                        
+
                     </section>
 
                     <!-- leaderboard by activity -->
@@ -272,8 +273,52 @@
                         </section>
                     </div>
                 </div>
-
-
+                <section class="space-y-6 w-full bg-white p-4 rounded shadow">
+                    <div class="flex items-center gap-4 pb-2 border-b border-dashed border-gray-300">
+                        <h3 class="text-xl font-medium text-left w-full">Quick Links</h3>
+                    </div>
+                    <div class="w-full grid grid-cols-3 gap-4">
+                        <a class="border rounded-lg flex flex-col gap-4 items-center justify-center p-4 hover:bg-gray-100 transition-colors ease-in-out cursor-pointer"
+                            href="/schoolCoordinator/addActivity">
+                            <img src="${pageContext.request.contextPath}/assets/activities.png"
+                                class="w-[60px] h-auto object-cover" />
+                            <div class="flex flex-col text-center space-y-2">
+                                <h3 class="font-semibold text-xl">
+                                    Add New Activity
+                                </h3>
+                                <p class="text-sm text-gray-500 leading-tight">
+                                    Add new TVPSS activity that organized in your schools
+                                </p>
+                            </div>
+                        </a>
+                        <a class="border rounded-lg flex flex-col gap-4 items-center justify-center p-4 hover:bg-gray-100 transition-colors ease-in-out cursor-pointer"
+                            href="/schoolCoordinator/requestEquipment">
+                            <img src="${pageContext.request.contextPath}/assets/resource.png"
+                                class="w-[60px] h-auto object-cover" />
+                            <div class="flex flex-col text-center space-y-2">
+                                <h3 class="font-semibold text-xl">
+                                    Request Equipment
+                                </h3>
+                                <p class="text-sm text-gray-500 leading-tight">
+                                    Request equipment for TVPSS activities to increase your shooting quality!
+                                </p>
+                            </div>
+                        </a>
+                        <a class="border rounded-lg flex flex-col gap-4 items-center justify-center p-4 hover:bg-gray-100 transition-colors ease-in-out cursor-pointer"
+                            href="/schoolCoordinator/upgradeVersion">
+                            <img src="${pageContext.request.contextPath}/assets/upgrade.png"
+                                class="w-[60px] h-auto object-cover" />
+                            <div class="flex flex-col text-center space-y-2">
+                                <h3 class="font-semibold text-xl">
+                                    Request Version Upgrade
+                                </h3>
+                                <p class="text-sm text-gray-500 leading-tight">
+                                    Satisfy the requirements and upgrade the TVPSS version
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
             </main>
         </div>
     </div>

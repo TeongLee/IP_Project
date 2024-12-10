@@ -30,10 +30,10 @@
     <main class="h-screen w-full p-6">
       <div class="w-full mx-auto h-full bg-white  overflow-y-auto  flex flex-col items-center rounded-lg p-8 gap-6">
         <div class="flex flex-col justify-center items-center gap-2.5">
-          <img src="${pageContext.request.contextPath}/assets/application.png" alt="logo" class="w-20 h-20" />
+          <img src="${pageContext.request.contextPath}/assets/resource.png" alt="logo" class="w-20 h-20" />
           <div class="text-center">
-            <h1 class="text-xl font-semibold">Upload Video Content</h1>
-            <p class="text-sm text-gray-500">Have created some videos? Share with us now!</p>
+            <h1 class="text-3xl font-semibold">Upload Video Content</h1>
+            <p class="text-base text-gray-500">Created some great videos? Share with us now!</p>
           </div>
         </div>
 
