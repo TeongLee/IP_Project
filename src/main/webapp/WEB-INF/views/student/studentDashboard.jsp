@@ -44,6 +44,7 @@
                     <span class="username font-bold">Bobo</span>! Have a great
                     day!
                   </h4>
+                  <!-- Role will be replaced with real data in db -->
                   <span
                     class="w-fit px-10 py-1 bg-blue-100 text-sm rounded-full text-[#3111D2] font-medium">Editor</span>
                 </div>
@@ -63,25 +64,31 @@
               <!-- Grid 1 -->
               <div class="col-span-2 flex flex-col items-center justify-center p-4 rounded-lg border gap-3.5">
                 <img src="${pageContext.request.contextPath}/assets/resource.png" class="w-12 object-cover" />
-                <p class="max-w-[70%] text-center leading-tight">Amazing! You have created <span class="font-bold text-blue-600">5</span> videos this month!</p>
+                <p class="max-w-[70%] text-center leading-tight">Amazing! You have created <span
+                    class="font-bold text-blue-600">5</span> videos this month!</p>
               </div>
 
               <div class="col-span-2 flex flex-col items-center justify-center p-4 rounded-lg border gap-3.5">
                 <img src="${pageContext.request.contextPath}/assets/edit.png" class="w-12 object-cover" />
-                <p class="max-w-[70%] text-center leading-tight">Great! You have helped your school to create a total of <span class="font-bold text-blue-600">20</span> videos!</p>
+                <p class="max-w-[70%] text-center leading-tight">Great! You have helped your school to create a total of
+                  <span class="font-bold text-blue-600">20</span> videos!</p>
               </div>
 
-              <div class="col-start-5 row-span-full flex flex-col items-center justify-center p-4 rounded-lg border gap-3.5">
+              <div
+                class="col-start-5 row-span-full flex flex-col items-center justify-center p-4 rounded-lg border gap-3.5">
                 <img src="${pageContext.request.contextPath}/assets/editor.png" class="w-14 object-cover" />
                 <div class="flex flex-col gap-1">
-                  <p class="text-center leading-tight">You have successfully to become an <span class="font-bold text-teal-600">EDITOR</span> on <span class="font-semibold">21 May 2024</span></p>
+                  <p class="text-center leading-tight">You have successfully to become an <span
+                      class="font-bold text-teal-600">EDITOR</span> on <span class="font-semibold">21 May 2024</span>
+                  </p>
                 </div>
               </div>
 
               <div class="col-span-4 flex flex-col items-center justify-center p-4 rounded-lg border gap-2.5">
                 <img src="${pageContext.request.contextPath}/assets/award.png" class="w-12 object-cover" />
                 <div class="w-full flex flex-col items-center mx-auto space-y-1">
-                  <p class="max-w-[70%] text-center leading-tight">Congratulations! You have won <span class="font-bold text-blue-600">2</span> awards this year!</p>
+                  <p class="max-w-[70%] text-center leading-tight">Congratulations! You have won <span
+                      class="font-bold text-blue-600">2</span> awards this year!</p>
                   <div class="flex items-center gap-3">
                     <span class="text-teal-500 font-semibold">Top Contributor</span>
                     <span>|</span>
@@ -138,7 +145,8 @@
             </div>
             <div class="flex-1 w-full grid grid-cols-2 gap-6">
               <!-- Grid 1 -->
-              <div class="w-full flex flex-col justify-between p-4 hover:bg-slate-50 shadow-md rounded-md transition-colors ease-in-out cursor-pointer">
+              <div
+                class="w-full flex flex-col justify-between p-4 hover:bg-slate-50 shadow-md rounded-md transition-colors ease-in-out cursor-pointer">
                 <div class="w-fit flex flex-col gap-2">
                   <div class="w-full flex items-center gap-2">
                     <img src="${pageContext.request.contextPath}/assets/activity_logo.png" class="w-6 object-cover" />
@@ -153,7 +161,8 @@
               </div>
 
               <!-- Grid 2 -->
-              <div class="w-full flex flex-col justify-between p-4 hover:bg-slate-50 shadow-md rounded-md transition-colors ease-in-out cursor-pointer">
+              <div
+                class="w-full flex flex-col justify-between p-4 hover:bg-slate-50 shadow-md rounded-md transition-colors ease-in-out cursor-pointer">
                 <div class="w-fit flex flex-col gap-2">
                   <div class="w-full flex items-center gap-2">
                     <img src="${pageContext.request.contextPath}/assets/activity_logo.png" class="w-6 object-cover" />
@@ -168,7 +177,8 @@
               </div>
 
               <!-- Grid 3 -->
-              <div class="w-full flex flex-col justify-between p-4 hover:bg-slate-50 shadow-md rounded-md transition-colors ease-in-out cursor-pointer">
+              <div
+                class="w-full flex flex-col justify-between p-4 hover:bg-slate-50 shadow-md rounded-md transition-colors ease-in-out cursor-pointer">
                 <div class="w-fit flex flex-col gap-2">
                   <div class="w-full flex items-center gap-2">
                     <img src="${pageContext.request.contextPath}/assets/activity_logo.png" class="w-6 object-cover" />
@@ -183,7 +193,8 @@
               </div>
 
               <!-- Grid 4 -->
-              <div class="w-full flex flex-col justify-between p-4 hover:bg-slate-50 shadow-md rounded-md transition-colors ease-in-out cursor-pointer">
+              <div
+                class="w-full flex flex-col justify-between p-4 hover:bg-slate-50 shadow-md rounded-md transition-colors ease-in-out cursor-pointer">
                 <div class="w-fit flex flex-col gap-2">
                   <div class="w-full flex items-center gap-2">
                     <img src="${pageContext.request.contextPath}/assets/activity_logo.png" class="w-6 object-cover" />
@@ -199,7 +210,7 @@
             </div>
           </section>
 
-          <!-- Recently Uploaded Contentd -->
+          <!-- Recently Uploaded Content -->
           <section class="w-[45%] flex flex-col gap-4">
             <div class="flex flex-col gap-4 w-full h-full bg-white p-4 rounded shadow">
               <div class="flex justify-between items-center pb-4 border-b border-dashed border-gray-300">
