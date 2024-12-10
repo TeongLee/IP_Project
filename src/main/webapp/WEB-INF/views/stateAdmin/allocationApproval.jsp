@@ -129,10 +129,10 @@
                             <th class="text-left px-6 py-4 text-gray-600 font-medium border border-gray-300">District</th>
                             <th class="text-left px-6 py-4 text-gray-600 font-medium border border-gray-300">School</th>
                             <th class="text-left px-6 py-4 text-gray-600 font-medium border border-gray-300">Resource</th>
-                            <th class="text-center px-6 py-4 text-gray-600 font-medium border border-gray-300">Quantity</th>
-                            <th class="text-center px-6 py-4 text-gray-600 font-medium border border-gray-300">Request Date</th>
-                            <th class="text-center px-6 py-4 text-gray-600 font-medium border border-gray-300">Urgency</th>
-                            <th class="text-center px-6 py-4 text-gray-600 font-medium border border-gray-300">Status</th>
+                            <th class="text-left px-6 py-4 text-gray-600 font-medium border border-gray-300">Quantity</th>
+                            <th class="text-left px-6 py-4 text-gray-600 font-medium border border-gray-300">Request Date</th>
+                            <th class="text-left px-6 py-4 text-gray-600 font-medium border border-gray-300">Urgency</th>
+                            <th class="text-left px-6 py-4 text-gray-600 font-medium border border-gray-300">Status</th>
                             <th class="text-center px-6 py-4 text-gray-600 font-medium border border-gray-300">Action</th>
                         </tr>
                     </thead>
@@ -141,10 +141,10 @@
                             <td class="px-6 py-4">Johor Bahru</td>
                             <td class="px-6 py-4 school">SMK Taman Mutiara Rini 2</td>
                             <td class="px-6 py-4">Camera</td>
-                            <td class="text-center px-6 py-4">3</td>
-                            <td class="text-center px-6 py-4">2024-12-01</td>
-                            <td class="text-center px-6 py-4 urgency text-red-600 font-bold">High</td>
-                            <td class="text-center px-6 py-4 status text-yellow-500 font-bold">Pending</td>
+                            <td class="text-left px-6 py-4">3</td>
+                            <td class="text-left px-6 py-4">2024-12-01</td>
+                            <td class="text-left px-6 py-4 urgency text-red-600 font-bold">High</td>
+                            <td class="text-left px-6 py-4 status text-yellow-500 font-bold">Pending</td>
                             <td class="px-6 py-4 text-center">
                                 <button 
                                     class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2"
@@ -176,10 +176,10 @@
                             <td class="px-6 py-4">Batu Pahat</td>
                             <td class="px-6 py-4 school">Chua Chu Kang Secondary School</td>
                             <td class="px-6 py-4">Tripod</td>
-                            <td class="text-center px-6 py-4">5</td>
-                            <td class="text-center px-6 py-4">2024-12-02</td>
-                            <td class="text-center px-6 py-4 urgency text-yellow-500 font-bold">Medium</td>
-                            <td class="text-center px-6 py-4 status text-green-600 font-bold">Completed</td>
+                            <td class="text-left px-6 py-4">5</td>
+                            <td class="text-left px-6 py-4">2024-12-02</td>
+                            <td class="text-left px-6 py-4 urgency text-yellow-500 font-bold">Medium</td>
+                            <td class="text-left px-6 py-4 status text-green-600 font-bold">Completed</td>
                             <td class="px-6 py-4 text-center">
                                 <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2">View</button>
                                 <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
@@ -189,10 +189,10 @@
                             <td class="px-6 py-4">Skudai</td>
                             <td class="px-6 py-4">SMK Skudai</td>
                             <td class="px-6 py-4">Speakers</td>
-                            <td class="text-center px-6 py-4">2</td>
-                            <td class="text-center px-6 py-4">2024-12-03</td>
-                            <td class="text-center px-6 py-4 text-green-600 font-bold">Low</td>
-                            <td class="text-center px-6 py-4 status text-green-600 font-bold">Completed</td>
+                            <td class="text-left px-6 py-4">2</td>
+                            <td class="text-left px-6 py-4">2024-12-03</td>
+                            <td class="text-left px-6 py-4 text-green-600 font-bold">Low</td>
+                            <td class="text-left px-6 py-4 status text-green-600 font-bold">Completed</td>
                             <td class="px-6 py-4 text-center">
                                 <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2">View</button>
                                 <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
@@ -202,10 +202,10 @@
                             <td class="px-6 py-4">Pontian</td>
                             <td class="px-6 py-4">SMK Bandar Pontian</td>
                             <td class="px-6 py-4">Laptops</td>
-                            <td class="text-center px-6 py-4">8</td>
-                            <td class="text-center px-6 py-4">2024-12-04</td>
-                            <td class="text-center px-6 py-4 text-red-600 font-bold">High</td>
-                            <td class="text-center px-6 py-4 status text-yellow-500 font-bold">Pending</td>
+                            <td class="text-left px-6 py-4">8</td>
+                            <td class="text-left px-6 py-4">2024-12-04</td>
+                            <td class="text-left px-6 py-4 text-red-600 font-bold">High</td>
+                            <td class="text-left px-6 py-4 status text-yellow-500 font-bold">Pending</td>
                             <td class="px-6 py-4 text-center">
                                 <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2">View</button>
                                 <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
@@ -215,10 +215,10 @@
                             <td class="px-6 py-4">Kulai</td>
                             <td class="px-6 py-4">SMK Kulai Besar</td>
                             <td class="px-6 py-4">Projectors</td>
-                            <td class="text-center px-6 py-4">4</td>
-                            <td class="text-center px-6 py-4">2024-12-05</td>
-                            <td class="text-center px-6 py-4 text-yellow-500 font-bold">Medium</td>
-                            <td class="text-center px-6 py-4 status text-green-600 font-bold">Completed</td>
+                            <td class="text-left px-6 py-4">4</td>
+                            <td class="text-left px-6 py-4">2024-12-05</td>
+                            <td class="text-left px-6 py-4 text-yellow-500 font-bold">Medium</td>
+                            <td class="text-left px-6 py-4 status text-green-600 font-bold">Completed</td>
                             <td class="px-6 py-4 text-center">
                                 <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2">View</button>
                                 <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
