@@ -1,6 +1,6 @@
 <div class="w-64 min-w-[250px] h-full">
   <!-- User Info -->
-  <div class="fixed left-0 top-0 h-full bg-white shadow-lg pr-1">
+  <div class="fixed left-0 top-0 h-full bg-white shadow-lg mr-1">
       <div class="p-4 flex items-center border-b">
           <img src="https://cdn-icons-png.flaticon.com/512/5310/5310895.png" alt="Profile Picture"
               class="w-12 h-12 rounded-full mr-3">
