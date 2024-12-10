@@ -40,8 +40,8 @@
                                     <h4 class="text-lg">Good morning, Cikgu <span
                                             class="username font-bold">Batu</span>! Have a great day!</h4>
                                     <span
-                                        class="inline-block mt-1 px-10 py-1 bg-blue-100 text-sm rounded-full text-[#3111D2]">Level
-                                        4</span>
+                                        class="inline-block mt-1 px-10 py-1 bg-blue-100 text-sm rounded-full text-[#3111D2] font-semibold">Level
+                                        3</span>
                                 </div>
                             </div>
                         </div>
@@ -71,40 +71,50 @@
                             <a href="/schoolCoordinator/contentLibrary" class="text-[#1890FF] hover:underline">All
                                 Contents</a>
                         </div>
-                        <div class="flex-1 grid grid-cols-3 gap-4 mt-4">
+                        <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
                             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
-                                class="bg-gray-50 p-4 rounded shadow hover:bg-gray-200">
+                                class="relative bg-gray-50 p-4 rounded shadow hover:bg-gray-200 flex flex-col">
                                 <img src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
-                                    class="w-full h-auto rounded" alt="Applicant">
-                                <p class="text-sm text-gray-500 mt-2 font-semibold">Minggu Koperasi</p>
-                                <span class="text-xs text-gray-400">FiveStudio</span>
-                                <div class="flex justify-between items-center mt-4">
-                                    <span class="text-xs text-gray-400">365 views</span>
-                                    <p class="text-xs text-gray-400">8/12/2024</p>
+                                    class="w-full h-auto rounded object-cover" alt="Applicant">
+                                <div class="flex-1">
+                                    <p class="text-sm sm:text-base text-gray-500 mt-2 font-semibold">Minggu Koperasi</p>
+                                    <span class="text-xs sm:text-sm text-gray-400">FiveStudio</span>
+                                </div>
+                                <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center">
+                                    <span class="text-xs sm:text-sm text-gray-400">365 views</span>
+                                    <p class="text-xs sm:text-sm text-gray-400">8/12/2024</p>
                                 </div>
                             </a>
+                        
                             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
-                                class="bg-gray-50 p-4 rounded shadow hover:bg-gray-200">
+                                class="relative bg-gray-50 p-4 rounded shadow hover:bg-gray-200 flex flex-col">
                                 <img src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
-                                    class="w-full h-auto rounded" alt="Applicant">
-                                <p class="text-sm text-gray-500 mt-2 font-semibold">Aturan Pengerakan Masuk</p>
-                                <span class="text-xs text-gray-400">FiveStudio</span>
-                                <div class="flex justify-between items-center mt-4">
-                                    <span class="text-xs text-gray-400">520 views</span>
-                                    <p class="text-xs text-gray-400">1/12/2024</p>
+                                    class="w-full h-auto rounded object-cover" alt="Applicant">
+                                <div class="flex-1">
+                                    <p class="text-sm sm:text-base text-gray-500 mt-2 font-semibold">Aturan Pengerakan Masuk</p>
+                                    <span class="text-xs sm:text-sm text-gray-400">FiveStudio</span>
                                 </div>
-                            </a><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
-                                class="bg-gray-50 p-4 rounded shadow hover:bg-gray-200">
+                                <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center">
+                                    <span class="text-xs sm:text-sm text-gray-400">520 views</span>
+                                    <p class="text-xs sm:text-sm text-gray-400">1/12/2024</p>
+                                </div>
+                            </a>
+                        
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+                                class="relative bg-gray-50 p-4 rounded shadow hover:bg-gray-200 flex flex-col">
                                 <img src="${pageContext.request.contextPath}/assets/thumbnail.jpg"
-                                    class="w-full h-auto rounded" alt="Applicant">
-                                <p class="text-sm text-gray-500 mt-2 font-semibold">Festival TVPSS</p>
-                                <span class="text-xs text-gray-400">FiveStudio</span>
-                                <div class="flex justify-between items-center mt-4">
-                                    <span class="text-xs text-gray-400">1314 views</span>
-                                    <p class="text-xs text-gray-400">24/11/2024</p>
+                                    class="w-full h-auto rounded object-cover" alt="Applicant">
+                                <div class="flex-1">
+                                    <p class="text-sm sm:text-base text-gray-500 mt-2 font-semibold">Festival TVPSS</p>
+                                    <span class="text-xs sm:text-sm text-gray-400">FiveStudio</span>
+                                </div>
+                                <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center">
+                                    <span class="text-xs sm:text-sm text-gray-400">1314 views</span>
+                                    <p class="text-xs sm:text-sm text-gray-400">24/11/2024</p>
                                 </div>
                             </a>
                         </div>
+                        
                     </section>
 
                     <!-- leaderboard by activity -->

@@ -42,7 +42,7 @@
                     </svg>
                 </button>
                 <div id="requestMenu" class="ml-6 hidden">
-                    <a href="/stateAdmin/inventory" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">-
+                    <a href="/stateAdmin/inventory" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded mb-1">-
                         Inventory</a>
                     <a href="/stateAdmin/allocationApproval"
                         class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">- Allocation Approval</a>

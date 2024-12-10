@@ -28,7 +28,7 @@
                 </button>
                 <div id="dashboardMenu" class="ml-6 hidden">
                     <a href="/schoolCoordinator/dashboard"
-                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">-
+                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded mb-1">-
                         Main Dashboard</a>
                     <a href="/schoolCoordinator/activityList"
                         class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">- Activities</a>
@@ -71,7 +71,7 @@
                 </button>
                 <div id="requestMenu" class="ml-6 hidden">
                     <a href="/schoolCoordinator/equipments"
-                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded whitespace-nowrap">- Resource &
+                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded whitespace-nowrap mb-1">- Resource &
                         Equipment</a>
                     <a href="/schoolCoordinator/version"
                         class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">- Version Upgrade</a>
