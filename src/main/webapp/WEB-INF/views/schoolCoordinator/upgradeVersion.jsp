@@ -28,7 +28,7 @@
     <div class="flex-1 px-6 lg:px-10 py-6">
       <!-- Back Button -->
       <div class="mb-4">
-        <a href="javascript:history.back()" 
+        <a href="version" 
            class="inline-flex items-center text-blue-600 font-semibold hover:underline">
           <i class="fas fa-arrow-left mr-2"></i>Back
         </a>

@@ -66,6 +66,15 @@ public class SchoolCoordinatorController {
     }
 
     private final List<EquipmentRequest> equipmentRequests = new ArrayList<>();
+    
+    // Constructor or initializer block to add static data
+    {
+        equipmentRequests.add(0,new EquipmentRequest("Projector", 3, LocalDate.of(2024, 11, 1), LocalDate.of(2024, 11, 5), "High", "A projector for presentations", "Accept"));
+        equipmentRequests.add(0,new EquipmentRequest("Microphone", 5, LocalDate.of(2024, 11, 1), LocalDate.of(2024, 11, 5), "Medium", "Microphones for an event", "Reject"));
+        equipmentRequests.add(0,new EquipmentRequest("Speakers", 4, LocalDate.of(2024, 11, 1), LocalDate.of(2024, 11, 5), "High", "Speakers for sound system", "Reject"));
+        equipmentRequests.add(0,new EquipmentRequest("Sound Mixer", 1, LocalDate.of(2024, 11, 1), LocalDate.of(2024, 11, 5), "Low", "Sound mixer for the audio setup", "Pending"));
+        equipmentRequests.add(0,new EquipmentRequest("Extension Cord", 8, LocalDate.of(2024, 11, 1), LocalDate.of(2024, 11, 5), "Medium", "Extension cords for power supply", "Accept"));
+    }
 
     @RequestMapping("/equipments")
     public ModelAndView requestEquipmentList() {
@@ -93,7 +102,7 @@ public class SchoolCoordinatorController {
                 equipmentName, quantity, requestStartDate, requestEndDate, urgencyLevel, resourceDescription, "Pending");
 
         System.out.println("Submitted Request: " + request);
-        equipmentRequests.add(request);
+        equipmentRequests.add(0,request);
         return "redirect:/schoolCoordinator/equipments";
     }
 

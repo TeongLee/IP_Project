@@ -39,14 +39,11 @@
                     <h3 class="text-4xl font-bold text-gray-700 mt-2">Resource Inventory</h3>
                     <p class="text-gray-600 mt-2 mb-8">Here is your list of resource.</p>
                 </div>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md shadow-md">
-                    <i class="fas fa-plus mr-2"></i>Add New
-                </button>
             </div>
 
-            <!-- Search Bar -->
-            <div class="mb-5">
-                <div class="relative max-w-72">
+            <div class="flex justify-between mb-7">
+                <!-- Search Bar -->
+                <div class="relative max-w-72 flex-1">
                     <input 
                         id="searchInput" 
                         type="text" 
@@ -56,6 +53,10 @@
                     />
                     <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                 </div>
+
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md shadow-md">
+                    <i class="fas fa-plus mr-2"></i>Add New
+                </button>
             </div>
             
             <!-- Table -->
