@@ -142,7 +142,7 @@
                             <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Resource</th>
                             <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Quantity</th>
                             <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Request Date</th>
-                            <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Urgency</th>
+                            <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Priority</th>
                             <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Status</th>
                             <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Action</th>
                         </tr>
@@ -230,9 +230,9 @@
                             <td class="text-center px-6 py-4">2024-12-05</td>
                             <td class="text-center px-6 py-4 text-yellow-500 font-bold">Medium</td>
                             <td class="text-center px-6 py-4 status text-green-600 font-bold">Completed</td>
-                            <td class="px-6 py-4 text-center">
+                            <td class="px-6 py-4 text-center flex">
                                 <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2">View</button>
-                                <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
+                                <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md ">Delete</button>
                             </td>
                         </tr>
                     </tbody>

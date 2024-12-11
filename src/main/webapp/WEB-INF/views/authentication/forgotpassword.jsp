@@ -14,9 +14,9 @@
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/favicon.ico">
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white shadow-lg rounded-lg p-8 w-4/5 lg:w-1/3">
+    <div class="bg-white shadow-lg rounded-lg p-12 w-7/5 lg:w-1/2">
         <div class="text-center mb-6">
-            <img src="${pageContext.request.contextPath}/assets/login1.png" alt="Logo" class="w-16 mx-auto mb-4">
+            <img src="${pageContext.request.contextPath}/assets/login1.png" alt="Logo" class="w-32 mx-auto mb-4">
             <h1 class="text-xl font-bold">Reset Your Password</h1>
             <p class="text-gray-600">Enter your details to reset your password</p>
         </div>

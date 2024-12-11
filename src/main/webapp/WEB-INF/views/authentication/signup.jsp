@@ -12,7 +12,7 @@
         <!-- Sign-Up Form -->
         <div class="w-1/2 p-8">
             <div class="text-center mb-6">
-                <img src="/assets/login1.png" alt="Logo" class="w-16 mx-auto mb-4">
+                <img src="/assets/login1.png" alt="Logo" class="w-32 mx-auto mb-4">
                 <h1 class="text-xl font-bold">CREATE A NEW ACCOUNT</h1>
                 <p class="text-gray-600">Fill in the details to register</p>
             </div>

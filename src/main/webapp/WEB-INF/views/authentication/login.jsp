@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        // Display alert if there is an error
-        function showAlert(message) {
-            alert(message);
-        }
-    </script>
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/favicon.ico">
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
@@ -18,9 +12,9 @@
         <!-- Login Form -->
         <div class="w-1/2 p-8">
             <div class="text-center mb-6">
-                <img src="/assets/login1.png" alt="Logo" class="w-16 mx-auto mb-4">
+                <img src="/assets/login1.png" alt="Logo" class="w-32 mx-auto mb-4">
                 <h1 class="text-xl font-bold">WELCOME TO 123LetsGo TVPSS MANAGEMENT INFORMATION SYSTEM</h1>
-                <p class="text-gray-600">Login into your account</p>
+                <p class="text-gray-600">LogIn into your account</p>
             </div>
 
             <!-- Dynamic Message Section -->
@@ -58,12 +52,5 @@
             <img src="/assets/login2.png" alt="Illustration" class="w-2/3">
         </div>
     </div>
-
-    <%-- Trigger alert if error exists --%>
-    <% if (request.getAttribute("error") != null) { %>
-        <script>
-            showAlert('<%= request.getAttribute("error") %>');
-        </script>
-    <% } %>
 </body>
 </html>
