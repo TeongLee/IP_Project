@@ -65,8 +65,8 @@
                     <div class="flex items-center space-x-4">
                         <!-- Search Bar -->
                         <div class="relative w-[30rem]"> <!-- or you can use w-80, w-[32rem] depends on your needs -->
-                            <input id="searchInput" type="text" onkeyup="searchTable()"
-                                placeholder="Search by Crew Name..."
+                            <input id="searchInput" type="text" oninput="searchTable()"
+                                placeholder="Search by Applicant Name..."
                                 class="w-full px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
                             <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                         </div>
@@ -94,9 +94,9 @@
                                 <td class="px-6 py-4 text-left text-[#1890FF]">AID001</td>
                                 <td class="px-6 py-4 text-left text-gray-700 crew-name">Wah Hah Hah</td>
                                 <td class="px-6 py-4 text-left text-gray-700">Cameraman</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=UQCYVrfG8ZM&ab_channel=TVPSSSKTKK%28KKSTUDIO%29" class="text-blue-600 hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=UQCYVrfG8ZM&ab_channel=TVPSSSKTKK%28KKSTUDIO%29</a></td>
+                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=UQCYVrfG8ZM&ab_channel=TVPSSSKTKK%28KKSTUDIO%29" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=UQCYVrfG8ZM&ab_channel=TVPSSSKTKK%28KKSTUDIO%29</a></td>
                                 <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">View</button>
+                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
                                     <span class="mx-2 text-gray-400">|</span>
                                     <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
                                 </td>
@@ -105,9 +105,9 @@
                                 <td class="px-6 py-4 text-left text-[#1890FF]">AID002</td>
                                 <td class="px-6 py-4 text-left text-gray-700 crew-name">Adeline Chang</td>
                                 <td class="px-6 py-4 text-left text-gray-700">Script Writer</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=jk8ngZ_NLbc&ab_channel=TVPSS%40SKJENJAROM" class="text-blue-600 hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=jk8ngZ_NLbc&ab_channel=TVPSS%40SKJENJAROM</a></td>
+                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=jk8ngZ_NLbc&ab_channel=TVPSS%40SKJENJAROM" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=jk8ngZ_NLbc&ab_channel=TVPSS%40SKJENJAROM</a></td>
                                 <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">View</button>
+                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
                                     <span class="mx-2 text-gray-400">|</span>
                                     <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
                                 </td>
@@ -116,9 +116,9 @@
                                 <td class="px-6 py-4 text-left text-[#1890FF]">AID003</td>
                                 <td class="px-6 py-4 text-left text-gray-700 crew-name">Wong Lei</td>
                                 <td class="px-6 py-4 text-left text-gray-700">Editor</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=6HZc27RCzLE&ab_channel=TVPSSFiveOneStudio" class="text-blue-600 hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=6HZc27RCzLE&ab_channel=TVPSSFiveOneStudio</a></td>
+                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=6HZc27RCzLE&ab_channel=TVPSSFiveOneStudio" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=6HZc27RCzLE&ab_channel=TVPSSFiveOneStudio</a></td>
                                 <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">View</button>
+                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
                                     <span class="mx-2 text-gray-400">|</span>
                                     <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
                                 </td>
@@ -127,9 +127,9 @@
                                 <td class="px-6 py-4 text-left text-[#1890FF]">AID004</td>
                                 <td class="px-6 py-4 text-left text-gray-700 crew-name">Razak Ali</td>
                                 <td class="px-6 py-4 text-left text-gray-700">Actor</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=PYgMqRzHb7c&ab_channel=SeriMakmurProductions" class="text-blue-600 hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=PYgMqRzHb7c&ab_channel=SeriMakmurProductions</a></td>
+                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=PYgMqRzHb7c&ab_channel=SeriMakmurProductions" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=PYgMqRzHb7c&ab_channel=SeriMakmurProductions</a></td>
                                 <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">View</button>
+                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
                                     <span class="mx-2 text-gray-400">|</span>
                                     <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
                                 </td>
@@ -138,9 +138,9 @@
                                 <td class="px-6 py-4 text-left text-[#1890FF]">AID005</td>
                                 <td class="px-6 py-4 text-left text-gray-700 crew-name">Lee Min Ho</td>
                                 <td class="px-6 py-4 text-left text-gray-700">Actor</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=lxa7Cr1kP8k&ab_channel=TVPSSFiveOneStudio" class="text-blue-600 hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=lxa7Cr1kP8k&ab_channel=TVPSSFiveOneStudio</a></td>
+                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=lxa7Cr1kP8k&ab_channel=TVPSSFiveOneStudio" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=lxa7Cr1kP8k&ab_channel=TVPSSFiveOneStudio</a></td>
                                 <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">View</button>
+                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
                                     <span class="mx-2 text-gray-400">|</span>
                                     <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
                                 </td>
@@ -149,9 +149,9 @@
                                 <td class="px-6 py-4 text-left text-[#1890FF]">AID006</td>
                                 <td class="px-6 py-4 text-left text-gray-700 crew-name">Emma Watson</td>
                                 <td class="px-6 py-4 text-left text-gray-700">Actor</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=qgRENr5pUPo&ab_channel=TVPSSSTPK" class="text-blue-600 hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=qgRENr5pUPo&ab_channel=TVPSSSTPK</a></td>
+                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=qgRENr5pUPo&ab_channel=TVPSSSTPK" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=qgRENr5pUPo&ab_channel=TVPSSSTPK</a></td>
                                 <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">View</button>
+                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
                                     <span class="mx-2 text-gray-400">|</span>
                                     <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
                                 </td>
@@ -160,9 +160,9 @@
                                 <td class="px-6 py-4 text-left text-[#1890FF]">AID007</td>
                                 <td class="px-6 py-4 text-left text-gray-700 crew-name">John Smith</td>
                                 <td class="px-6 py-4 text-left text-gray-700">Script Writer</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=jJH2xoPQJtE&ab_channel=TVPSSSEMESTAMANONG" class="text-blue-600 hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=jJH2xoPQJtE&ab_channel=TVPSSSEMESTAMANONG</a></td>
+                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=jJH2xoPQJtE&ab_channel=TVPSSSEMESTAMANONG" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=jJH2xoPQJtE&ab_channel=TVPSSSEMESTAMANONG</a></td>
                                 <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">View</button>
+                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
                                     <span class="mx-2 text-gray-400">|</span>
                                     <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
                                 </td>

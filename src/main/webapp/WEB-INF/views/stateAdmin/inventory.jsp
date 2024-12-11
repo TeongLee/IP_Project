@@ -48,7 +48,7 @@
                     <input 
                         id="searchInput" 
                         type="text" 
-                        onkeyup="searchTable()" 
+                        oninput="searchTable()" 
                         placeholder="Search by Resource Name..." 
                         class="w-full px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />

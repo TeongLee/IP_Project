@@ -74,7 +74,7 @@
                     <input
                         type="text"
                         id="searchInput"
-                        onkeyup="searchEquipment()"
+                        oninput="searchEquipment()"
                         placeholder="Search equipment..."
                         class="border border-gray-300 rounded p-2 w-72"
                     />

@@ -98,7 +98,7 @@
                             type="text" 
                             placeholder="Search by school name..." 
                             class="w-full border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" 
-                            onkeyup="searchSchool()" 
+                            oninput="searchSchool()" 
                         />
                         <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                     </div>
