@@ -22,7 +22,20 @@
                 <h1 class="text-xl font-bold">WELCOME TO 123LetsGo TVPSS MANAGEMENT INFORMATION SYSTEM</h1>
                 <p class="text-gray-600">Login into your account</p>
             </div>
-            <form action="/login" method="POST" class="space-y-4">
+
+            <!-- Dynamic Message Section -->
+            <% if (request.getAttribute("error") != null) { %>
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
+                    <strong>Error:</strong> <%= request.getAttribute("error") %>
+                </div>
+            <% } %>
+            <% if (request.getAttribute("success") != null) { %>
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded mb-4">
+                    <strong>Success:</strong> <%= request.getAttribute("success") %>
+                </div>
+            <% } %>
+
+            <form action="/" method="POST" class="space-y-4">
                 <select name="role" class="block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500" required>
                     <option value="" disabled selected>Select role</option>
                     <option value="stateAdmin">State Admin</option>

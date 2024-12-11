@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.5</version> <!-- Compatible with Tomcat 9 -->
+        <version>2.7.5</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
@@ -17,7 +17,7 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <java.version>17</java.version> <!-- Adjust if using a different Java version -->
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>
@@ -96,7 +96,25 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- JPA API -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
+        </dependency>
 
+        <!-- Spring Boot Starter for Data JPA -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- MySQL Connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>

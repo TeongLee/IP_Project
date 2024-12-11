@@ -16,6 +16,19 @@
                 <h1 class="text-xl font-bold">CREATE A NEW ACCOUNT</h1>
                 <p class="text-gray-600">Fill in the details to register</p>
             </div>
+
+            <!-- Dynamic Message Section -->
+            <% if (request.getAttribute("error") != null) { %>
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
+                    <strong>Error:</strong> <%= request.getAttribute("error") %>
+                </div>
+            <% } %>
+            <% if (request.getAttribute("success") != null) { %>
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded mb-4">
+                    <strong>Success:</strong> <%= request.getAttribute("success") %>
+                </div>
+            <% } %>
+
             <form action="/signup" method="POST" class="space-y-4">
                 <select name="role" class="block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500" required>
                     <option value="" disabled selected>Select role</option>
@@ -36,7 +49,7 @@
         </div>
         <!-- Illustration -->
         <div class="w-1/2 bg-blue-600 hidden lg:flex items-center justify-center">
-            <img src="/assets/login2.png" alt="Illustration" class="w-2/3">
+            <img src="/assets/limbobo.jpg" alt="Illustration" class="w-2/3">
         </div>
     </div>
 </body>
