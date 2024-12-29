@@ -36,14 +36,20 @@
       </nav>
       <!-- Logout -->
       <div class="absolute bottom-4 left-0 px-4 w-full">
-          <a href="/" class="block py-2 px-4 text-red-500 hover:bg-red-100 rounded flex items-center w-full ">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M9 9l3 3m0 0l-3 3m3-3h8m-2-2a2 2 0 100 4" />
-              </svg>
-              Logout
-          </a>
+        <a href="/" 
+            onclick="return confirmLogout()" 
+            class="block py-2 px-4 text-red-500 hover:bg-red-100 rounded flex items-center w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9l3 3m0 0l-3 3m3-3h8m-2-2a2 2 0 100 4" />
+            </svg>
+            Logout
+        </a>
       </div>
   </div>
 </div>
+
+<script>
+    function confirmLogout() {
+        return confirm("Are you sure you want to log out?");
+    }
+</script>
