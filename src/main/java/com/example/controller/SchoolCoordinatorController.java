@@ -1,92 +1,125 @@
 package com.example.controller;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.dao.CrewApplicationDAO;
+import com.example.dao.EquipmentRequestDAO;
+import com.example.model.CrewApplication;
 import com.example.model.EquipmentRequest;
 
 @Controller
 @RequestMapping("/schoolCoordinator")
 public class SchoolCoordinatorController {
 
+    private final EquipmentRequestDAO equipmentRequestDAO;
+    private final CrewApplicationDAO crewApplicationDAO;
+
+    public SchoolCoordinatorController() {
+        this.equipmentRequestDAO = new EquipmentRequestDAO();
+        this.crewApplicationDAO = new CrewApplicationDAO();
+    }
+
     @RequestMapping("/activityList")
     public ModelAndView requestActivityList() {
-        ModelAndView mv = new ModelAndView("schoolCoordinator/activityList");
-        return mv;
+        return new ModelAndView("schoolCoordinator/activityList");
     }
 
     @RequestMapping("/addActivity")
     public ModelAndView requestAddActivity() {
-        ModelAndView mv = new ModelAndView("schoolCoordinator/addActivity");
-        return mv;
+        return new ModelAndView("schoolCoordinator/addActivity");
     }
 
     @RequestMapping("/contentLibrary")
     public ModelAndView requestContentLibrary() {
-        ModelAndView mv = new ModelAndView("schoolCoordinator/contentLibrary");
-        return mv;
+        return new ModelAndView("schoolCoordinator/contentLibrary");
     }
 
     @RequestMapping("/crewApplicationList")
-    public ModelAndView requestCrewApplicationList() {
-        ModelAndView mv = new ModelAndView("schoolCoordinator/crewApplicationList");
-        return mv;
+    public String viewCrewApplications(Model model) {
+        List<CrewApplication> applications = crewApplicationDAO.getPendingApplications();
+        model.addAttribute("crewApplications", applications);
+        return "schoolCoordinator/crewApplicationList";
     }
 
+    @PostMapping("/approveCrewApplication")
+    public String approveCrewApplication(@RequestParam("id") int id) {
+        crewApplicationDAO.updateApplicationStatus(id, "Accepted");
+        return "redirect:/schoolCoordinator/crewApplicationList";
+    }
+
+
+    @PostMapping("/rejectCrewApplication")
+    public String rejectCrewApplication(@RequestParam("id") int id) {
+        crewApplicationDAO.updateApplicationStatus(id, "Rejected");
+        return "redirect:/schoolCoordinator/crewApplicationList";
+    }
+
+
+
     @RequestMapping("/crewList")
-    public ModelAndView requestCrewList() {
-        ModelAndView mv = new ModelAndView("schoolCoordinator/crewList");
-        return mv;
+    public String requestCrewList(Model model) {
+        List<CrewApplication> acceptedApplications = crewApplicationDAO.getAcceptedApplications();
+        model.addAttribute("crewList", acceptedApplications);
+        return "schoolCoordinator/crewList";
+    }
+
+    @PostMapping("/removeCrewMember")
+        public String removeCrewMember(@RequestParam("id") int id) {
+        crewApplicationDAO.updateApplicationStatus(id, "Removed"); // Or handle deletion logic.
+        return "redirect:/schoolCoordinator/crewList";
     }
 
     @RequestMapping("/version")
     public ModelAndView requestVersion() {
-        ModelAndView mv = new ModelAndView("schoolCoordinator/version");
-        return mv;
+        return new ModelAndView("schoolCoordinator/version");
     }
 
     @RequestMapping("/upgradeVersion")
     public ModelAndView requestUpgradeVersion() {
-        ModelAndView mv = new ModelAndView("schoolCoordinator/upgradeVersion");
-        return mv;
+        return new ModelAndView("schoolCoordinator/upgradeVersion");
     }
 
     @RequestMapping("/dashboard")
     public ModelAndView requestSchoolCoordinatorDashboard() {
-        ModelAndView mv = new ModelAndView("schoolCoordinator/schoolCoordinatorDashboard");
-        return mv;
+        return new ModelAndView("schoolCoordinator/schoolCoordinatorDashboard");
     }
 
-    private final List<EquipmentRequest> equipmentRequests = new ArrayList<>();
-    
-    // Constructor or initializer block to add static data
-    {
-        equipmentRequests.add(0,new EquipmentRequest("Projector", 3, LocalDate.of(2024, 11, 1), LocalDate.of(2024, 11, 5), "High", "A projector for presentations", "Accept"));
-        equipmentRequests.add(0,new EquipmentRequest("Microphone", 5, LocalDate.of(2024, 11, 1), LocalDate.of(2024, 11, 5), "Medium", "Microphones for an event", "Reject"));
-        equipmentRequests.add(0,new EquipmentRequest("Speakers", 4, LocalDate.of(2024, 11, 1), LocalDate.of(2024, 11, 5), "High", "Speakers for sound system", "Reject"));
-        equipmentRequests.add(0,new EquipmentRequest("Sound Mixer", 1, LocalDate.of(2024, 11, 1), LocalDate.of(2024, 11, 5), "Low", "Sound mixer for the audio setup", "Pending"));
-        equipmentRequests.add(0,new EquipmentRequest("Extension Cord", 8, LocalDate.of(2024, 11, 1), LocalDate.of(2024, 11, 5), "Medium", "Extension cords for power supply", "Accept"));
+    @GetMapping("/equipments")
+    public String requestEquipmentList(
+            @RequestParam(value = "sort", required = false) String sort,
+            Model model) {
+
+        List<EquipmentRequest> equipmentRequests = equipmentRequestDAO.getAllRequests();
+
+        if ("urgency".equalsIgnoreCase(sort)) {
+            Map<String, Integer> urgencyOrder = Map.of("High", 1, "Medium", 2, "Low", 3);
+            equipmentRequests.sort(Comparator.comparing(req -> urgencyOrder.getOrDefault(req.getUrgencyLevel(), Integer.MAX_VALUE)));
+        } else if ("status".equalsIgnoreCase(sort)) {
+            Map<String, Integer> statusOrder = Map.of("Pending", 1, "Accepted", 2, "Rejected", 3);
+            equipmentRequests.sort(Comparator.comparing(req -> statusOrder.getOrDefault(req.getStatus(), Integer.MAX_VALUE)));
+        }
+
+        model.addAttribute("equipmentRequests", equipmentRequests);
+        model.addAttribute("message", "Equipment list updated successfully!");
+
+        return "schoolCoordinator/equipments";
     }
 
-    @RequestMapping("/equipments")
-    public ModelAndView requestEquipmentList() {
-        ModelAndView mv = new ModelAndView("schoolCoordinator/equipments");
-        mv.addObject("equipmentRequests", equipmentRequests);
-        return mv;
-    }
-
-    @RequestMapping("/requestEquipment")
-    public ModelAndView requestEquipmentForm() {
-        ModelAndView mv = new ModelAndView("schoolCoordinator/requestEquipment");
-        return mv;
+    @GetMapping("/requestEquipment")
+    public String requestEquipmentForm() {
+        return "schoolCoordinator/requestEquipment";
     }
 
     @PostMapping("/submitEquipmentRequest")
@@ -96,14 +129,28 @@ public class SchoolCoordinatorController {
             @RequestParam("requestStartDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate requestStartDate,
             @RequestParam("requestEndDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate requestEndDate,
             @RequestParam("urgencyLevel") String urgencyLevel,
-            @RequestParam("resourceDescription") String resourceDescription) {
+            @RequestParam("resourceDescription") String resourceDescription,
+            Model model) {
 
         EquipmentRequest request = new EquipmentRequest(
-                equipmentName, quantity, requestStartDate, requestEndDate, urgencyLevel, resourceDescription, "Pending");
+                0, // Placeholder for ID
+                equipmentName, 
+                quantity, 
+                requestStartDate, 
+                requestEndDate, 
+                urgencyLevel, 
+                resourceDescription, 
+                "Pending");
 
-        System.out.println("Submitted Request: " + request);
-        equipmentRequests.add(0,request);
+        try {
+            equipmentRequestDAO.addRequest(request);
+            model.addAttribute("success", "Request submitted successfully!");
+        } catch (Exception e) {
+            model.addAttribute("error", "Failed to submit the request.");
+            e.printStackTrace();
+            return "schoolCoordinator/requestEquipment";
+        }
+
         return "redirect:/schoolCoordinator/equipments";
     }
-
 }

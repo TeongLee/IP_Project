@@ -1,76 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resource Allocation Approval</title>
+    <title>Allocation Approval</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <script>
-        // JavaScript for filtering and searching
-        // function filterTable() {
-        //     const searchInput = document.getElementById("searchInput").value.toLowerCase();
-        //     const urgencyFilter = document.getElementById("urgencyFilter").value;
-        //     const statusFilter = document.getElementById("statusFilter").value;
-
-        //     const rows = document.querySelectorAll("tbody tr");
-
-        //     rows.forEach(row => {
-        //         const schoolName = row.querySelector(".school").textContent.toLowerCase();
-        //         const urgency = row.querySelector(".urgency").textContent;
-        //         const status = row.querySelector(".status").textContent;
-
-        //         const matchesSearch = schoolName.includes(searchInput);
-        //         const matchesUrgency = urgencyFilter === "All" || urgency === urgencyFilter;
-        //         const matchesStatus = statusFilter === "All" || status === statusFilter;
-
-        //         if (matchesSearch && matchesUrgency && matchesStatus) {
-        //             row.classList.remove("hidden");
-        //         } else {
-        //             row.classList.add("hidden");
-        //         }
-        //     });
-        // }
- 
-        // Search function
-        function searchSchool() {
-            const filter = document.getElementById("searchInput").value.toLowerCase();
-            const rows = document.querySelectorAll("#requestTable tbody tr");
-
-            rows.forEach(row => {
-                const schoolName = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
-                row.style.display = schoolName.includes(filter) ? "" : "none";
-            });
-        }
-
-        // JavaScript for Modal Popup
-        function openModal(rowData) {
-            document.getElementById("modal").classList.remove("hidden");
-            document.getElementById("modalContent").innerHTML = rowData;
-        }
-
-        function closeModal() {
-            document.getElementById("modal").classList.add("hidden");
-        }
-
-        function approveRequest() {
-            alert('Request Approved!');
-            closeModal();
-        }
-
-        function denyRequest() {
-            alert('Request Denied.');
-            closeModal();
-        }
-
-        // JavaScript for toggling submenus
-        function toggleMenu(menuId) {
-            const menu = document.getElementById(menuId);
-            menu.classList.toggle('hidden');
-        }
-    </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/favicon.ico">
 </head>
 <body class="bg-gray-100 font-sans">
     <div class="flex">
@@ -78,198 +13,88 @@
         <jsp:include page="/WEB-INF/views/common/sidebar/stateAdminSidebar.jsp" />
 
         <!-- Main Content -->
-        <div class="flex-1 p-6 mx-6">
-            <h3 class="text-4xl font-bold text-gray-700 mt-2">Allocation Approval</h3>
-            <p class="text-gray-600 mt-2 mb-10">Review allocation request from schools.</p>
-
-            <!-- Page Header -->
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold text-gray-800">Request List</h1>
-                <button class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-black">Negeri Johor</button>
+        <div class="flex-1 p-6">
+            <div class="mb-8">
+                <h1 class="text-4xl font-bold text-gray-800">Allocation Approval</h1>
+                <p class="text-gray-600 mt-2">Review allocation requests from schools.</p>
             </div>
 
-            <!-- Search and Filter -->
-            <div class="bg-white p-4 rounded-lg shadow-md mb-6">
-                <div class="flex flex-wrap gap-4">
-                    <!-- Search -->
-                    <div class="flex-1 relative">
-                        <input 
-                            id="searchInput" 
-                            type="text" 
-                            placeholder="Search by school name..." 
-                            class="w-full border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" 
-                            oninput="searchSchool()" 
-                        />
-                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
-                    </div>
-
-                    <!-- Urgency Filter -->
-                    <div>
-                        <select 
-                            id="urgencyFilter" 
-                            class="w-full border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" 
-                            onchange="filterTable()"
-                        >
-                            <option value="All">All Urgency Levels</option>
-                            <option value="High">High</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Low">Low</option>
-                        </select>
-                    </div>
-
-                    <!-- Status Filter -->
-                    <div>
-                        <select 
-                            id="statusFilter" 
-                            class="w-full border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" 
-                            onchange="filterTable()"
-                        >
-                            <option value="All">All Status</option>
-                            <option value="Pending">Pending</option>
-                            <option value="Completed">Completed</option>
-                        </select>
-                    </div>
+            <!-- Alerts for Messages -->
+            <c:if test="${not empty error}">
+                <div class="bg-red-100 text-red-700 border border-red-400 p-4 rounded-md mb-6">
+                    <strong>Error:</strong> ${error}
                 </div>
-            </div>
+            </c:if>
+            <c:if test="${not empty message}">
+                <div class="bg-green-100 text-green-700 border border-green-400 p-4 rounded-md mb-6">
+                    <strong>Success:</strong> ${message}
+                </div>
+            </c:if>
 
-            <!-- Table -->
-            <div class="bg-white rounded-lg shadow overflow-x-auto">
-                <table class="min-w-full table-auto border-collapse border border-gray-300" id="requestTable">
-                    <thead class="bg-gray-100">
+            <!-- Table Section -->
+            <div class="bg-white rounded-lg shadow-lg overflow-x-auto">
+                <table class="min-w-full table-auto border-collapse">
+                    <thead class="bg-gray-100 text-gray-600">
                         <tr>
-                            <th class="text-left px-6 py-4 text-gray-600 font-medium border border-gray-300">District</th>
-                            <th class="text-left px-6 py-4 text-gray-600 font-medium border border-gray-300">School</th>
-                            <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Resource</th>
-                            <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Quantity</th>
-                            <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Request Date</th>
-                            <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Urgency</th>
-                            <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Status</th>
-                            <th class=" px-6 py-4 text-gray-600 font-medium border border-gray-300">Action</th>
+                            <th class="px-6 py-3 text-left text-sm font-medium border border-gray-300">ID</th>
+                            <th class="px-6 py-3 text-left text-sm font-medium border border-gray-300">Resource</th>
+                            <th class="px-6 py-3 text-center text-sm font-medium border border-gray-300">Quantity</th>
+                            <th class="px-6 py-3 text-center text-sm font-medium border border-gray-300">Request Date</th>
+                            <th class="px-6 py-3 text-center text-sm font-medium border border-gray-300">Urgency</th>
+                            <th class="px-6 py-3 text-center text-sm font-medium border border-gray-300">Status</th>
+                            <th class="px-6 py-3 text-center text-sm font-medium border border-gray-300">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="hover:bg-gray-50 border-b">
-                            <td class="px-6 py-4">Johor Bahru</td>
-                            <td class="px-6 py-4 school">SMK Taman Mutiara Rini 2</td>
-                            <td class="text-center px-6 py-4">Camera</td>
-                            <td class="text-center px-6 py-4">3</td>
-                            <td class="text-center px-6 py-4">2024-12-01</td>
-                            <td class="text-center px-6 py-4 urgency text-red-600 font-bold">High</td>
-                            <td class="text-center px-6 py-4 status text-yellow-500 font-bold">Pending</td>
-                            <td class="px-6 py-4 text-center">
-                                <button 
-                                    class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2"
-                                    onclick="openModal('\
-                                        <div class=\'text-center border-b border-gray-200 pb-4 mb-6\'>\
-                                            <h2 class=\'font-bold text-3xl text-gray-800\'>Requester Information</h2>\
-                                        </div>\
-                                        <div class=\'grid grid-cols-1 gap-4 sm:grid-cols-2 mb-6\'>\
-                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>District:</span> Johor Bahru</p>\
-                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>School:</span> SMK Taman Mutiara Rini 2</p>\
-                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Requester Name:</span> Puan Rahimah</p>\
-                                        </div>\
-                                        <div class=\'text-left\'>\
-                                            <h3 class=\'font-semibold text-2xl text-gray-800 mb-2\'>Request Details</h3>\
-                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Resource:</span> Camera</p>\
-                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Quantity:</span> 3</p>\
-                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Request Date:</span> 2024-12-01</p>\
-                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Return Date:</span> 2024-12-05</p>\
-                                            <p class=\'text-gray-700 text-lg\'><span class=\'font-medium\'>Urgency:</span> High</p>\
-                                            <p class=\'text-gray-700 text-lg mt-4\'><span class=\'font-medium\'>Description:</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias numquam voluptates quis minima dolorum dignissimos!</p>\
-                                        </div>\
-                                    ')">
-                                    View
-                                </button>
-                                <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 border-b">
-                            <td class="px-6 py-4">Batu Pahat</td>
-                            <td class="px-6 py-4 school">Chua Chu Kang Secondary School</td>
-                            <td class="text-center px-6 py-4">Tripod</td>
-                            <td class="text-center px-6 py-4">5</td>
-                            <td class="text-center px-6 py-4">2024-12-02</td>
-                            <td class="text-center px-6 py-4 urgency text-yellow-500 font-bold">Medium</td>
-                            <td class="text-center px-6 py-4 status text-green-600 font-bold">Completed</td>
-                            <td class="px-6 py-4 text-center">
-                                <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2">View</button>
-                                <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 border-b">
-                            <td class="px-6 py-4">Skudai</td>
-                            <td class="px-6 py-4">SMK Skudai</td>
-                            <td class="text-center px-6 py-4">Speakers</td>
-                            <td class="text-center px-6 py-4">2</td>
-                            <td class="text-center px-6 py-4">2024-12-03</td>
-                            <td class="text-center px-6 py-4 text-green-600 font-bold">Low</td>
-                            <td class="text-center px-6 py-4 status text-green-600 font-bold">Completed</td>
-                            <td class="px-6 py-4 text-center">
-                                <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2">View</button>
-                                <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 border-b">
-                            <td class="px-6 py-4">Pontian</td>
-                            <td class="px-6 py-4">SMK Bandar Pontian</td>
-                            <td class="text-center px-6 py-4">Laptops</td>
-                            <td class="text-center px-6 py-4">8</td>
-                            <td class="text-center px-6 py-4">2024-12-04</td>
-                            <td class="text-center px-6 py-4 text-red-600 font-bold">High</td>
-                            <td class="text-center px-6 py-4 status text-yellow-500 font-bold">Pending</td>
-                            <td class="px-6 py-4 text-center">
-                                <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2">View</button>
-                                <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 border-b">
-                            <td class="px-6 py-4">Kulai</td>
-                            <td class="px-6 py-4">SMK Kulai Besar</td>
-                            <td class="text-center px-6 py-4">Projectors</td>
-                            <td class="text-center px-6 py-4">4</td>
-                            <td class="text-center px-6 py-4">2024-12-05</td>
-                            <td class="text-center px-6 py-4 text-yellow-500 font-bold">Medium</td>
-                            <td class="text-center px-6 py-4 status text-green-600 font-bold">Completed</td>
-                            <td class="px-6 py-4 text-center">
-                                <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md mr-2">View</button>
-                                <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
-                            </td>
-                        </tr>
+                        <c:choose>
+                            <c:when test="${empty equipmentRequests}">
+                                <tr>
+                                    <td colspan="7" class="text-center text-gray-500 py-4">No equipment requests available.</td>
+                                </tr>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach var="request" items="${equipmentRequests}">
+                                    <tr class="hover:bg-gray-50 border-b">
+                                        <td class="px-6 py-4">${request.id}</td>
+                                        <td class="px-6 py-4">${request.equipmentName}</td>
+                                        <td class="px-6 py-4 text-center">${request.quantity}</td>
+                                        <td class="px-6 py-4 text-center">${request.requestStartDate}</td>
+                                        <td class="px-6 py-4 text-center">
+                                            <span class="px-2 py-1 rounded text-sm font-semibold
+                                                ${request.urgencyLevel == 'High' ? 'bg-red-100 text-red-600' : 
+                                                request.urgencyLevel == 'Medium' ? 'bg-yellow-100 text-yellow-600' : 
+                                                'bg-green-100 text-green-600'}">
+                                                ${request.urgencyLevel}
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 text-center">
+                                            <span class="px-2 py-1 rounded text-sm font-semibold
+                                                ${request.status == 'Accepted' ? 'bg-green-100 text-green-600' : 
+                                                request.status == 'Rejected' ? 'bg-red-100 text-red-600' : 
+                                                'bg-yellow-100 text-yellow-600'}">
+                                                ${request.status}
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 text-center">
+                                            <form action="/stateAdmin/approveRequest" method="post" class="inline">
+                                                <input type="hidden" name="id" value="${request.id}" />
+                                                <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md">
+                                                    Approve
+                                                </button>
+                                            </form>
+                                            <form action="/stateAdmin/rejectRequest" method="post" class="inline ml-2">
+                                                <input type="hidden" name="id" value="${request.id}" />
+                                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">
+                                                    Reject
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg p-6 w-4/5 max-w-2xl shadow-lg relative">
-            <!-- Close Button -->
-            <button 
-                class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 focus:outline-none"
-                onclick="closeModal()"
-            >
-                <i class="fas fa-times text-2xl"></i>
-            </button>
-
-            <!-- Modal Content -->
-            <div id="modalContent">
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="mt-6 flex justify-center gap-3 ">
-                <button 
-                    class="bg-green-500 text-white font-medium px-6 py-2 rounded-lg hover:bg-green-600 transition-all"
-                    onclick="approveRequest()"
-                >
-                    Approve
-                </button>
-                <button 
-                    class="bg-red-500 text-white font-medium px-6 py-2 rounded-lg hover:bg-red-600 transition-all"
-                    onclick="denyRequest()"
-                >
-                    Deny
-                </button>
             </div>
         </div>
     </div>

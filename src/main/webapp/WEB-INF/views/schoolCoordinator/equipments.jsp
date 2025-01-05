@@ -18,30 +18,6 @@
                 row.style.display = equipmentName.includes(filter) ? "" : "none";
             });
         }
-
-        // Sorting function
-        function sortTable(columnIndex) {
-            const table = document.getElementById("equipmentTable");
-            const rows = Array.from(table.querySelectorAll("tbody tr"));
-            const isAscending = table.dataset.sortOrder === "asc";
-
-            rows.sort((a, b) => {
-                const cellA = a.cells[columnIndex].textContent.trim();
-                const cellB = b.cells[columnIndex].textContent.trim();
-                return isAscending
-                    ? cellA.localeCompare(cellB)
-                    : cellB.localeCompare(cellA);
-            });
-
-            rows.forEach(row => table.querySelector("tbody").appendChild(row));
-            table.dataset.sortOrder = isAscending ? "desc" : "asc";
-        }
-
-        // JavaScript for toggling submenus
-        function toggleMenu(menuId) {
-            const menu = document.getElementById(menuId);
-            menu.classList.toggle('hidden');
-        }
     </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/favicon.ico">
@@ -80,10 +56,12 @@
                     />
                 </div>
                 <div class="flex gap-4">
-                    <button onclick="" class="bg-gray-200 px-4 py-2 rounded shadow text-sm">
+                    <button onclick="window.location.href='/schoolCoordinator/equipments?sort=urgency'" 
+                            class="bg-gray-200 px-4 py-2 rounded shadow text-sm">
                         Sort by Urgency
                     </button>
-                    <button onclick="sortTable(5)" class="bg-gray-200 px-4 py-2 rounded shadow text-sm">
+                    <button onclick="window.location.href='/schoolCoordinator/equipments?sort=status'" 
+                            class="bg-gray-200 px-4 py-2 rounded shadow text-sm">
                         Sort by Status
                     </button>
                 </div>
@@ -106,19 +84,23 @@
                        <!-- Dynamic Rows -->
                         <c:forEach var="request" items="${equipmentRequests}">
                             <tr class="border-b">
-                                <td class="text-cebn px-6 py-3">${request.equipmentName}</td>
+                                <td class="px-6 py-3">${request.equipmentName}</td>
                                 <td class="text-center px-6 py-3">${request.quantity}</td>
                                 <td class="text-center px-6 py-3">${request.requestStartDate}</td>
                                 <td class="text-center px-6 py-3">${request.requestEndDate}</td>
                                 <td class="text-center px-6 py-3">
                                     <span class="px-2 py-1 rounded font-bold
-                                        ${request.urgencyLevel == 'High' ? 'text-red-500' : request.urgencyLevel == 'Medium' ? 'text-yellow-500' : 'text-green-500'}">
+                                        ${request.urgencyLevel == 'High' ? 'text-red-600 bg-red-100' : 
+                                         request.urgencyLevel == 'Medium' ? 'text-yellow-600 bg-yellow-100' : 
+                                         'text-green-600 bg-green-100'}">
                                         ${request.urgencyLevel}
                                     </span>
                                 </td>
                                 <td class="text-center px-6 py-3">
-                                    <span class="px-2 py-1 rounded text-white 
-                                        ${request.status == 'Accept' ? 'bg-green-500' : request.status == 'Reject' ? 'bg-red-500' : 'bg-yellow-500'}">
+                                    <span class="px-2 py-1 rounded font-bold text-white 
+                                        ${request.status == 'Accepted' ? 'bg-green-500' : 
+                                         request.status == 'Rejected' ? 'bg-red-500' : 
+                                         'bg-yellow-500'}">
                                         ${request.status}
                                     </span>
                                 </td>

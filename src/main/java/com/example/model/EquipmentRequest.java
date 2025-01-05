@@ -3,6 +3,7 @@ package com.example.model;
 import java.time.LocalDate;
 
 public class EquipmentRequest {
+    private int id; // Add this field for mapping the primary key
     private String equipmentName;
     private int quantity;
     private LocalDate requestStartDate;
@@ -16,8 +17,9 @@ public class EquipmentRequest {
     }
 
     // Parameterized Constructor
-    public EquipmentRequest(String equipmentName, int quantity, LocalDate requestStartDate,
+    public EquipmentRequest(int id, String equipmentName, int quantity, LocalDate requestStartDate,
                             LocalDate requestEndDate, String urgencyLevel, String resourceDescription, String status) {
+        this.id = id;
         this.equipmentName = equipmentName;
         this.quantity = quantity;
         this.requestStartDate = requestStartDate;
@@ -27,7 +29,29 @@ public class EquipmentRequest {
         this.status = status;
     }
 
+    // Utility Method for Sorting by Urgency
+    public int getUrgencyLevelOrder() {
+        switch (this.urgencyLevel.toLowerCase()) {
+            case "low":
+                return 1;
+            case "medium":
+                return 2;
+            case "high":
+                return 3;
+            default:
+                return 0; // Undefined urgency
+        }
+    }
+
     // Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getEquipmentName() {
         return equipmentName;
     }
@@ -87,7 +111,8 @@ public class EquipmentRequest {
     @Override
     public String toString() {
         return "EquipmentRequest{" +
-                "equipmentName='" + equipmentName + '\'' +
+                "id=" + id +
+                ", equipmentName='" + equipmentName + '\'' +
                 ", quantity=" + quantity +
                 ", requestStartDate=" + requestStartDate +
                 ", requestEndDate=" + requestEndDate +

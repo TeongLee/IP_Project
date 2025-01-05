@@ -27,31 +27,33 @@
                 School List
             </a>
 
-            <!-- Resource Allocation  -->
+            <!-- Resource Allocation -->
             <div>
                 <button onclick="toggleMenu('requestMenu')"
-                    class="w-full text-left flex items-center justify-between py-2 pl-4 pr-2 text-gray-700 hover:bg-gray-100 rounded my-2">
-                    <span class="flex items-center mr-3">
+                    class="w-full text-left flex items-center justify-between py-2 pl-4 pr-2 text-gray-700 hover:bg-gray-100 rounded my-2 transition-all duration-300">
+                    <span class="flex items-center">
                         <i class="fas fa-tools mr-3"></i>
                         Resource Allocation
                     </span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="requestMenuIcon" class="w-5 h-5 transform transition-transform"
+                        viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd"
                             d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                             clip-rule="evenodd" />
                     </svg>
                 </button>
                 <div id="requestMenu" class="ml-6 hidden">
-                    <a href="/stateAdmin/inventory" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded mb-1">-
-                        Inventory</a>
+                    <a href="/stateAdmin/inventory"
+                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded mb-1">- Inventory</a>
                     <a href="/stateAdmin/allocationApproval"
                         class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">- Allocation Approval</a>
                 </div>
             </div>
         </nav>
+
         <!-- Logout -->
         <div class="absolute bottom-4 left-0 px-4 w-full">
-            <a href="/" class="block py-2 px-4 text-red-500 hover:bg-red-100 rounded flex items-center w-full ">
+            <a href="/" class="block py-2 px-4 text-red-500 hover:bg-red-100 rounded flex items-center w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -62,3 +64,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    function toggleMenu(menuId) {
+        const menu = document.getElementById(menuId);
+        const icon = document.getElementById(menuId + "Icon");
+
+        // Toggle visibility
+        menu.classList.toggle('hidden');
+
+        // Rotate the arrow icon
+        if (menu.classList.contains('hidden')) {
+            icon.classList.remove('rotate-180');
+        } else {
+            icon.classList.add('rotate-180');
+        }
+    }
+</script>

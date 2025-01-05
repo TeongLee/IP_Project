@@ -1,78 +1,75 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crew Application List</title>
+    <title>Crew Applications</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script>
-        // JavaScript for toggling submenus
-        function toggleMenu(menuId) {
-            const menu = document.getElementById(menuId);
-            menu.classList.toggle('hidden');
-        }
+        // Sidebar Expand/Collapse Functionality
+        document.addEventListener("DOMContentLoaded", () => {
+            const subNavToggles = document.querySelectorAll(".subnav-toggle");
+            subNavToggles.forEach(toggle => {
+                toggle.addEventListener("click", () => {
+                    const subNav = toggle.nextElementSibling;
+                    subNav.classList.toggle("hidden");
+                });
+            });
+        });
 
-        // Search functionality
         function searchTable() {
             const input = document.getElementById("searchInput").value.toLowerCase();
             const rows = document.querySelectorAll("#crewTable tbody tr");
 
             rows.forEach(row => {
-                const resourceName = row.querySelector(".crew-name").innerText.toLowerCase();
-                row.style.display = resourceName.includes(input) ? "" : "none";
+                const name = row.querySelector(".crew-name")?.innerText.toLowerCase() || "";
+                row.style.display = name.includes(input) ? "" : "none";
             });
         }
     </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/favicon.ico">
 </head>
 
-<body class="bg-gray-100">
-    <div class="flex min-h-screen">
+<body class="bg-gray-100 font-sans">
+    <div class="flex">
         <!-- Sidebar -->
-        <aside class="w-64">
+        <aside class="w-64 bg-white shadow">
             <jsp:include page="/WEB-INF/views/common/sidebar/schoolCoordinatorSidebar.jsp" />
         </aside>
 
         <!-- Main Content -->
         <div class="flex-1 p-6 mx-6 h-screen">
-
             <!-- Page Header -->
             <div class="flex justify-between items-center">
-                <div class="">
-                    <h3 class="text-4xl font-bold text-gray-700 mt-2">Crew Appication List</h3>
-                    <p class="text-gray-600 mt-2 mb-8">Track and Manage Crew Applications Seamlessly.</p>
+                <div>
+                    <h3 class="text-4xl font-bold text-gray-700 mt-2">Crew Applications</h3>
+                    <p class="text-gray-600 mt-2 mb-8">Manage and track crew applications effectively.</p>
                 </div>
             </div>
 
             <div class="bg-white rounded-2xl p-6 min-h-[80%]">
-                <!-- Tab Navigation and Controls -->
+                <!-- Tabs and Search -->
                 <div class="flex justify-between items-center mb-6">
-                    <!-- Tab Buttons -->
-                    <div class="flex">
-                        <a href="/schoolCoordinator/crewList" id="permanentBtn" onclick="switchTab('permanent')"
-                            class="px-6 py-2 border border-gray-400 text-black hover:bg-gray-300 hover:text-black">
-                            Permanent
+                    <!-- Tabs -->
+                    <div class="flex space-x-2">
+                        <a href="/schoolCoordinator/crewList"
+                            class="px-6 py-2 border border-gray-300 bg-gray-100 text-gray-700 rounded-l-lg hover:bg-gray-200">
+                            Permanent Crew
                         </a>
-                        <button id="pendingBtn" onclick="switchTab('pending')"
-                            class="px-6 py-2 bg-[#1890FF] text-[#1890FF] hover:bg-[#1890FF] text-white">
-                            Pending
-                        </button>
+                        <a href="/schoolCoordinator/crewApplicationList"
+                            class="px-6 py-2 bg-blue-600 text-white rounded-r-lg">
+                            Pending Applications
+                        </a>
                     </div>
 
-                    <!-- Search and Add Button -->
-                    <div class="flex items-center space-x-4">
-                        <!-- Search Bar -->
-                        <div class="relative w-[30rem]"> <!-- or you can use w-80, w-[32rem] depends on your needs -->
-                            <input id="searchInput" type="text" oninput="searchTable()"
-                                placeholder="Search by Applicant Name..."
-                                class="w-full px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                            <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
-                        </div>
-                        <button class="bg-blue-600 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-700">
-                            + Add New
-                        </button>
+                    <!-- Search -->
+                    <div class="relative w-[30rem]">
+                        <input id="searchInput" type="text" oninput="searchTable()" placeholder="Search by Applicant Name..."
+                            class="w-full px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                     </div>
                 </div>
 
@@ -83,91 +80,42 @@
                             <tr>
                                 <th class="px-6 py-4 text-left text-gray-600 font-medium">Application ID</th>
                                 <th class="px-6 py-4 text-left text-gray-600 font-medium crew-name">Applicant Name</th>
-                                <th class="px-6 py-4 text-left text-gray-600 font-medium">Position</th>
+                                <th class="px-6 py-4 text-center text-gray-600 font-medium">Position</th>
                                 <th class="px-6 py-4 text-center text-gray-600 font-medium">Video Link</th>
-                                <th class="px-6 py-4 text-center text-gray-600 font-medium">Action</th>
+                                <th class="px-6 py-4 text-center text-gray-600 font-medium">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-100">
-                            <!-- Table Rows -->
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-left text-[#1890FF]">AID001</td>
-                                <td class="px-6 py-4 text-left text-gray-700 crew-name">Wah Hah Hah</td>
-                                <td class="px-6 py-4 text-left text-gray-700">Cameraman</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=UQCYVrfG8ZM&ab_channel=TVPSSSKTKK%28KKSTUDIO%29" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=UQCYVrfG8ZM&ab_channel=TVPSSSKTKK%28KKSTUDIO%29</a></td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-left text-[#1890FF]">AID002</td>
-                                <td class="px-6 py-4 text-left text-gray-700 crew-name">Adeline Chang</td>
-                                <td class="px-6 py-4 text-left text-gray-700">Script Writer</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=jk8ngZ_NLbc&ab_channel=TVPSS%40SKJENJAROM" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=jk8ngZ_NLbc&ab_channel=TVPSS%40SKJENJAROM</a></td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-left text-[#1890FF]">AID003</td>
-                                <td class="px-6 py-4 text-left text-gray-700 crew-name">Wong Lei</td>
-                                <td class="px-6 py-4 text-left text-gray-700">Editor</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=6HZc27RCzLE&ab_channel=TVPSSFiveOneStudio" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=6HZc27RCzLE&ab_channel=TVPSSFiveOneStudio</a></td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-left text-[#1890FF]">AID004</td>
-                                <td class="px-6 py-4 text-left text-gray-700 crew-name">Razak Ali</td>
-                                <td class="px-6 py-4 text-left text-gray-700">Actor</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=PYgMqRzHb7c&ab_channel=SeriMakmurProductions" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=PYgMqRzHb7c&ab_channel=SeriMakmurProductions</a></td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-left text-[#1890FF]">AID005</td>
-                                <td class="px-6 py-4 text-left text-gray-700 crew-name">Lee Min Ho</td>
-                                <td class="px-6 py-4 text-left text-gray-700">Actor</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=lxa7Cr1kP8k&ab_channel=TVPSSFiveOneStudio" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=lxa7Cr1kP8k&ab_channel=TVPSSFiveOneStudio</a></td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-left text-[#1890FF]">AID006</td>
-                                <td class="px-6 py-4 text-left text-gray-700 crew-name">Emma Watson</td>
-                                <td class="px-6 py-4 text-left text-gray-700">Actor</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=qgRENr5pUPo&ab_channel=TVPSSSTPK" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=qgRENr5pUPo&ab_channel=TVPSSSTPK</a></td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-left text-[#1890FF]">AID007</td>
-                                <td class="px-6 py-4 text-left text-gray-700 crew-name">John Smith</td>
-                                <td class="px-6 py-4 text-left text-gray-700">Script Writer</td>
-                                <td class="px-6 py-4 text-left text-gray-700"><a href="https://www.youtube.com/watch?v=jJH2xoPQJtE&ab_channel=TVPSSSEMESTAMANONG" class="text-[#1890FF] hover:underline font-medium" target="_blank">https://www.youtube.com/watch?v=jJH2xoPQJtE&ab_channel=TVPSSSEMESTAMANONG</a></td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            
+                        <tbody>
+                            <c:choose>
+                                <c:when test="${empty crewApplications}">
+                                    <tr>
+                                        <td colspan="5" class="text-center text-gray-500 py-4">No applications available.</td>
+                                    </tr>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:forEach var="application" items="${crewApplications}">
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-6 py-4 text-gray-600">${application.id}</td>
+                                            <td class="px-6 py-4 text-gray-700 crew-name">${application.name}</td>
+                                            <td class="px-6 py-4 text-center text-gray-700">${application.position}</td>
+                                            <td class="px-6 py-4 text-center text-blue-500">
+                                                <a href="${application.videoLink}" target="_blank" class="hover:underline">View Video</a>
+                                            </td>
+                                            <td class="px-6 py-4 text-center">
+                                                <form action="/schoolCoordinator/approveCrewApplication" method="post" style="display:inline;">
+                                                    <input type="hidden" name="id" value="${application.id}" />
+                                                    <button type="submit" class="text-green-600 hover:text-green-800 font-medium">Approve</button>
+                                                </form>
+                                                <span class="mx-2 text-gray-400">|</span>
+                                                <form action="/schoolCoordinator/rejectCrewApplication" method="post" style="display:inline;">
+                                                    <input type="hidden" name="id" value="${application.id}" />
+                                                    <button type="submit" class="text-red-600 hover:text-red-800 font-medium">Reject</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
                         </tbody>
                     </table>
                 </div>
