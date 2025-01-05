@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.CrewApplicationDAO;
 import com.example.dao.EquipmentRequestDAO;
@@ -26,80 +25,91 @@ public class SchoolCoordinatorController {
     private final EquipmentRequestDAO equipmentRequestDAO;
     private final CrewApplicationDAO crewApplicationDAO;
 
+    public static final String STATUS_PENDING = "Pending";
+    public static final String STATUS_ACCEPTED = "Accepted";
+    public static final String STATUS_REJECTED = "Rejected";
+    public static final String STATUS_REMOVED = "Removed";
+
     public SchoolCoordinatorController() {
         this.equipmentRequestDAO = new EquipmentRequestDAO();
         this.crewApplicationDAO = new CrewApplicationDAO();
     }
 
-    @RequestMapping("/activityList")
-    public ModelAndView requestActivityList() {
-        return new ModelAndView("schoolCoordinator/activityList");
-    }
-
-    @RequestMapping("/addActivity")
-    public ModelAndView requestAddActivity() {
-        return new ModelAndView("schoolCoordinator/addActivity");
-    }
-
-    @RequestMapping("/contentLibrary")
-    public ModelAndView requestContentLibrary() {
-        return new ModelAndView("schoolCoordinator/contentLibrary");
-    }
-
-    @RequestMapping("/crewApplicationList")
-    public String viewCrewApplications(Model model) {
-        List<CrewApplication> applications = crewApplicationDAO.getPendingApplications();
-        model.addAttribute("crewApplications", applications);
-        return "schoolCoordinator/crewApplicationList";
-    }
-
-    @PostMapping("/approveCrewApplication")
-    public String approveCrewApplication(@RequestParam("id") int id) {
-        crewApplicationDAO.updateApplicationStatus(id, "Accepted");
-        return "redirect:/schoolCoordinator/crewApplicationList";
-    }
-
-
-    @PostMapping("/rejectCrewApplication")
-    public String rejectCrewApplication(@RequestParam("id") int id) {
-        crewApplicationDAO.updateApplicationStatus(id, "Rejected");
-        return "redirect:/schoolCoordinator/crewApplicationList";
-    }
-
-
-
     @RequestMapping("/crewList")
     public String requestCrewList(Model model) {
+        model.addAttribute("page", "crewList");
         List<CrewApplication> acceptedApplications = crewApplicationDAO.getAcceptedApplications();
         model.addAttribute("crewList", acceptedApplications);
         return "schoolCoordinator/crewList";
     }
+    
+    @RequestMapping("/crewApplicationList")
+    public String viewCrewApplications(Model model) {
+        model.addAttribute("page", "crewApplicationList");
+        List<CrewApplication> applications = crewApplicationDAO.getPendingApplications();
+        model.addAttribute("crewApplications", applications);
+        return "schoolCoordinator/crewApplicationList";
+    }
+    
+    
 
+    // Approve Crew Application
+    @PostMapping("/approveCrewApplication")
+    public String approveCrewApplication(@RequestParam("id") int id) {
+        crewApplicationDAO.updateApplicationStatus(id, STATUS_ACCEPTED);
+        return "redirect:/schoolCoordinator/crewApplicationList";
+    }
+
+    // Reject Crew Application
+    @PostMapping("/rejectCrewApplication")
+    public String rejectCrewApplication(@RequestParam("id") int id) {
+        crewApplicationDAO.updateApplicationStatus(id, STATUS_REJECTED);
+        return "redirect:/schoolCoordinator/crewApplicationList";
+    }
+    
+
+    // Remove Crew Member
     @PostMapping("/removeCrewMember")
-        public String removeCrewMember(@RequestParam("id") int id) {
-        crewApplicationDAO.updateApplicationStatus(id, "Removed"); // Or handle deletion logic.
+    public String removeCrewMember(@RequestParam("id") int id) {
+        crewApplicationDAO.updateApplicationStatus(id, STATUS_REMOVED);
         return "redirect:/schoolCoordinator/crewList";
     }
 
-    @RequestMapping("/version")
-    public ModelAndView requestVersion() {
-        return new ModelAndView("schoolCoordinator/version");
+    // View Activity List
+    @RequestMapping("/activityList")
+    public String requestActivityList(Model model) {
+        model.addAttribute("page", "activityList");
+        return "schoolCoordinator/activityList";
     }
 
-    @RequestMapping("/upgradeVersion")
-    public ModelAndView requestUpgradeVersion() {
-        return new ModelAndView("schoolCoordinator/upgradeVersion");
+    // Add Activity
+    @RequestMapping("/addActivity")
+    public String requestAddActivity(Model model) {
+        model.addAttribute("page", "addActivity");
+        return "schoolCoordinator/addActivity";
     }
 
+    // View Content Library
+    @RequestMapping("/contentLibrary")
+    public String requestContentLibrary(Model model) {
+        model.addAttribute("page", "contentLibrary");
+        return "schoolCoordinator/contentLibrary";
+    }
+
+    // Dashboard
     @RequestMapping("/dashboard")
-    public ModelAndView requestSchoolCoordinatorDashboard() {
-        return new ModelAndView("schoolCoordinator/schoolCoordinatorDashboard");
+    public String requestSchoolCoordinatorDashboard(Model model) {
+        model.addAttribute("page", "dashboard");
+        return "schoolCoordinator/schoolCoordinatorDashboard";
     }
 
+    // Equipment List with Sorting
     @GetMapping("/equipments")
     public String requestEquipmentList(
             @RequestParam(value = "sort", required = false) String sort,
             Model model) {
+
+        model.addAttribute("page", "equipments");
 
         List<EquipmentRequest> equipmentRequests = equipmentRequestDAO.getAllRequests();
 
@@ -112,16 +122,17 @@ public class SchoolCoordinatorController {
         }
 
         model.addAttribute("equipmentRequests", equipmentRequests);
-        model.addAttribute("message", "Equipment list updated successfully!");
-
         return "schoolCoordinator/equipments";
     }
 
+    // Request Equipment Form
     @GetMapping("/requestEquipment")
-    public String requestEquipmentForm() {
+    public String requestEquipmentForm(Model model) {
+        model.addAttribute("page", "requestEquipment");
         return "schoolCoordinator/requestEquipment";
     }
 
+    // Submit Equipment Request
     @PostMapping("/submitEquipmentRequest")
     public String submitEquipmentRequest(
             @RequestParam("equipmentName") String equipmentName,
@@ -134,13 +145,13 @@ public class SchoolCoordinatorController {
 
         EquipmentRequest request = new EquipmentRequest(
                 0, // Placeholder for ID
-                equipmentName, 
-                quantity, 
-                requestStartDate, 
-                requestEndDate, 
-                urgencyLevel, 
-                resourceDescription, 
-                "Pending");
+                equipmentName,
+                quantity,
+                requestStartDate,
+                requestEndDate,
+                urgencyLevel,
+                resourceDescription,
+                STATUS_PENDING);
 
         try {
             equipmentRequestDAO.addRequest(request);
@@ -152,5 +163,19 @@ public class SchoolCoordinatorController {
         }
 
         return "redirect:/schoolCoordinator/equipments";
+    }
+
+    // View Version Page
+    @RequestMapping("/version")
+    public String requestVersion(Model model) {
+        model.addAttribute("page", "version");
+        return "schoolCoordinator/version";
+    }
+
+    // Upgrade Version Page
+    @RequestMapping("/upgradeVersion")
+    public String requestUpgradeVersion(Model model) {
+        model.addAttribute("page", "upgradeVersion");
+        return "schoolCoordinator/upgradeVersion";
     }
 }
