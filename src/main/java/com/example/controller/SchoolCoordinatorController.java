@@ -103,16 +103,15 @@ public class SchoolCoordinatorController {
         return "schoolCoordinator/schoolCoordinatorDashboard";
     }
 
-    // Equipment List with Sorting
     @GetMapping("/equipments")
     public String requestEquipmentList(
             @RequestParam(value = "sort", required = false) String sort,
             Model model) {
-
-        model.addAttribute("page", "equipments");
-
+    
+        model.addAttribute("page", "equipments"); // This is important
         List<EquipmentRequest> equipmentRequests = equipmentRequestDAO.getAllRequests();
-
+    
+        // Sorting logic
         if ("urgency".equalsIgnoreCase(sort)) {
             Map<String, Integer> urgencyOrder = Map.of("High", 1, "Medium", 2, "Low", 3);
             equipmentRequests.sort(Comparator.comparing(req -> urgencyOrder.getOrDefault(req.getUrgencyLevel(), Integer.MAX_VALUE)));
@@ -120,10 +119,11 @@ public class SchoolCoordinatorController {
             Map<String, Integer> statusOrder = Map.of("Pending", 1, "Accepted", 2, "Rejected", 3);
             equipmentRequests.sort(Comparator.comparing(req -> statusOrder.getOrDefault(req.getStatus(), Integer.MAX_VALUE)));
         }
-
+    
         model.addAttribute("equipmentRequests", equipmentRequests);
         return "schoolCoordinator/equipments";
     }
+    
 
     // Request Equipment Form
     @GetMapping("/requestEquipment")

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/favicon.ico">
     <script>
-        // JavaScript for toggling submenus
         function toggleMenu(menuId) {
             const menu = document.getElementById(menuId);
             menu.classList.toggle('hidden');
@@ -36,11 +36,23 @@
 
             <!-- Page Header -->
             <div class="flex justify-between items-center mb-2">
-                <div class="">
+                <div>
                     <h3 class="text-4xl font-bold text-gray-700 mt-2">Resource Inventory</h3>
-                    <p class="text-gray-600 mt-2 mb-8">Here is your list of resource.</p>
+                    <p class="text-gray-600 mt-2 mb-8">Here is your list of resources.</p>
                 </div>
             </div>
+
+            <!-- Notification Messages -->
+            <c:if test="${not empty error}">
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+                    <p>${error}</p>
+                </div>
+            </c:if>
+            <c:if test="${not empty success}">
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+                    <p>${success}</p>
+                </div>
+            </c:if>
 
             <div class="flex justify-between mb-7">
                 <!-- Search Bar -->
@@ -55,9 +67,9 @@
                     <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                 </div>
 
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md shadow-md">
+                <a href="/stateAdmin/addResourceForm" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md shadow-md">
                     <i class="fas fa-plus mr-2"></i>Add New
-                </button>
+                </a>
             </div>
             
             <!-- Table -->
@@ -74,89 +86,31 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
-                        <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 text-gray-700 text-center">01</td>
-                            <td class="px-6 py-4 text-gray-700 resource-name">Projector</td>
-                            <td class="px-6 py-4 text-gray-700">EQP-001</td>
-                            <td class="px-6 py-4 text-gray-700 text-center">3</td>
-                            <td class="px-6 py-4 text-gray-700 text-center">3</td>
-                            <td class="px-6 py-4 text-center">
-                                <button class="text-blue-600 hover:text-blue-800 font-medium">Update</button>
-                                <span class="mx-2 text-gray-400">|</span>
-                                <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 text-gray-700 text-center">02</td>
-                            <td class="px-6 py-4 text-gray-700 resource-name">Microphone</td>
-                            <td class="px-6 py-4 text-gray-700">EQP-002</td>
-                            <td class="px-6 py-4 text-gray-700 text-center">5</td>
-                            <td class="px-6 py-4 text-gray-700 text-center">3</td>
-                            <td class="px-6 py-4 text-center">
-                                <button class="text-blue-600 hover:text-blue-800 font-medium">Update</button>
-                                <span class="mx-2 text-gray-400">|</span>
-                                <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 text-gray-700 text-center">03</td>
-                            <td class="px-6 py-4 text-gray-700 resource-name">Speakers</td>
-                            <td class="px-6 py-4 text-gray-700">EQP-003</td>
-                            <td class="px-6 py-4 text-gray-700 text-center">2</td>
-                            <td class="px-6 py-4 text-gray-700 text-center">3</td>
-                            <td class="px-6 py-4 text-center">
-                                <button class="text-blue-600 hover:text-blue-800 font-medium">Update</button>
-                                <span class="mx-2 text-gray-400">|</span>
-                                <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 text-gray-700 text-center">04</td>
-                            <td class="px-6 py-4 text-gray-700 resource-name">Laptop</td>
-                            <td class="px-6 py-4 text-gray-700">EQP-004</td>
-                            <td class="px-6 py-4 text-gray-700 text-center">4</td>
-                            <td class="px-6 py-4 text-gray-700 text-center">3</td>
-                            <td class="px-6 py-4 text-center">
-                                <button class="text-blue-600 hover:text-blue-800 font-medium">Update</button>
-                                <span class="mx-2 text-gray-400">|</span>
-                                <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 text-gray-700 text-center">05</td>
-                            <td class="px-6 py-4 text-gray-700 resource-name">HDMI Cable</td>
-                            <td class="px-6 py-4 text-gray-700">EQP-005</td>
-                            <td class="px-6 py-4 text-gray-700 text-center">10</td>
-                            <td class="px-6 py-4 text-gray-700 text-center">3</td>
-                            <td class="px-6 py-4 text-center">
-                                <button class="text-blue-600 hover:text-blue-800 font-medium">Update</button>
-                                <span class="mx-2 text-gray-400">|</span>
-                                <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                            </td>
-                        </tr>
+                        <c:forEach var="resource" items="${resources}">
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 text-gray-700 text-center">${resource.id}</td>
+                                <td class="px-6 py-4 text-gray-700 resource-name">${resource.resourceName}</td>
+                                <td class="px-6 py-4 text-gray-700">${resource.resourceCode}</td>
+                                <td class="px-6 py-4 text-gray-700 text-center">${resource.totalQuantity}</td>
+                                <td class="px-6 py-4 text-gray-700 text-center">${resource.availableQuantity}</td>
+                                <td class="px-6 py-4 text-center">
+                                    <form action="/stateAdmin/updateResourceForm" method="get" style="display:inline;">
+                                        <input type="hidden" name="id" value="${resource.id}">
+                                        <button type="submit" class="text-blue-600 hover:text-blue-800 font-medium">Update</button>
+                                    </form>
+                                    <span class="mx-2 text-gray-400">|</span>
+                                    <form action="/stateAdmin/deleteResource" method="post" style="display:inline;">
+                                        <input type="hidden" name="id" value="${resource.id}">
+                                        <button type="submit" class="text-red-600 hover:text-red-800 font-medium">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>
-            
-
-            <!-- Pagination
-            <div class="flex justify-between items-center mt-6">
-                <div class="text-gray-600 text-sm">
-                    Displaying <select class="border-gray-300 rounded-md shadow-sm">
-                        <option>10 items</option>
-                        <option>20 items</option>
-                        <option>50 items</option>
-                    </select>
-                </div>
-                <div class="flex space-x-2">
-                    <button class="px-3 py-1 rounded-md bg-gray-200 hover:bg-gray-300 text-gray-600">&lt;</button>
-                    <button class="px-3 py-1 rounded-md bg-blue-600 text-white font-medium">1</button>
-                    <button class="px-3 py-1 rounded-md bg-gray-200 hover:bg-gray-300 text-gray-600">2</button>
-                    <button class="px-3 py-1 rounded-md bg-gray-200 hover:bg-gray-300 text-gray-600">3</button>
-                    <button class="px-3 py-1 rounded-md bg-gray-200 hover:bg-gray-300 text-gray-600">&gt;</button>
-                </div>
-            </div> -->
         </div>
     </div>
 </body>
+
 </html>

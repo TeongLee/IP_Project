@@ -3,7 +3,7 @@ package com.example.model;
 import java.time.LocalDate;
 
 public class EquipmentRequest {
-    private int id; // Add this field for mapping the primary key
+    private int id;
     private String equipmentName;
     private int quantity;
     private LocalDate requestStartDate;
@@ -11,12 +11,27 @@ public class EquipmentRequest {
     private String urgencyLevel;
     private String resourceDescription;
     private String status;
+    private int resourceId; // New field
 
     // Default Constructor
     public EquipmentRequest() {
     }
 
-    // Parameterized Constructor
+    // Constructor with all fields (including resourceId)
+    public EquipmentRequest(int id, String equipmentName, int quantity, LocalDate requestStartDate,
+                            LocalDate requestEndDate, String urgencyLevel, String resourceDescription, String status, int resourceId) {
+        this.id = id;
+        this.equipmentName = equipmentName;
+        this.quantity = quantity;
+        this.requestStartDate = requestStartDate;
+        this.requestEndDate = requestEndDate;
+        this.urgencyLevel = urgencyLevel;
+        this.resourceDescription = resourceDescription;
+        this.status = status;
+        this.resourceId = resourceId;
+    }
+
+    // Constructor without resourceId (optional)
     public EquipmentRequest(int id, String equipmentName, int quantity, LocalDate requestStartDate,
                             LocalDate requestEndDate, String urgencyLevel, String resourceDescription, String status) {
         this.id = id;
@@ -27,20 +42,6 @@ public class EquipmentRequest {
         this.urgencyLevel = urgencyLevel;
         this.resourceDescription = resourceDescription;
         this.status = status;
-    }
-
-    // Utility Method for Sorting by Urgency
-    public int getUrgencyLevelOrder() {
-        switch (this.urgencyLevel.toLowerCase()) {
-            case "low":
-                return 1;
-            case "medium":
-                return 2;
-            case "high":
-                return 3;
-            default:
-                return 0; // Undefined urgency
-        }
     }
 
     // Getters and Setters
@@ -108,17 +109,21 @@ public class EquipmentRequest {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "EquipmentRequest{" +
-                "id=" + id +
-                ", equipmentName='" + equipmentName + '\'' +
-                ", quantity=" + quantity +
-                ", requestStartDate=" + requestStartDate +
-                ", requestEndDate=" + requestEndDate +
-                ", urgencyLevel='" + urgencyLevel + '\'' +
-                ", resourceDescription='" + resourceDescription + '\'' +
-                ", status='" + status + '\'' +
-                '}';
+    public int getResourceId() {
+        return resourceId;
     }
+
+    public void setResourceId(int resourceId) {
+        this.resourceId = resourceId;
+    }
+
+    public int getUrgencyLevelOrder() {
+        switch (urgencyLevel.toLowerCase()) {
+            case "low": return 1;
+            case "medium": return 2;
+            case "high": return 3;
+            default: return 0; // Default or undefined urgency
+        }
+    }
+    
 }

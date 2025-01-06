@@ -15,9 +15,10 @@
             <!-- Dashboard -->
             <div>
                 <button onclick="toggleMenu('dashboardMenu')"
-                    class="w-full text-left flex items-center justify-between py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">
+                    class="w-full text-left flex items-center justify-between py-2 px-4 text-gray-700 hover:bg-gray-100 rounded <c:if test='${page == "dashboard" || page == "activityList"}'>bg-gray-100</c:if>">
                     <span class="flex items-center">
-                        <i class="fas fa-home mr-3"></i> Dashboard
+                        <i class="fas fa-home mr-3"></i>
+                        Dashboard
                     </span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd"
@@ -25,42 +26,44 @@
                             clip-rule="evenodd" />
                     </svg>
                 </button>
-                <div id="dashboardMenu" class="ml-6 <c:if test='${page == "dashboard" || page == "activityList"}'>block</c:if> hidden">
+                <div id="dashboardMenu" class="ml-6 <c:if test='${page == "dashboard" || page == "activityList"}'>block</c:if><c:if test='${page != "dashboard" && page != "activityList"}'>hidden</c:if>">
                     <a href="/schoolCoordinator/dashboard"
-                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded mb-1 <c:if test='${page == "dashboard"}'>bg-gray-100</c:if>">
-                        - Main Dashboard
-                    </a>
+                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded mb-1 <c:if test='${page == "dashboard"}'>bg-gray-100</c:if>">-
+                        Main Dashboard</a>
                     <a href="/schoolCoordinator/activityList"
-                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded <c:if test='${page == "activityList"}'>bg-gray-100</c:if>">
-                        - Activity List
-                    </a>
+                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded <c:if test='${page == "activityList"}'>bg-gray-100</c:if>">-
+                        Activity List</a>
                 </div>
             </div>
 
             <!-- Crew List -->
             <a href="/schoolCoordinator/crewList"
                 class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded flex items-center my-2 <c:if test='${page == "crewList"}'>bg-gray-100</c:if>">
-                <i class="fas fa-users mr-3"></i> Crew List
+                <i class="fas fa-users mr-3"></i>
+                Crew List
             </a>
 
             <!-- Crew Application List -->
             <a href="/schoolCoordinator/crewApplicationList"
                 class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded flex items-center my-2 <c:if test='${page == "crewApplicationList"}'>bg-gray-100</c:if>">
-                <i class="fas fa-clipboard mr-3"></i> Crew Application List
+                <i class="fas fa-clipboard mr-3 ml-1"></i>
+                Crew Application List
             </a>
 
             <!-- Content Library -->
             <a href="/schoolCoordinator/contentLibrary"
                 class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded flex items-center my-2 <c:if test='${page == "contentLibrary"}'>bg-gray-100</c:if>">
-                <i class="fas fa-video mr-3"></i> Content Library
+                <i class="fas fa-solid fa-video mr-3"></i>
+                Content Library
             </a>
 
             <!-- Request Tracking -->
             <div>
                 <button onclick="toggleMenu('requestMenu')"
-                    class="w-full text-left flex items-center justify-between py-2 px-4 text-gray-700 hover:bg-gray-100 rounded my-2">
+                    class="w-full text-left flex items-center justify-between py-2 px-4 text-gray-700 hover:bg-gray-100 rounded my-2 <c:if test='${page == "equipments" || page == "version"}'>bg-gray-100</c:if>">
                     <span class="flex items-center">
-                        <i class="fas fa-tools mr-3"></i> Request Tracking
+                        <i class="fas fa-tools mr-3"></i>
+                        Request Tracking
                     </span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd"
@@ -68,15 +71,13 @@
                             clip-rule="evenodd" />
                     </svg>
                 </button>
-                <div id="requestMenu" class="ml-6 <c:if test='${page == "equipments" || page == "version"}'>block</c:if> hidden">
+                <div id="requestMenu" class="ml-6 <c:if test='${page == "equipments" || page == "version"}'>block</c:if><c:if test='${page != "equipments" && page != "version"}'>hidden</c:if>">
                     <a href="/schoolCoordinator/equipments"
-                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded mb-1 <c:if test='${page == "equipments"}'>bg-gray-100</c:if>">
-                        - Resource & Equipment
-                    </a>
+                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded whitespace-nowrap mb-1 <c:if test='${page == "equipments"}'>bg-gray-100</c:if>">-
+                        Resource & Equipment</a>
                     <a href="/schoolCoordinator/version"
-                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded <c:if test='${page == "version"}'>bg-gray-100</c:if>">
-                        - Version Upgrade
-                    </a>
+                        class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded <c:if test='${page == "version"}'>bg-gray-100</c:if>">-
+                        Version Upgrade</a>
                 </div>
             </div>
         </nav>

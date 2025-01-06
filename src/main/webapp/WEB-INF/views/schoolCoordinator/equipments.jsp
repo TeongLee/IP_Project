@@ -111,5 +111,15 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+    </script>
+    
 </body>
 </html>
