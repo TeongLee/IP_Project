@@ -7,15 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Library</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/favicon.ico">
 </head>
 <body class="bg-gray-100 text-gray-800">
-    <header class="bg-blue-500 text-white py-4">
-        <div class="container mx-auto">
-            <h1 class="text-2xl font-bold">Content Library</h1>
-        </div>
-    </header>
+  <div class="flex">
+    <aside class="w-64">
+      <jsp:include page="/WEB-INF/views/common/sidebar/schoolCoordinatorSidebar.jsp" />
+    </aside>
 
-    <main class="container mx-auto mt-6">
+    <div class="flex flex-col w-full">
+      <div class="flex justify-between items-center px-8 pt-5">
+        <div>
+            <h3 class="text-4xl font-bold text-gray-700 mt-2">Content Library</h3>
+            <p class="text-gray-600 mt-2 mb-8">Manage and track video content effectively.</p>
+        </div>
+    </div>
+
+    <main class="container mx-auto mt-6 px-5">
         <!-- Alert Messages -->
         <c:if test="${not empty success}">
             <div class="bg-green-100 text-green-700 p-4 mb-4 rounded-md">
@@ -64,8 +73,9 @@
                 </tbody>
             </table>
         </div>
-    </main>
-
+    </main></div>
+    
+  </div>
 
 </body>
 </html>

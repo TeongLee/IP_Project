@@ -36,7 +36,7 @@ public class ContentDAO {
     }
 
     public List<Content> getAllContent() {
-        String sql = "SELECT * FROM content_library ORDER BY id DESC";
+        String sql = "SELECT * FROM content_library ORDER BY id";
         try {
             List<Content> contentList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Content.class));
             System.out.println("DAO Retrieved Content: " + contentList); // Debug log
@@ -48,7 +48,7 @@ public class ContentDAO {
         }
     }
     
-    
+
     
     //deleteContentById
     public void deleteContentById(int id) {

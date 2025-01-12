@@ -46,3 +46,20 @@
     </a>
   </nav>
 </div>
+
+<script>
+  function toggleMenu(menuId) {
+      const menu = document.getElementById(menuId);
+      const icon = document.getElementById(menuId + "Icon");
+
+      // Toggle visibility
+      menu.classList.toggle('hidden');
+
+      // Rotate the arrow icon
+      if (menu.classList.contains('hidden')) {
+          icon.classList.remove('rotate-180');
+      } else {
+          icon.classList.add('rotate-180');
+      }
+  }
+</script>

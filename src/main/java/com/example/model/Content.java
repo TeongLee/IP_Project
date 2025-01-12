@@ -10,6 +10,9 @@ public class Content {
     private String uploadedBy;
     private LocalDate recordingDate;
 
+    // Default Constructor
+    public Content() {}
+
     // Constructor
     public Content(String title, String description, String videoLink, String uploadedBy, LocalDate recordingDate) {
         this.title = title;
