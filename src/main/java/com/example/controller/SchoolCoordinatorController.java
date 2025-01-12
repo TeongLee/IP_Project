@@ -12,14 +12,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.dao.ActivityListDAO;
+import com.example.dao.ContentDAO;
 import com.example.dao.CrewApplicationDAO;
 import com.example.dao.EquipmentRequestDAO;
-import com.example.dao.InventoryDAO;
 import com.example.dao.VersionUpdateRequestDAO;
 import com.example.model.Activity;
-import com.example.model.ActivityCrew;
+import com.example.model.Content;
 import com.example.model.CrewApplication;
 import com.example.model.EquipmentRequest;
 import com.example.model.VersionUpdateRequest;
@@ -31,10 +32,9 @@ public class SchoolCoordinatorController {
 
     private final EquipmentRequestDAO equipmentRequestDAO;
     private final CrewApplicationDAO crewApplicationDAO;
-    private final InventoryDAO inventoryDAO;
     private final VersionUpdateRequestDAO versionUpdateRequestDAO;
     private final ActivityListDAO activityListDAO;
-    private final ActivityCrew activityCrew;
+    private final ContentDAO contentDAO;
 
     public static final String STATUS_PENDING = "Pending";
     public static final String STATUS_ACCEPTED = "Accepted";
@@ -44,10 +44,9 @@ public class SchoolCoordinatorController {
     public SchoolCoordinatorController() {
         this.equipmentRequestDAO = new EquipmentRequestDAO();
         this.crewApplicationDAO = new CrewApplicationDAO();
-        this.inventoryDAO = new InventoryDAO();
         this.versionUpdateRequestDAO = new VersionUpdateRequestDAO();
         this.activityListDAO = new ActivityListDAO();
-        this.activityCrew = new ActivityCrew();
+        this.contentDAO = new ContentDAO();
     }
 
     @RequestMapping("/crewList")
@@ -151,12 +150,7 @@ public String submitActivity(
         return "redirect:/schoolCoordinator/activityList";
     }
 
-    // View Content Library
-    @RequestMapping("/contentLibrary")
-    public String requestContentLibrary(Model model) {
-        model.addAttribute("page", "contentLibrary");
-        return "schoolCoordinator/contentLibrary";
-    }
+    
 
     // Dashboard
     @RequestMapping("/dashboard")
@@ -275,6 +269,33 @@ public String submitActivity(
         }
 
         return "redirect:/schoolCoordinator/version";
+    }
+    @RequestMapping("/contentLibrary")
+    public String requestContentLibrary(Model model) {
+        try {
+            List<Content> contentList = contentDAO.getAllContent();
+            System.out.println("Fetched Content: " + contentList); // Debug log
+            model.addAttribute("contentList", contentList);
+        } catch (Exception e) {
+            System.err.println("Error loading content library: " + e.getMessage());
+            e.printStackTrace();
+            model.addAttribute("error", "Failed to load content library.");
+        }
+        return "schoolCoordinator/contentLibrary";
+    }
+    
+
+    
+    @PostMapping("/deleteContent")
+    public String deleteContent(@RequestParam("contentId") int contentId, RedirectAttributes redirectAttributes) {
+        try {
+            contentDAO.deleteContentById(contentId);
+            redirectAttributes.addFlashAttribute("success", "Content deleted successfully!");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Failed to delete content. Please try again.");
+            e.printStackTrace();
+        }
+        return "redirect:/schoolCoordinator/contentLibrary";
     }
 }
 
