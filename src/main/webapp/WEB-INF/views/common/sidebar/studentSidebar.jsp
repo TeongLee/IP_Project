@@ -1,8 +1,10 @@
 <div class="w-64 bg-white shadow-md min-w-[250px] h-full max-h-screen flex flex-col">
   <!-- User Info  fixed left-0 top-0-->
   <div class="p-4 flex items-center border-b">
-    <img src="https://cdn-icons-png.flaticon.com/512/5310/5310895.png" alt="Profile Picture"
-        class="w-12 h-12 rounded-full mr-3" />
+    <a href="/editprofile">
+      <img src="https://cdn-icons-png.flaticon.com/512/5310/5310895.png" alt="Profile Picture"
+          class="w-12 h-12 rounded-full mr-3" />
+    </a>
     <div>
         <p class="text-sm text-gray-500">SMK Batu Pahat Best Food</p>
         <h3 class="text-lg text-gray-700">Murid <span class="text-black font-semibold">Bobo</span></h3>

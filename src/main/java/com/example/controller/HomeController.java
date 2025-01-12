@@ -176,6 +176,103 @@ public String resetPassword(
     return "auth/forgotpassword";
 }
 
+@GetMapping("/editprofile")
+public String showEditProfilePage(Model model) {
+    model.addAttribute("email", null);
+    model.addAttribute("name", null);
+    model.addAttribute("error", null);
+    model.addAttribute("success", null);
+    return "auth/editprofile"; // Updated to match editprofile.jsp
+}
+
+
+@PostMapping("/updateProfile")
+public String updateProfile(
+        @RequestParam("email") String email,
+        @RequestParam("name") String name,
+        @RequestParam(value = "password", required = false) String password,
+        @RequestParam(value = "confirmPassword", required = false) String confirmPassword,
+        Model model) {
+
+    // Validate password confirmation
+    if (password != null && !password.isEmpty() && !password.equals(confirmPassword)) {
+        model.addAttribute("error", "Passwords do not match.");
+        return "auth/editprofile";
+    }
+
+    try {
+        // Fetch the user by email
+        User user = userDAO.findByEmail(email);
+        if (user == null) {
+            model.addAttribute("error", "No user found with the provided email.");
+            return "auth/editprofile";
+        }
+
+        // Update user details
+        user.setName(name);
+        if (password != null && !password.isEmpty()) {
+            user.setPassword(password);
+            userDAO.updatePassword(user);
+        }
+        userDAO.updateUser(user);
+
+        // Redirect to the appropriate dashboard based on the user's role
+        String role = user.getRole();
+        switch (role.toLowerCase()) {
+            case "stateadmin":
+                return "redirect:/stateAdmin/dashboard";
+            case "student":
+                return "redirect:/student/dashboard";
+            case "districtsupervisor":
+                return "redirect:/districtSupervisor/dashboard";
+            case "schoolcoordinator":
+                return "redirect:/schoolCoordinator/dashboard";
+            default:
+                model.addAttribute("error", "Invalid role. Unable to redirect.");
+                return "auth/editprofile";
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        model.addAttribute("error", "An error occurred. Please try again.");
+        return "auth/editprofile";
+    }
+}
+
+@GetMapping("/redirectDashboard")
+public String redirectToDashboard(@RequestParam("email") String email, Model model) {
+    try {
+        // Fetch user by email
+        User user = userDAO.findByEmail(email);
+
+        if (user == null) {
+            model.addAttribute("error", "No user found with the provided email.");
+            return "auth/editprofile";
+        }
+
+        // Redirect to the respective dashboard based on role
+        String role = user.getRole();
+        switch (role.toLowerCase()) {
+            case "stateadmin":
+                return "redirect:/stateAdmin/dashboard";
+            case "student":
+                return "redirect:/student/dashboard";
+            case "districtsupervisor":
+                return "redirect:/districtSupervisor/dashboard";
+            case "schoolcoordinator":
+                return "redirect:/schoolCoordinator/dashboard";
+            default:
+                model.addAttribute("error", "Invalid role for the user.");
+                return "auth/editprofile";
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        model.addAttribute("error", "An error occurred. Please try again.");
+        return "auth/editprofile";
+    }
+}
+
+
+
     @GetMapping("/test-db")
     public String testDatabaseConnection(Model model) {
         boolean isConnected = userDAO.testConnection();

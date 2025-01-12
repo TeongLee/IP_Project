@@ -35,12 +35,17 @@ public class UserDAO {
         return jdbcTemplate.update(sql, user.getEmail(), user.getPassword(), user.getRole(), user.getName());
     }
 
+    // Update password
     public int updatePassword(User user) {
         String sql = "UPDATE user SET password = ? WHERE email = ?";
         return jdbcTemplate.update(sql, user.getPassword(), user.getEmail());
     }
-    
-    
+
+    // Update user details
+    public int updateUser(User user) {
+        String sql = "UPDATE user SET name = ? WHERE email = ?";
+        return jdbcTemplate.update(sql, user.getName(), user.getEmail());
+    }
 
     // Find user by email
     public User findByEmail(String email) {
