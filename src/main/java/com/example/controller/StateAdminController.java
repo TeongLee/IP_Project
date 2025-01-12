@@ -66,23 +66,23 @@ public class StateAdminController {
         return mv;
     }
     @PostMapping("/approveRequest")
-public String approveRequest(@RequestParam("id") int id) {
-    try {
-        EquipmentRequest request = equipmentRequestDAO.getRequestById(id);
-        if (request == null) {
-            System.out.println("Request with ID " + id + " not found.");
-            return "redirect:/stateAdmin/allocationApproval";
+    public String approveRequest(@RequestParam("id") int id) {
+        try {
+            EquipmentRequest request = equipmentRequestDAO.getRequestById(id);
+            if (request == null) {
+                System.out.println("Request with ID " + id + " not found.");
+                return "redirect:/stateAdmin/allocationApproval";
+            }
+            System.out.println("Request fetched successfully: " + request);
+            
+            // Directly update the status to Approved for now
+            equipmentRequestDAO.updateStatus(id, "Approved");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error approving request ID: " + id);
         }
-        System.out.println("Request fetched successfully: " + request);
-        
-        // Directly update the status to Approved for now
-        equipmentRequestDAO.updateStatus(id, "Approved");
-    } catch (Exception e) {
-        e.printStackTrace();
-        System.out.println("Error approving request ID: " + id);
+        return "redirect:/stateAdmin/allocationApproval";
     }
-    return "redirect:/stateAdmin/allocationApproval";
-}
 
     
     @PostMapping("/rejectRequest")
@@ -123,4 +123,68 @@ public String approveRequest(@RequestParam("id") int id) {
     public ModelAndView requestStateAdminDashboard() {
         return new ModelAndView("stateAdmin/stateAdminDashboard");
     }
+
+    @RequestMapping("/addResourceForm")
+public ModelAndView showAddResourceForm() {
+    return new ModelAndView("stateAdmin/addResourceForm");
+}
+
+    @PostMapping("/addResource")
+    public String addResource(
+            @RequestParam("resourceName") String resourceName,
+            @RequestParam("totalQuantity") int totalQuantity,
+            @RequestParam("availableQuantity") int availableQuantity) {
+        try {
+            Inventory resource = new Inventory();
+            resource.setResourceName(resourceName);
+            resource.setTotalQuantity(totalQuantity);
+            resource.setAvailableQuantity(availableQuantity);
+            inventoryDAO.addResource(resource);
+            System.out.println("Resource added successfully.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error adding resource.");
+        }
+        return "redirect:/stateAdmin/inventory";
+    }
+
+    @RequestMapping("/updateResourceForm")
+    public ModelAndView showUpdateResourceForm(@RequestParam("id") int id) {
+        ModelAndView mv = new ModelAndView("stateAdmin/updateResourceForm");
+        Inventory resource = inventoryDAO.getResourceById(id);
+        mv.addObject("resource", resource);
+        return mv;
+    }
+
+    @PostMapping("/updateResource")
+    public String updateResource(
+        @RequestParam("id") int id,
+        @RequestParam("resourceName") String resourceName,
+        @RequestParam("totalQuantity") int totalQuantity,
+        @RequestParam("availableQuantity") int availableQuantity) {
+    try {
+        Inventory resource = new Inventory(id, resourceName, totalQuantity, availableQuantity);
+        inventoryDAO.updateResource(resource);
+        System.out.println("Resource updated successfully.");
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("Error updating resource.");
+    }
+    return "redirect:/stateAdmin/inventory";
+    }
+
+    @PostMapping("/deleteResource")
+public String deleteResource(@RequestParam("id") int id) {
+    try {
+        System.out.println("Attempting to delete resource with ID: " + id);
+        inventoryDAO.deleteResource(id);
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("Error deleting resource with ID: " + id);
+    }
+    return "redirect:/stateAdmin/inventory";
+}
+
+
+
 }

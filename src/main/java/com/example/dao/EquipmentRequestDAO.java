@@ -9,7 +9,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import com.example.exception.InsufficientResourcesException;
 import com.example.model.EquipmentRequest;
 
 public class EquipmentRequestDAO {
@@ -28,23 +27,43 @@ public class EquipmentRequestDAO {
         return dataSource;
     }
 
-    // Add a new equipment request
     public int addRequest(EquipmentRequest request) {
-        String checkSql = "SELECT available_quantity FROM inventory WHERE id = ?";
-        Integer availableQuantity = jdbcTemplate.queryForObject(checkSql, Integer.class, request.getResourceId());
-        if (availableQuantity == null || request.getQuantity() > availableQuantity) {
-            throw new InsufficientResourcesException("Requested quantity exceeds available resources.");
+        try {
+            // Check if the equipment exists in the inventory
+            String checkSql = "SELECT available_quantity FROM inventory WHERE resource_name = ?";
+            Integer availableQuantity = null;
+    
+            try {
+                System.out.println("Checking if equipment exists: " + request.getEquipmentName());
+                availableQuantity = jdbcTemplate.queryForObject(checkSql, Integer.class, request.getEquipmentName());
+                System.out.println("Available quantity: " + availableQuantity);
+            } catch (Exception e) {
+                System.out.println("Equipment not found: " + request.getEquipmentName());
+                throw new IllegalArgumentException("The requested equipment does not exist in the inventory.");
+            }
+    
+            // Validate quantity
+            if (request.getQuantity() > availableQuantity) {
+                System.out.println("Requested quantity exceeds available inventory: " + request.getQuantity());
+                throw new IllegalArgumentException("Requested quantity exceeds available inventory.");
+            }
+    
+            // Insert the request
+            String sql = """
+                INSERT INTO equipment_request (resource_id, quantity, request_start_date, request_end_date, urgency_level, resource_description, status, equipment_name)
+                VALUES ((SELECT id FROM inventory WHERE resource_name = ?), ?, ?, ?, ?, ?, ?, ?)
+            """;
+            System.out.println("Inserting request: " + request);
+            return jdbcTemplate.update(sql, request.getEquipmentName(), request.getQuantity(),
+                    request.getRequestStartDate(), request.getRequestEndDate(),
+                    request.getUrgencyLevel(), request.getResourceDescription(),
+                    request.getStatus(), request.getEquipmentName());
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error occurred while adding the request: " + e.getMessage());
         }
-        String sql = """
-            INSERT INTO equipment_request (resource_id, quantity, request_start_date, request_end_date, urgency_level, resource_description, status)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        """;
-        System.out.println("Adding request: " + request);
-        return jdbcTemplate.update(sql, request.getResourceId(), request.getQuantity(),
-                request.getRequestStartDate(), request.getRequestEndDate(),
-                request.getUrgencyLevel(), request.getResourceDescription(), request.getStatus());
     }
-
+    
     // Retrieve all requests
     public List<EquipmentRequest> getAllRequests() {
         String sql = """
@@ -97,4 +116,6 @@ public class EquipmentRequestDAO {
             throw new RuntimeException("Failed to update request status.");
         }
     }
+
+    
 }

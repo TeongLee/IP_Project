@@ -103,6 +103,8 @@
                                         <input type="hidden" name="id" value="${resource.id}">
                                         <button type="submit" class="text-red-600 hover:text-red-800 font-medium">Delete</button>
                                     </form>
+
+                                    
                                 </td>
                             </tr>
                         </c:forEach>

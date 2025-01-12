@@ -10,17 +10,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script>
-        // Sidebar Expand/Collapse Functionality
-        document.addEventListener("DOMContentLoaded", () => {
-            const subNavToggles = document.querySelectorAll(".subnav-toggle");
-            subNavToggles.forEach(toggle => {
-                toggle.addEventListener("click", () => {
-                    const subNav = toggle.nextElementSibling;
-                    subNav.classList.toggle("hidden");
-                });
-            });
-        });
-
         function searchTable() {
             const input = document.getElementById("searchInput").value.toLowerCase();
             const rows = document.querySelectorAll("#crewTable tbody tr");
@@ -98,8 +87,8 @@
                                             <td class="px-6 py-4 text-gray-600">${application.id}</td>
                                             <td class="px-6 py-4 text-gray-700 crew-name">${application.name}</td>
                                             <td class="px-6 py-4 text-center text-gray-700">${application.position}</td>
-                                            <td class="px-6 py-4 text-center text-blue-500">
-                                                <a href="${application.videoLink}" target="_blank" class="hover:underline">View Video</a>
+                                            <td class="px-6 py-4 text-center">
+                                                <a href="${application.videoLink}" target="_blank" class="text-blue-500 hover:underline">View Video</a>
                                             </td>
                                             <td class="px-6 py-4 text-center">
                                                 <form action="/schoolCoordinator/approveCrewApplication" method="post" style="display:inline;">
@@ -122,15 +111,6 @@
             </div>
         </div>
     </div>
-    <script>
-        function toggleMenu(menuId) {
-            const menu = document.getElementById(menuId);
-            if (menu) {
-                menu.classList.toggle('hidden');
-            }
-        }
-    </script>
-    
 </body>
 
 </html>

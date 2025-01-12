@@ -13,10 +13,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.dao.ActivityListDAO;
 import com.example.dao.CrewApplicationDAO;
 import com.example.dao.EquipmentRequestDAO;
+import com.example.dao.InventoryDAO;
+import com.example.dao.VersionUpdateRequestDAO;
+import com.example.model.Activity;
+import com.example.model.ActivityCrew;
 import com.example.model.CrewApplication;
 import com.example.model.EquipmentRequest;
+import com.example.model.VersionUpdateRequest;
+
 
 @Controller
 @RequestMapping("/schoolCoordinator")
@@ -24,6 +31,10 @@ public class SchoolCoordinatorController {
 
     private final EquipmentRequestDAO equipmentRequestDAO;
     private final CrewApplicationDAO crewApplicationDAO;
+    private final InventoryDAO inventoryDAO;
+    private final VersionUpdateRequestDAO versionUpdateRequestDAO;
+    private final ActivityListDAO activityListDAO;
+    private final ActivityCrew activityCrew;
 
     public static final String STATUS_PENDING = "Pending";
     public static final String STATUS_ACCEPTED = "Accepted";
@@ -33,6 +44,10 @@ public class SchoolCoordinatorController {
     public SchoolCoordinatorController() {
         this.equipmentRequestDAO = new EquipmentRequestDAO();
         this.crewApplicationDAO = new CrewApplicationDAO();
+        this.inventoryDAO = new InventoryDAO();
+        this.versionUpdateRequestDAO = new VersionUpdateRequestDAO();
+        this.activityListDAO = new ActivityListDAO();
+        this.activityCrew = new ActivityCrew();
     }
 
     @RequestMapping("/crewList")
@@ -50,8 +65,6 @@ public class SchoolCoordinatorController {
         model.addAttribute("crewApplications", applications);
         return "schoolCoordinator/crewApplicationList";
     }
-    
-    
 
     // Approve Crew Application
     @PostMapping("/approveCrewApplication")
@@ -75,18 +88,67 @@ public class SchoolCoordinatorController {
         return "redirect:/schoolCoordinator/crewList";
     }
 
-    // View Activity List
+    
     @RequestMapping("/activityList")
     public String requestActivityList(Model model) {
-        model.addAttribute("page", "activityList");
-        return "schoolCoordinator/activityList";
+    model.addAttribute("page", "activityList");
+
+    try {
+        List<Map<String, Object>> activityList = activityListDAO.getAllActivitiesWithCrewCount();
+        System.out.println("Fetched Activities: " + activityList); // Debug log
+        model.addAttribute("activityList", activityList);
+    } catch (Exception e) {
+        e.printStackTrace();
+        model.addAttribute("error", "Failed to load activity list.");
     }
 
-    // Add Activity
-    @RequestMapping("/addActivity")
+    return "schoolCoordinator/activityList";
+}
+
+
+    @GetMapping("/addActivity")
     public String requestAddActivity(Model model) {
         model.addAttribute("page", "addActivity");
+        model.addAttribute("crewList", crewApplicationDAO.getAcceptedApplications());
         return "schoolCoordinator/addActivity";
+    }
+    @PostMapping("/submitActivity")
+public String submitActivity(
+        @RequestParam("activityName") String activityName,
+        @RequestParam("activityDescription") String activityDescription,
+        @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+        @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
+        @RequestParam("coordinatorName") String coordinatorName,
+        @RequestParam("crewCount") int crewCount,
+        Model model) {
+
+    System.out.println("Activity Name: " + activityName);
+    System.out.println("Crew Count: " + crewCount);
+
+    Activity activity = new Activity(0, activityName, activityDescription, startDate, endDate, coordinatorName, crewCount);
+
+    try {
+        activityListDAO.addActivity(activity);
+        model.addAttribute("success", "Activity added successfully!");
+    } catch (Exception e) {
+        model.addAttribute("error", "Failed to add activity. Please try again.");
+        e.printStackTrace();
+    }
+
+    return "redirect:/schoolCoordinator/activityList";
+}
+
+    @PostMapping("/deleteActivity")
+    public String deleteActivity(@RequestParam("activityId") int activityId, Model model) {
+        try {
+            activityListDAO.deleteActivity(activityId);
+            model.addAttribute("success", "Activity deleted successfully!");
+        } catch (Exception e) {
+            model.addAttribute("error", "Failed to delete activity. Please try again.");
+            e.printStackTrace();
+        }
+
+        return "redirect:/schoolCoordinator/activityList";
     }
 
     // View Content Library
@@ -132,7 +194,6 @@ public class SchoolCoordinatorController {
         return "schoolCoordinator/requestEquipment";
     }
 
-    // Submit Equipment Request
     @PostMapping("/submitEquipmentRequest")
     public String submitEquipmentRequest(
             @RequestParam("equipmentName") String equipmentName,
@@ -142,7 +203,7 @@ public class SchoolCoordinatorController {
             @RequestParam("urgencyLevel") String urgencyLevel,
             @RequestParam("resourceDescription") String resourceDescription,
             Model model) {
-
+    
         EquipmentRequest request = new EquipmentRequest(
                 0, // Placeholder for ID
                 equipmentName,
@@ -151,31 +212,70 @@ public class SchoolCoordinatorController {
                 requestEndDate,
                 urgencyLevel,
                 resourceDescription,
-                STATUS_PENDING);
-
+                "Pending");
+    
         try {
+            System.out.println("Submitting request: " + request);
             equipmentRequestDAO.addRequest(request);
             model.addAttribute("success", "Request submitted successfully!");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Validation error: " + e.getMessage());
+            model.addAttribute("error", e.getMessage());
+            return "schoolCoordinator/requestEquipment";
         } catch (Exception e) {
-            model.addAttribute("error", "Failed to submit the request.");
+            System.out.println("Unexpected error: " + e.getMessage());
+            model.addAttribute("error", "An unexpected error occurred while submitting the request.");
             e.printStackTrace();
             return "schoolCoordinator/requestEquipment";
         }
-
+    
         return "redirect:/schoolCoordinator/equipments";
     }
-
-    // View Version Page
+    
     @RequestMapping("/version")
-    public String requestVersion(Model model) {
+    public String requestVersionPage(Model model) {
         model.addAttribute("page", "version");
+        List<VersionUpdateRequest> versionRequests = versionUpdateRequestDAO.getAllRequests();
+        model.addAttribute("versionRequests", versionRequests);
         return "schoolCoordinator/version";
     }
 
-    // Upgrade Version Page
-    @RequestMapping("/upgradeVersion")
-    public String requestUpgradeVersion(Model model) {
-        model.addAttribute("page", "upgradeVersion");
-        return "schoolCoordinator/upgradeVersion";
+        // Upgrade Version Page
+        @RequestMapping("/upgradeVersion")
+        public String requestUpgradeVersion(Model model) {
+            model.addAttribute("page", "upgradeVersion");
+            return "schoolCoordinator/upgradeVersion";
+        }
+
+    // Submit Version Upgrade Request
+    @PostMapping("/submitVersionRequest")
+    public String submitVersionRequest(
+            @RequestParam("versionName") String versionName,
+            @RequestParam("coordinatorName") String coordinatorName,
+            @RequestParam("requestDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate requestDate,
+            @RequestParam("versionDescription") String versionDescription,
+            Model model) {
+
+        VersionUpdateRequest versionRequest = new VersionUpdateRequest(
+                0, // Placeholder for ID
+                "SMK Batu Pahat Best Food", // Default school name
+                versionName,
+                coordinatorName,
+                requestDate,
+                versionDescription,
+                "Pending"
+        );
+
+        try {
+            versionUpdateRequestDAO.addRequest(versionRequest);
+            model.addAttribute("success", "Version upgrade request submitted successfully!");
+        } catch (Exception e) {
+            model.addAttribute("error", "Failed to submit the version upgrade request.");
+            e.printStackTrace();
+        }
+
+        return "redirect:/schoolCoordinator/version";
     }
 }
+
+

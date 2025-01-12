@@ -41,21 +41,22 @@
             </div>
 
             <div class="bg-white rounded-2xl p-6 min-h-[80%]">
-                <!-- Tab Navigation and Search -->
+                <!-- Tabs and Search -->
                 <div class="flex justify-between items-center mb-6">
-                    <div class="flex">
-                        <button onclick="window.location.href='/schoolCoordinator/crewList'"
-                            class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600">
-                            Permanent
-                        </button>
+                    <!-- Tabs -->
+                    <div class="flex space-x-2">
+                        <a href="/schoolCoordinator/crewList"
+                            class="px-6 py-2 bg-blue-600 text-white rounded-l-lg">
+                            Permanent Crew
+                        </a>
                         <a href="/schoolCoordinator/crewApplicationList"
-                            class="px-6 py-2 ml-2 border border-gray-400 text-black font-semibold rounded-md hover:bg-gray-200">
+                            class="px-6 py-2 border border-gray-300 bg-gray-100 text-gray-700 rounded-r-lg hover:bg-gray-200">
                             Pending Applications
                         </a>
                     </div>
 
                     <!-- Search -->
-                    <div class="relative w-96">
+                    <div class="relative w-[30rem]">
                         <input id="searchInput" 
                             type="text" 
                             oninput="searchTable()" 
@@ -87,7 +88,7 @@
                                 <c:otherwise>
                                     <c:forEach var="crew" items="${crewList}">
                                         <tr class="hover:bg-gray-50">
-                                            <td class="px-6 py-4 text-[#1890FF]">${crew.id}</td>
+                                            <td class="px-6 py-4 text-gray-600">${crew.id}</td>
                                             <td class="px-6 py-4 text-gray-700 crew-name">${crew.name}</td>
                                             <td class="px-6 py-4 text-center text-gray-700">${crew.position}</td>
                                             <td class="px-6 py-4 text-center">
@@ -109,15 +110,6 @@
             </div>
         </div>
     </div>
-    <script>
-        function toggleMenu(menuId) {
-            const menu = document.getElementById(menuId);
-            if (menu) {
-                menu.classList.toggle('hidden');
-            }
-        }
-    </script>
-    
 </body>
 
 </html>

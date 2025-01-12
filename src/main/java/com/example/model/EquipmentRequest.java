@@ -125,5 +125,5 @@ public class EquipmentRequest {
             default: return 0; // Default or undefined urgency
         }
     }
-    
+
 }

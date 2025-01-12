@@ -29,7 +29,6 @@
 
         <!-- Main Content -->
         <div class="flex-1 p-6 mx-6">
-
             <h3 class="text-4xl font-bold text-gray-700 mt-2">Resource & Equipment</h3>
             <p class="text-gray-600 mt-2 mb-8">Track your resource and equipment requests.</p>
 
@@ -98,7 +97,7 @@
                                 </td>
                                 <td class="text-center px-6 py-3">
                                     <span class="px-2 py-1 rounded font-bold text-white 
-                                        ${request.status == 'Accepted' ? 'bg-green-500' : 
+                                        ${request.status == 'Approved' ? 'bg-green-500' : 
                                          request.status == 'Rejected' ? 'bg-red-500' : 
                                          'bg-yellow-500'}">
                                         ${request.status}
@@ -111,15 +110,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function toggleMenu(menuId) {
-            const menu = document.getElementById(menuId);
-            if (menu) {
-                menu.classList.toggle('hidden');
-            }
-        }
-    </script>
-    
 </body>
 </html>

@@ -68,8 +68,14 @@ public class CrewApplicationDAO {
     }
     
     public List<CrewApplication> getAcceptedApplications() {
-        String sql = "SELECT * FROM crew_applications WHERE status = 'Accepted'";
+        String sql = """
+            SELECT id, name, position, video_link AS videoLink
+            FROM crew_applications
+            WHERE status = 'Accepted'
+        """;
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(CrewApplication.class));
     }
+    
+    
     
 }

@@ -11,11 +11,20 @@ public class Inventory {
     public Inventory() {
     }
 
-    // Parameterized constructor
+    
+    // Parameterized constructor (with resourceCode)
     public Inventory(int id, String resourceName, String resourceCode, int totalQuantity, int availableQuantity) {
         this.id = id;
         this.resourceName = resourceName;
         this.resourceCode = resourceCode;
+        this.totalQuantity = totalQuantity;
+        this.availableQuantity = availableQuantity;
+    }
+
+    // Parameterized constructor (without resourceCode)
+    public Inventory(int id, String resourceName, int totalQuantity, int availableQuantity) {
+        this.id = id;
+        this.resourceName = resourceName;
         this.totalQuantity = totalQuantity;
         this.availableQuantity = availableQuantity;
     }
@@ -72,4 +81,5 @@ public class Inventory {
                 ", availableQuantity=" + availableQuantity +
                 '}';
     }
+    
 }

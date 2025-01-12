@@ -43,67 +43,73 @@
       <!-- Form Container -->
       <div class="max-w-4xl mx-auto bg-white p-8 rounded-3xl shadow-lg">
         <h3 class="text-2xl text-center font-bold mb-6">Version Upgrade Form</h3>
-        <form>
+        <form action="/schoolCoordinator/submitVersionRequest" method="post">
           <!-- Version Upgrade Dropdown -->
           <div class="mb-6">
-            <label class="block text-gray-700 font-semibold mb-2">
-              <i class="fas fa-layer-group text-blue-500 mr-2"></i>Version Upgrade
-            </label>
-            <select class="w-full border border-gray-300 rounded-lg p-3 focus:ring-blue-500 focus:border-blue-500">
-              <option>Version Upgrade 1</option>
-              <option>Version Upgrade 2</option>
-              <option>Version Upgrade 3</option>
-              <option>Version Upgrade 4</option>
-              <option>Version Upgrade 5</option>
-            </select>
+              <label class="block text-gray-700 font-semibold mb-2">
+                  <i class="fas fa-layer-group text-blue-500 mr-2"></i>Version Upgrade
+              </label>
+              <select name="versionName" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-blue-500 focus:border-blue-500">
+                  <option value="Version Upgrade 1">Version Upgrade 1</option>
+                  <option value="Version Upgrade 2">Version Upgrade 2</option>
+                  <option value="Version Upgrade 3">Version Upgrade 3</option>
+                  <option value="Version Upgrade 4">Version Upgrade 4</option>
+                  <option value="Version Upgrade 5">Version Upgrade 5</option>
+              </select>
           </div>
-
+      
           <!-- Coordinator Input -->
           <div class="mb-6">
-            <label class="block text-gray-700 font-semibold mb-2">
-              <i class="fas fa-user text-green-500 mr-2"></i>Coordinator
-            </label>
-            <input 
-              type="text" 
-              class="w-full border border-gray-300 rounded-lg p-3 focus:ring-green-500 focus:border-green-500" 
-              value="Puan Shaliza binti Rahman"
-            />
+              <label class="block text-gray-700 font-semibold mb-2">
+                  <i class="fas fa-user text-green-500 mr-2"></i>Coordinator
+              </label>
+              <input 
+                  type="text" 
+                  name="coordinatorName" 
+                  class="w-full border border-gray-300 rounded-lg p-3 focus:ring-green-500 focus:border-green-500" 
+                  placeholder="Write your name here..." 
+                  required
+              />
           </div>
-
+      
           <!-- Date Input -->
           <div class="mb-6">
-            <label class="block text-gray-700 font-semibold mb-2">
-              <i class="fas fa-calendar-alt text-purple-500 mr-2"></i>Date
-            </label>
-            <input 
-              type="date" 
-              class="w-full border border-gray-300 rounded-lg p-3 focus:ring-purple-500 focus:border-purple-500" 
-              value="2024-11-07"
-            />
+              <label class="block text-gray-700 font-semibold mb-2">
+                  <i class="fas fa-calendar-alt text-purple-500 mr-2"></i>Date
+              </label>
+              <input 
+                  type="date" 
+                  name="requestDate" 
+                  class="w-full border border-gray-300 rounded-lg p-3 focus:ring-purple-500 focus:border-purple-500" 
+                  required 
+              />
           </div>
-
+      
           <!-- Version Description -->
           <div class="mb-6">
-            <label class="block text-gray-700 font-semibold mb-2">
-              <i class="fas fa-info-circle text-yellow-500 mr-2"></i>Version Description
-            </label>
-            <textarea 
-              class="w-full border border-gray-300 rounded-lg p-3 focus:ring-yellow-500 focus:border-yellow-500"
-              rows="4"
-              placeholder="Write your description here..."
-            ></textarea>
+              <label class="block text-gray-700 font-semibold mb-2">
+                  <i class="fas fa-info-circle text-yellow-500 mr-2"></i>Version Description
+              </label>
+              <textarea 
+                  name="versionDescription" 
+                  class="w-full border border-gray-300 rounded-lg p-3 focus:ring-yellow-500 focus:border-yellow-500"
+                  rows="4"
+                  placeholder="Write your description here..." 
+                  required
+              ></textarea>
           </div>
-
-          <!-- Save Button -->
+      
+          <!-- Submit Button -->
           <div class="mt-8">
-            <button 
-              type="submit" 
-              class="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition"
-            >
-              Submit
-            </button>
+              <button 
+                  type="submit" 
+                  class="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition"
+              >
+                  Submit
+              </button>
           </div>
-        </form>
+      </form>
+      
       </div>
     </div>
   </div>

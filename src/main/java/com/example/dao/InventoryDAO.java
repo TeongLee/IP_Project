@@ -9,7 +9,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.example.model.Inventory;
-
 public class InventoryDAO {
     private final JdbcTemplate jdbcTemplate;
 
@@ -54,4 +53,48 @@ public class InventoryDAO {
         """;
         jdbcTemplate.update(sql, quantity, resourceId);
     }
+
+    public void addResource(Inventory resource) {
+        String sql = "INSERT INTO inventory (resource_name, total_quantity, available_quantity) VALUES (?, ?, ?)";
+        jdbcTemplate.update(sql, resource.getResourceName(), resource.getTotalQuantity(), resource.getAvailableQuantity());
+    }
+
+    public Inventory getResourceById(int id) {
+        String sql = "SELECT * FROM inventory WHERE id = ?";
+        return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Inventory.class), id);
+    }
+    
+    public void updateResource(Inventory resource) {
+        String sql = "UPDATE inventory SET resource_name = ?, total_quantity = ?, available_quantity = ? WHERE id = ?";
+        jdbcTemplate.update(sql, resource.getResourceName(), resource.getTotalQuantity(), resource.getAvailableQuantity(), resource.getId());
+    }
+
+        public void deleteResource(int id) {
+        String sql = "DELETE FROM inventory WHERE id = ?";
+        try {
+            int rowsAffected = jdbcTemplate.update(sql, id);
+            if (rowsAffected > 0) {
+                System.out.println("Resource with ID " + id + " deleted successfully.");
+
+            } else {
+                System.out.println("No resource found with ID " + id);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to delete resource with ID: " + id);
+        }
+    }
+
+    public int getResourceIdByName(String resourceName) {
+        String sql = "SELECT id FROM inventory WHERE resource_name = ?";
+        try {
+            return jdbcTemplate.queryForObject(sql, Integer.class, resourceName);
+        } catch (Exception e) {
+            System.out.println("Equipment '" + resourceName + "' not found in inventory.");
+            return -1; // Indicate that the equipment does not exist
+        }
+    }
+    
+    
+    
 }

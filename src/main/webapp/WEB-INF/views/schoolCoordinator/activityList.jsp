@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,20 +10,14 @@
     <title>Activity List</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // JavaScript for toggling submenus
-        function toggleMenu(menuId) {
-            const menu = document.getElementById(menuId);
-            menu.classList.toggle('hidden');
-        }
-
-        // Search functionality
+        // JavaScript for Search functionality
         function searchTable() {
             const input = document.getElementById("searchInput").value.toLowerCase();
             const rows = document.querySelectorAll("#activityTable tbody tr");
 
             rows.forEach(row => {
-                const resourceName = row.querySelector(".activity-name").innerText.toLowerCase();
-                row.style.display = resourceName.includes(input) ? "" : "none";
+                const activityName = row.querySelector(".activity-name").innerText.toLowerCase();
+                row.style.display = activityName.includes(input) ? "" : "none";
             });
         }
     </script>
@@ -37,115 +34,70 @@
 
         <!-- Main Content -->
         <div class="flex-1 p-6 mx-6 h-screen">
-
             <!-- Page Header -->
             <div class="flex justify-between items-center">
-                <div class="">
+                <div>
                     <h3 class="text-4xl font-bold text-gray-700 mt-2">Activity List</h3>
                     <p class="text-gray-600 mt-2 mb-8">Track and Manage All Activities at a Glance.</p>
                 </div>
+                <!-- Add Activity Button -->
+                <a href="/schoolCoordinator/addActivity" class="bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-600 transition-colors">
+                    + Add Activity
+                </a>
             </div>
 
+            <!-- Content Section -->
             <div class="bg-white rounded-2xl p-6 min-h-[80%]">
-                <!-- Tab Navigation and Controls -->
+                <!-- Search -->
                 <div class="flex justify-end items-center mb-6">
-                    <!-- Search and Add Button -->
-                    <div class="flex items-center space-x-4">
-                        <!-- Search Bar -->
-                        <div class="relative w-[30rem]"> <!-- or you can use w-80, w-[32rem] depends on your needs -->
-                            <input id="searchInput" 
-                                type="text" 
-                                oninput="searchTable()"
-                                placeholder="Search by Activity Name..."
-                                class="w-full px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                            <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
-                        </div>
-                        <button class="bg-blue-600 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-700">
-                            + Add New
-                        </button>
+                    <div class="relative w-[30rem]">
+                        <input id="searchInput" 
+                               type="text" 
+                               oninput="searchTable()"
+                               placeholder="Search by Activity Name..."
+                               class="w-full px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                     </div>
                 </div>
 
-                <!-- Table -->
+                <!-- Activity Table -->
                 <div class="bg-white rounded-lg shadow overflow-x-auto">
-                    <table id="activityTable"  class="min-w-full table-auto divide-y divide-gray-300">
+                    <table id="activityTable" class="min-w-full table-auto divide-y divide-gray-300">
                         <thead class="bg-gray-100">
                             <tr>
                                 <th class="px-6 py-4 text-left text-gray-600 font-medium">Activity Name</th>
-                                <th class="px-6 py-4 text-center text-gray-600 font-medium activity-name">Start Date</th>
-                                <th class="px-6 py-4 text-center text-gray-600 font-medium">Number of Crews Involved</th>
-                                <th class="px-6 py-4 text-center text-gray-600 font-medium">Category</th>
+                                <th class="px-6 py-4 text-center text-gray-600 font-medium">Start - End Date</th>
+                                <th class="px-6 py-4 text-center text-gray-600 font-medium">Number of Crews</th>
                                 <th class="px-6 py-4 text-center text-gray-600 font-medium">Action</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-100">
-                            <!-- Table Rows -->
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-[#1890FF] hover:underline activity-name">Minggu Koperasi</td>
-                                <td class="px-6 py-4 text-center text-gray-700">2024-11-06</td>
-                                <td class="px-6 py-4 text-center text-gray-700">8</td>
-                                <td class="px-6 py-4 text-center text-gray-700">Editor</td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">Edit</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-[#1890FF] hover:underline activity-name">Hari Kantin</td>
-                                <td class="px-6 py-4 text-center text-gray-700">2024-11-03</td>
-                                <td class="px-6 py-4 text-center text-gray-700">9</td>
-                                <td class="px-6 py-4 text-center     text-gray-700">Script Writer</td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">Edit</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-[#1890FF] hover:underline activity-name">Peraturan Masuk Sekolah</td>
-                                <td class="px-6 py-4 text-center text-gray-700">2024-10-31</td>
-                                <td class="px-6 py-4 text-center text-gray-700">4</td>
-                                <td class="px-6 py-4 text-center     text-gray-700">Editor</td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">Edit</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-[#1890FF] hover:underline activity-name">Studio Sekolah</td>
-                                <td class="px-6 py-4 text-center text-gray-700">2024-10-15</td>
-                                <td class="px-6 py-4 text-center text-gray-700">12</td>
-                                <td class="px-6 py-4 text-center     text-gray-700">Actor</td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">Edit</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-[#1890FF] hover:underline activity-name">Karnival Sukan</td>
-                                <td class="px-6 py-4 text-center text-gray-700">2024-10-03</td>
-                                <td class="px-6 py-4 text-center text-gray-700">12</td>
-                                <td class="px-6 py-4 text-center     text-gray-700">Actor</td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">Edit</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-[#1890FF] hover:underline activity-name">Sembang Santai Episod 5</td>
-                                <td class="px-6 py-4 text-center text-gray-700">2024-09-27</td>
-                                <td class="px-6 py-4 text-center text-gray-700">5</td>
-                                <td class="px-6 py-4 text-center     text-gray-700">Cameraman</td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 font-medium">Edit</button>
-                                    <span class="mx-2 text-gray-400">|</span>
-                                    <button class="text-red-600 hover:text-red-800 font-medium">Delete</button>
-                                </td>
-                            </tr>
+                            <c:forEach var="activity" items="${activityList}">
+                                <tr class="hover:bg-gray-50">
+                                    <!-- Activity Name -->
+                                    <td class="px-6 py-4 text-[#1890FF] hover:underline activity-name">
+                                        ${activity.activityName}
+                                    </td>
+
+                                    <!-- Start and End Date -->
+                                    <td class="px-6 py-4 text-center text-gray-700">
+                                        ${activity.startDate} - ${activity.endDate}
+                                    </td>
+
+                                    <!-- Number of Crews -->
+                                    <td class="px-6 py-4 text-center text-gray-700">
+                                        ${activity.crewCount} <!-- crewCount fetched from the DAO -->
+                                    </td>
+
+                                    <!-- Actions -->
+                                    <td class="px-6 py-4 text-center">
+                                        <form action="/schoolCoordinator/deleteActivity" method="post" class="inline">
+                                            <input type="hidden" name="activityId" value="${activity.activityId}" />
+                                            <button type="submit" class="text-red-600 hover:text-red-800 font-medium">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
