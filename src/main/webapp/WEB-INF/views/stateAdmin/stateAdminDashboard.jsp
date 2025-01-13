@@ -233,10 +233,7 @@
                   >
                 </div>
                 <div class="flex">
-                  <button class="border p-2 border-blue-600 text-blue-600">
-                    This Month
-                  </button>
-                  <button class="border p-2">This Week</button>
+                
                 </div>
               </div>
               <div class="flex-1 w-full flex flex-col gap-8 px-4">
@@ -322,7 +319,7 @@
                 <div class="w-full h-full grid grid-cols-3 gap-4">
                   <a
                     class="border rounded-lg flex flex-col gap-4 items-center justify-center p-4 hover:bg-gray-100 transition-colors ease-in-out cursor-pointer"
-                    href="/stateAdmin/activityList"
+                    href="/schoolCoordinator/activityList"
                   >
                     <img
                       src="${pageContext.request.contextPath}/assets/activities.png"

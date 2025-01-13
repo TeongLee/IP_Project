@@ -72,7 +72,7 @@
                 <th class="px-6 py-4 text-center text-gray-600 font-medium school-name">School Name</th>
                 <th class="px-6 py-4 text-center text-gray-600 font-medium">Activities Organized</th>
                 <th class="px-6 py-4 text-center text-gray-600 font-medium">TVPSS Status</th>
-                <th class="px-6 py-4 text-center text-gray-600 font-medium">Action</th>
+                <!-- <th class="px-6 py-4 text-center text-gray-600 font-medium">Action</th> -->
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
@@ -82,54 +82,54 @@
                 <td class="px-6 py-4 text-gray-700 school-name">SMK TAMAN BATU PAHAT</td>
                 <td class="px-6 py-4 text-center text-gray-700">10</td>
                 <td class="px-6 py-4 text-center text-gray-700">3</td>
-                <td class="px-6 py-4 text-center">
+                <!-- <td class="px-6 py-4 text-center">
                   <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                </td>
+                </td> -->
               </tr>
               <tr class="hover:bg-gray-50">
                 <td class="px-6 py-4 text-[#1890FF]">SID122</td>
-                <td class="px-6 py-4 text-gray-700 school-name">SMK TAMAN BATU PAHAT A</td>
+                <td class="px-6 py-4 text-gray-700 school-name">SMK Skudai</td>
                 <td class="px-6 py-4 text-center text-gray-700">5</td>
                 <td class="px-6 py-4 text-center text-gray-700">4</td>
-                <td class="px-6 py-4 text-center">
+                <!-- <td class="px-6 py-4 text-center">
                   <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                </td>
+                </td> -->
               </tr>
               <tr class="hover:bg-gray-50">
                 <td class="px-6 py-4 text-[#1890FF]">SID123</td>
-                <td class="px-6 py-4 text-gray-700 school-name">SMK TAMAN BATU PAHAT B</td>
+                <td class="px-6 py-4 text-gray-700 school-name">SMK Pontian</td>
                 <td class="px-6 py-4 text-center text-gray-700">10</td>
                 <td class="px-6 py-4 text-center text-gray-700">2</td>
-                <td class="px-6 py-4 text-center">
+                <!-- <td class="px-6 py-4 text-center">
                   <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                </td>
+                </td> -->
               </tr>
               <tr class="hover:bg-gray-50">
                 <td class="px-6 py-4 text-[#1890FF]">SID124</td>
-                <td class="px-6 py-4 text-gray-700 school-name">SMK TAMAN BATU PAHAT C</td>
+                <td class="px-6 py-4 text-gray-700 school-name">SMK Taman Universiti</td>
                 <td class="px-6 py-4 text-center text-gray-700">12</td>
                 <td class="px-6 py-4 text-center text-gray-700">3</td>
-                <td class="px-6 py-4 text-center">
+                <!-- <td class="px-6 py-4 text-center">
                   <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                </td>
+                </td> -->
               </tr>
               <tr class="hover:bg-gray-50">
                 <td class="px-6 py-4 text-[#1890FF]">SID125</td>
-                <td class="px-6 py-4 text-gray-700 school-name">SMK TAMAN BATU PAHAT D</td>
+                <td class="px-6 py-4 text-gray-700 school-name">SMK Kulai</td>
                 <td class="px-6 py-4 text-center text-gray-700">15</td>
                 <td class="px-6 py-4 text-center text-gray-700">3</td>
-                <td class="px-6 py-4 text-center">
+                <!-- <td class="px-6 py-4 text-center">
                   <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                </td>
+                </td> -->
               </tr>
               <tr class="hover:bg-gray-50">
                 <td class="px-6 py-4 text-[#1890FF]">SID126</td>
-                <td class="px-6 py-4 text-gray-700 school-name">SMK TAMAN BATU PAHAT E</td>
+                <td class="px-6 py-4 text-gray-700 school-name">SMK Johor Jaya</td>
                 <td class="px-6 py-4 text-center text-gray-700">12</td>
                 <td class="px-6 py-4 text-center text-gray-700">4</td>
-                <td class="px-6 py-4 text-center">
+                <!-- <td class="px-6 py-4 text-center">
                   <button class="text-[#1890FF] hover:text-blue-800 font-medium">View</button>
-                </td>
+                </td> -->
               </tr>
             </tbody>
           </table>
